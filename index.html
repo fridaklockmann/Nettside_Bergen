@@ -4,23 +4,34 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="css/index.css">
-  <script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title> Bergen </title>
 </head>
 <body onload="startprogram();">
-<ul>
-  <li><a  href="index.html">BERGEN</a></li>
+<ul class="topNav">
+  <li id="bergen" class ="active"><a href="index.html">BERGEN</a></li>
   <li><a  href="quiz.html">QUIZ</a></li>
   <li><a  href="map.html">KART</a></li>
   <li><a  href="info.html">INFORMASJON</a></li>
-  <li> SØK </li>
+
+  <li  class="sosial">  <a class="fa fa-snapchat-ghost" href="http://snapchat.com"></a> </li>
+  <li  class="sosial">  <a class="fa fa-facebook" href="http://facebook.com"></a> </li>
+  <li  class="sosial">  <a class="fa fa-instagram" href="http://instagram.com"></a> </li>
+  <li  class="sosial">  <a class="fa fa-twitter" href="http://twitter.com"></a> <li>
+  <li>    <div class="search-container">
+        <form action="/action_page.php">
+          <input type="text" placeholder="Søk.." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+  </li>
 </ul>
-  <img src="img/index.jpg">
+  <div class="hovedDiv">
+
+  <img src="img/index.jpg" id="forsidebilde">
   <h1 id="hovedOverskrift"> Velkommen til Bergen! </h1>
   <p> Denne siden hjeper deg å bli kjent med byen </p>
-
-
-
-
+</div>
 </body>
 </html>

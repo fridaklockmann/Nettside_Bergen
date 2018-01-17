@@ -3,17 +3,33 @@
 <head>
   <meta charset="UTF-8">
    <script type="text/javascript" src="script.js"></script>
+   <link rel="stylesheet" type="text/css" href="css/index.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title> Info om Bergen </title>
 </head>
 <body>
+  <ul class="topNav">
+    <li class ="active"><a href="index.html">BERGEN</a></li>
+    <li><a  href="quiz.html">QUIZ</a></li>
+    <li><a  href="map.html">KART</a></li>
+    <li><a  href="info.html">INFORMASJON</a></li>
+
+    <li>  <a class="fa fa-snapchat-ghost" href="http://snapchat.com"></a> </li>
+    <li>  <a class="fa fa-facebook" href="http://facebook.com"></a> </li>
+    <li>  <a class="fa fa-instagram" href="http://instagram.com"></a> </li>
+    <li>  <a class="fa fa-twitter" href="http://twitter.com"></a> <li>
+    <li id="search">
+      <div class="search-container">
+          <form action="/action_page.php">
+            <input type="text" placeholder="Søk.." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </li>
+  </ul>
   <h1 id="overskrift"> Informasjon </h1>
   <p> Bergen er en fin by. Her kan man studere masse. </p>
 
-  <div>
-  <a class="menu" href="index.html">Hovedside</a>
-  <a class="menu" href="map.html">Kart</a>
-  <a class="menu" href="info.html">Informasjon</a>
-  </div>
 
 </body>
 </html>

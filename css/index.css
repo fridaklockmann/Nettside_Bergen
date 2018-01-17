@@ -1,46 +1,93 @@
 body {
-    background-color: #E7E4D4;
+    background-color: #f4f3ef;
 }
 
-h1 {
-    color: navy;
-    margin-left: 20px;
-    font-family: "Lato", sans-serif;
-}
-
-ul {
+.topNav {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #E7E4D4;
+    background-color: #f4f3ef;
+    font-family: "Lato", sans-serif;
+}
+h1 {
+    color: black;
+    text-align: center;
+}
+button{
+  color: black;
+  background-color: #f4f3ef;
 }
 
 li {
     float: left;
-    border-right:1px solid #bbb;
 }
 
 li:first-child{
   font-weight: bold;
   font-size: 30px;
 }
+li a:not(.bergen){
+  font-size: 30px;
+  font-variant: all-small-caps;
+
+}
 
 li:last-child {
     border-right: none;
+    padding-top: 20px;
     float: right;
 }
+.sosial{
+  float: right;
+}
+
 
 li a {
     display: block;
     color: black;
+    text-decoration-color: yellow;
     text-align: center;
     padding: 14px 16px;
-    text-decoration: none;
+    text-decoration-line: none;
 }
 
 li a:hover:not(.active) {
-    background-color: #111;
-    text-decoration: underline;
-    text-decoration-color: yellow;
+    text-decoration: underline overline yellow;
+
+}
+.active{
+  text-decoration: overline underline yellow;
+}
+
+.hovedDiv{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  background-color: #cccac5;
+  font-family: "lato", sans-serif;
+}
+.quiztext{
+  width: 250px;
+
+}
+
+#map{
+  height: 400px;
+  width: 100%;
+}
+
+#insideimg{
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  border-image: url(border.png) 50 round;
+  width: 250px;
+}
+
+#forsidebilde{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
