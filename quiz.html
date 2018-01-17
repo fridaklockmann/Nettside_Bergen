@@ -1,0 +1,28 @@
+<!DOCTYPE html>  <!--laget av Marte Rosmer Jacobsen tlf 90069606-->
+<html lang = "nb"> <!-- MRJ-->
+<!-- Side om Bergen for studenter -->
+<head>
+  <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/quiz.css">
+   <script type="text/javascript" src="map.js"></script>
+  <title> Bergen </title>
+</head>
+
+<body onload="startprogram();">
+  <div>
+  <a class="menu" href="index.html">Hovedside</a>
+  <a class="menu" href="map.html">Kart</a>
+  <a class="menu" href="info.html">Informasjon</a>
+  </div>
+
+  <h1 id="hovedOverskrift"> Quiz i Bergen </h1>
+  <p> Denne siden hjeper deg å bli kjent med byen </p>
+
+  <div id="map"></div>
+
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpXlIRp6vDzUrzyO49q-YnvsiH60MKlto&callback=initMap">
+  </script>
+
+
+</body>
+</html>
