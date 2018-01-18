@@ -70,15 +70,17 @@ li a:hover:not(.active) {
 }
 .quiztext{
   width: 250px;
-
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
+
 #map{
-  height: 400px;
+  height: 500px;
   width: 100%;
 }
 
-#insideimg{
+#quizimg{
   border-radius: 50%;
   border: 1px solid #ddd;
   border-image: url(border.png) 50 round;
