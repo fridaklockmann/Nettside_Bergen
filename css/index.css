@@ -3,9 +3,11 @@ body {
 }
 
 .topNav {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
     list-style-type: none;
-    margin: 0;
-    padding: 0;
     overflow: hidden;
     background-color: #f4f3ef;
     font-family: "Lato", sans-serif;
@@ -13,6 +15,13 @@ body {
 h1 {
     color: black;
     text-align: center;
+}
+
+p {
+  font-family: "Lato", sans-serif;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: black;
 }
 button{
   color: black;
@@ -39,6 +48,9 @@ li:last-child {
     float: right;
 }
 .sosial{
+  float: center;
+}
+.search-container{
   float: right;
 }
 
@@ -72,6 +84,21 @@ li a:hover:not(.active) {
   width: 250px;
   margin-left: 15px;
   margin-right: 15px;
+}
+input[type=text]{
+  width: 130px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+input[type=text]:focus{
+  width: 100%;
 }
 
 
