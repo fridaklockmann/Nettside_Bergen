@@ -1,46 +1,67 @@
-<!DOCTYPE html>  <!--laget av Marte Rosmer Jacobsen tlf 90069606-->
-<html lang = "nb"> <!-- MRJ-->
+<!DOCTYPE html>
+<!--laget av Marte Rosmer Jacobsen tlf 90069606-->
+<html lang="nb">
+<!-- MRJ-->
 <!-- Side om Bergen for studenter -->
+
 <head>
   <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-   <script type="text/javascript" src="js/quiz.js"></script>
-   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpXlIRp6vDzUrzyO49q-YnvsiH60MKlto&callback=initMap">
-   </script>
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <script type="text/javascript" src="js/index.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title> Bergen </title>
 </head>
 
-<body onload="initMap();">
-  <!--Menu-->
+<body onload="startprogram();">
   <ul class="topNav">
-    <li><a href="index.html">BERGEN</a></li>
-    <li class ="active"><a  href="quiz.html">QUIZ</a></li>
-    <li><a  href="map.html">KART</a></li>
-    <li><a  href="info.html">INFORMASJON</a></li>
-    <li>
-      <div class="search-container">
-        <form action="/action_page.php">
-          <input type="text" placeholder="Search.." name="search">
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-      </div>
-    </li>
+    <li id="bergen" class="active"><a href="index.html">BERGEN</a></li>
+    <li><a href="quiz.html">QUIZ</a></li>
+    <li><a href="info.html">INFORMASJON</a></li>
+    <li><a href="omoss.html">OM OSS</a></li>
+
+
+    <li class="sosial"> <a class="fa fa-snapchat-ghost" href="http://snapchat.com"></a> </li>
+    <li class="sosial"> <a class="fa fa-facebook" href="http://facebook.com"></a> </li>
+    <li class="sosial"> <a class="fa fa-instagram" href="http://instagram.com"></a> </li>
+    <li class="sosial"> <a class="fa fa-twitter" href="http://twitter.com"></a>
+      <li>
+        <li>
+          <div class="search-container">
+            <form action="/action_page.php">
+              <input type="text" placeholder="Søk.." name="search">
+            </form>
+          </div>
+        </li>
   </ul>
-  <!--Menu end-->
-<div class="hovedDiv">
+<!--MENU END -->
+  <div class="hovedDiv">
+
+    <h1 id="hovedOverskrift"> Quiz i Bergen </h1>
+
+    <div class="quiztext">
+      <img id="quizimg" src="img/inside.jpg">
+      <p>Onsdag 20:00 <br>Musikk, film, allmenn</p>
+    </div>
+
+    <div class="quiztext">
+      <img id="quizimg" src="img/kvarteret.jpg">
+      <p>Onsdag 20:00 <br>Musikk, film, allmenn</p>
+    </div>
+
+    <div class="quiztext">
+      <img id="quizimg" src="img/cafeopera.jpg">
+      <p>Onsdag 20:00 <br>Musikk, film, allmenn</p>
+    </div>
+
+    <div class="quiztext">
+      <img id="quizimg" src="img/garage.jpg">
+      <p>Onsdag 20:00 <br>Musikk, film, allmenn</p>
+    </div>
 
 
-  <h1 id="hovedOverskrift"> Quiz i Bergen </h1>
-
-  <p> Denne siden hjeper deg å bli kjent med byen </p>
-  <div class="quiztext">
-  <img id="insideimg" src="img/inside.jpg">
-  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen b</p>
-</div>
-
-  <div id="map"></div>
-</div> <!-- End hovedDiv-->
-
-
+    <div id="map"></div>
+  </div>
+  <!-- End hovedDiv-->
 </body>
+
 </html>

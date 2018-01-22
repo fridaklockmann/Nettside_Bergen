@@ -1,11 +1,14 @@
+/* COMMON */
+
 body {
     background-color: #f4f3ef;
 }
-
 .topNav {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
     list-style-type: none;
-    margin: 0;
-    padding: 0;
     overflow: hidden;
     background-color: #f4f3ef;
     font-family: "Lato", sans-serif;
@@ -14,15 +17,19 @@ h1 {
     color: black;
     text-align: center;
 }
+p {
+  font-family: "Lato", sans-serif;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: black;
+}
 button{
   color: black;
   background-color: #f4f3ef;
 }
-
 li {
     float: left;
 }
-
 li:first-child{
   font-weight: bold;
   font-size: 30px;
@@ -30,19 +37,18 @@ li:first-child{
 li a:not(.bergen){
   font-size: 30px;
   font-variant: all-small-caps;
-
 }
-
 li:last-child {
     border-right: none;
     padding-top: 20px;
     float: right;
 }
 .sosial{
+  float: center;
+}
+.search-container{
   float: right;
 }
-
-
 li a {
     display: block;
     color: black;
@@ -51,15 +57,12 @@ li a {
     padding: 14px 16px;
     text-decoration-line: none;
 }
-
 li a:hover:not(.active) {
     text-decoration: underline overline yellow;
-
 }
 .active{
-  text-decoration: overline underline yellow;
+ text-decoration: overline underline yellow;
 }
-
 .hovedDiv{
   position: relative;
   margin-left: auto;
@@ -68,26 +71,46 @@ li a:hover:not(.active) {
   background-color: #cccac5;
   font-family: "lato", sans-serif;
 }
-.quiztext{
-  width: 250px;
-
+input[type=text]{
+  width: 130px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  background-color: white;
+  background-image: url('http://w3schools.com/howto/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
 }
-
-#map{
-  height: 400px;
+input[type=text]:focus{
   width: 100%;
 }
 
-#insideimg{
-  border-radius: 50%;
-  border: 1px solid #ddd;
-  border-image: url(border.png) 50 round;
-  width: 250px;
-}
-
+/* FORSIDE */
 #forsidebilde{
   position: relative;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
 }
+/* QUIZ */
+.quiztext{
+  width: 250px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+#map{
+  height: 500px;
+  width: 100%;
+}
+
+#quizimg{
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  border-image: url(border.png) 50 round;
+  width: 250px;
+}
+/* INFORMASJON */
+
+/* OM OSS */
