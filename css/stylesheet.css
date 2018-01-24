@@ -3,6 +3,11 @@
 body {
     background-color: #f4f3ef;
 }
+
+@font-face{
+  font-family: "Lato";
+  src: url("Lato-Regular.otf");
+}
 /*TOP NAVIGATION*/
 .topNav {
     position: relative;
@@ -12,7 +17,7 @@ body {
     list-style-type: none;
     overflow: hidden;
     background-color: #f4f3ef;
-    font-family: "Lato", sans-serif;
+    font-family: Lato;
 }
 .topNav li:first-child{
   font-weight: bold;
@@ -47,7 +52,7 @@ h1 {
     text-align: center;
 }
 p {
-  font-family: "Lato", sans-serif;
+  font-family: "Lato";
   padding-left: 10px;
   padding-right: 10px;
   color: black;
@@ -74,7 +79,7 @@ li a {
   padding-bottom: 10px;
   width: 80%;
   background-color: #cccac5;
-  font-family: "lato", sans-serif; /** fjerne?**/
+  font-family: "Lato"; /** fjerne?**/
 }
 
 .footer {
@@ -91,6 +96,7 @@ li a {
 }
 
 input[type=text]{
+  font-family: Lato;
   width: 100px;
   box-sizing: border-box;
   border: 2px solid #ccc;
