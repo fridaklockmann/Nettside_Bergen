@@ -3,6 +3,7 @@
 body {
     background-color: #f4f3ef;
 }
+/*TOP NAVIGATION*/
 .topNav {
     position: relative;
     margin-left: auto;
@@ -13,6 +14,34 @@ body {
     background-color: #f4f3ef;
     font-family: "Lato", sans-serif;
 }
+.topNav li:first-child{
+  font-weight: bold;
+  font-size: 30px;
+}
+.topNav li a:not(.bergen){
+  font-size: 30px;
+  font-variant: all-small-caps;
+}
+.topNav li:last-child {
+    border-right: none;
+    padding-top: 20px;
+    float: right;
+}
+.topNav .sosial{
+  float: center;
+}
+.topNav .search-container{
+  float: right;
+}
+
+.topNav li a:hover:not(.active) {
+    text-decoration: line-through yellow;
+
+}
+.topNav .active{
+ text-decoration: line-through yellow;
+}
+
 h1 {
     color: black;
     text-align: center;
@@ -23,32 +52,12 @@ p {
   padding-right: 10px;
   color: black;
 }
-button{
-  color: black;
-  background-color: #f4f3ef;
-}
+
 li {
     float: left;
 }
-li:first-child{
-  font-weight: bold;
-  font-size: 30px;
-}
-li a:not(.bergen){
-  font-size: 30px;
-  font-variant: all-small-caps;
-}
-li:last-child {
-    border-right: none;
-    padding-top: 20px;
-    float: right;
-}
-.sosial{
-  float: center;
-}
-.search-container{
-  float: right;
-}
+
+
 li a {
     display: block;
     color: black;
@@ -57,20 +66,29 @@ li a {
     padding: 14px 16px;
     text-decoration-line: none;
 }
-li a:hover:not(.active) {
-    text-decoration: underline overline yellow;
-}
-.active{
- text-decoration: overline underline yellow;
-}
+
 .hovedDiv{
   position: relative;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: auto%;
+  margin-right: auto%;
   width: 80%;
   background-color: #cccac5;
   font-family: "lato", sans-serif;
 }
+
+footer {
+   position: fixed;
+   margin-left: 10%;
+   margin-right: 10%;
+   bottom: 0;
+   width: 80%;
+   background-color: #cccac5;
+   color: black;
+   text-align: center;
+   font-size: 10px;
+}
+
+
 /* COMMON END */
 
 input[type=text]{
@@ -96,8 +114,8 @@ input[type=text]:focus{
   margin-right: auto;
   width: 100%;
 }
-/* QUIZ */
 
+/* QUIZ */
 .quiztext{
   width: 250px;
   margin-left: 15px;
@@ -109,14 +127,27 @@ input[type=text]:focus{
   width: 100%;
 }
 
-#quizimg{
+.quizimg{
   border-radius: 50%;
   border: 1px solid #ddd;
   border-image: url(border.png) 50 round;
   width: 250px;
 }
 
+.top-right{
+  position: absolute;
+  top: 80px;
+  right: 470px;
+  color: red;
+}
+
+
 
 /* INFORMASJON */
-
+#infobilde{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
 /* OM OSS */
