@@ -143,12 +143,11 @@ input[type=text]:focus{
 
 .top-right{
   position: absolute;
+  width: 88%;
   top: 80px;
-  right: 470px;
+  right: 16px;
   color: red;
 }
-
-
 
 /* INFORMASJON */
 #infobilde{

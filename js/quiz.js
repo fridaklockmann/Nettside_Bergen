@@ -3,7 +3,7 @@ function startProgram(){
 }
 
 function initMap(){
-  var bergen = {lat:60.397076, lng: 5.324383};
+  var bergen = {lat:60.392504, lng: 5.327455};
   var inside_floyen = {lat:60.3960058, lng: 5.3279695};
   var cafeopera = {lat:60.391823, lng: 5.3176287};
   var garage = {lat:60.3894323, lng: 5.3216622};
