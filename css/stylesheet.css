@@ -28,11 +28,11 @@ body {
   font-variant: all-small-caps;
 }
 .topNav li:last-child {
-    padding-top: 20px;
+    padding-top: 15px;
     float: right;
 }
 .topNav .sosial{
-  float: center;
+  float: left;
 }
 .topNav .search-container{
   float: right;
@@ -57,10 +57,12 @@ p {
   padding-right: 10px;
   color: black;
 }
-
-li {
-    float: left;
+@media screen and (min-width: 630px) {
+  li {
+      float: left;
+  }
 }
+
 
 
 li a {
