@@ -1,103 +1,110 @@
 /* COMMON */
 
 body {
-    background-color: #f4f3ef;
+  background-color: #f4f3ef;
 }
 
-@font-face{
+@font-face {
   font-family: "Lato";
   src: url("Lato-Regular.otf");
 }
+
 /*TOP NAVIGATION*/
+
 .topNav {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-    list-style-type: none;
-    overflow: hidden;
-    background-color: #f4f3ef;
-    font-family: Lato;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #f4f3ef;
+  font-family: Lato;
 }
-.topNav li:first-child{
+
+.topNav li:first-child {
   font-weight: bold;
   font-size: 30px;
 }
-.topNav li a:not(.bergen){
+
+.topNav li a:not(.bergen) {
   font-size: 30px;
   font-variant: all-small-caps;
 }
+
 .topNav li:last-child {
-    padding-top: 15px;
-    float: right;
+  padding-top: 15px;
+  float: right;
 }
-.topNav .sosial{
+
+.topNav .sosial {
   float: left;
 }
-.topNav .search-container{
+
+.topNav .search-container {
   float: right;
   padding-right: 20px;
 }
 
 .topNav li a:hover:not(.active) {
-    text-decoration: line-through yellow;
-
+  text-decoration: line-through yellow;
 }
-.topNav .active{
- text-decoration: line-through yellow;
+
+.topNav .active {
+  text-decoration: line-through yellow;
 }
 
 h1 {
-    color: black;
-    text-align: center;
+  color: black;
+  text-align: center;
 }
+
 p {
   font-family: "Lato";
   padding-left: 10px;
   padding-right: 10px;
   color: black;
 }
+
 @media screen and (min-width: 630px) {
   li {
-      float: left;
+    float: left;
   }
 }
 
-
-
 li a {
-    display: block;
-    color: black;
-    text-decoration-color: yellow;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration-line: none;
+  display: block;
+  color: black;
+  text-decoration-color: yellow;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration-line: none;
 }
 
-.hovedDiv{
+.hovedDiv {
   position: relative;
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 10px;
   width: 80%;
   background-color: #cccac5;
-  font-family: "Lato"; /** fjerne?**/
+  font-family: "Lato";
 }
 
 .footer {
-   position: fixed center;
-   margin-left: auto;
-   margin-right: auto;
-   padding-top: 10px;
-   padding-bottom: 10px;
-   width: 80%;
-   background-color: #cccac5;
-   color: black;
-   text-align: center;
-   font-size: 10px;
+  position: fixed center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 80%;
+  background-color: #cccac5;
+  color: black;
+  text-align: center;
+  font-size: 10px;
 }
 
-input[type=text]{
+input[type=text] {
   font-family: Lato;
   width: 100px;
   box-sizing: border-box;
@@ -110,14 +117,17 @@ input[type=text]{
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
 }
-input[type=text]:focus{
+
+input[type=text]:focus {
   width: 250px;
   outline: none;
 }
+
 /* COMMON END */
 
 /* INDEX */
-#forsidebilde{
+
+#forsidebilde {
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -125,26 +135,28 @@ input[type=text]:focus{
 }
 
 /* QUIZ */
-.quiztext{
+
+.quiztext {
   width: 250px;
   margin-left: 15px;
   margin-right: 15px;
   padding: 10px;
   float: left;
 }
-#map{
+
+#map {
   height: 500px;
   width: 100%;
 }
 
-.quizimg{
+.quizimg {
   border-radius: 50%;
   border: 1px solid #ddd;
   border-image: 50 round;
   width: 250px;
 }
 
-.top-right{
+.top-right {
   position: absolute;
   width: 88%;
   top: 80px;
@@ -153,10 +165,12 @@ input[type=text]:focus{
 }
 
 /* INFORMASJON */
-#infobilde{
+
+#infobilde {
   position: relative;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
 }
+
 /* OM OSS */
