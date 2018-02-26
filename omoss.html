@@ -5,6 +5,9 @@
   <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
   <script type="text/javascript" src="js/index.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSJGiedMtW8jLcE-Wg1vtdLolfIQDf6J0&callback=initMap">
+  </script>
   <title> Bergen </title>
 </head>
 
@@ -14,7 +17,7 @@
       <li id="bergen"><a href="index.html">BERGEN</a></li>
       <li><a href="quiz.html">QUIZ</a></li>
       <li><a href="info.html">INFORMASJON</a></li>
-      <li class="active"><a href="omoss.html">OM OSS</a></li>
+      <li class="active"><a href="omoss.html">Toaletter</a></li>
       <li class="sosial"> <a class="fa fa-snapchat-ghost" href="http://snapchat.com"></a> </li>
       <li class="sosial"> <a class="fa fa-facebook" href="http://facebook.com"></a> </li>
       <li class="sosial"> <a class="fa fa-instagram" href="http://instagram.com"></a> </li>
@@ -31,19 +34,22 @@
     <!--MENU END -->
 
     <div id="hovedDiv">
-      <h1 id="hovedOverskrift">Om oss</h1>
-      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis vehicula nunc, vitae bibendum dui vehicula ut. Nam a quam ut elit malesuada vestibulum ultricies vel nisi. Praesent lacus nisi, sodales vitae nisl nec, facilisis iaculis arcu. Curabitur
-        varius consectetur lacus in condimentum. Mauris mollis justo sed convallis varius. Integer eget eros massa. Vestibulum non pretium est. Cras vulputate lobortis felis quis cursus. Praesent suscipit, orci nec pellentesque egestas, mauris tellus ultricies
-        nulla, sit amet consectetur ligula leo quis risus. Duis facilisis neque non quam ornare, consequat tincidunt tortor ultrices. Praesent malesuada mi in tellus sagittis auctor. <br> Duis vehicula volutpat ligula eget tristique. Nulla lobortis mi dui,
-        a scelerisque mi elementum in. Sed accumsan dui ut risus lacinia dapibus. Donec tristique orci sit amet sem placerat auctor. Proin posuere, augue sed maximus ultrices, magna libero interdum augue, vitae feugiat sapien urna vitae tortor. Proin vel
-        rutrum augue. Fusce et elit id dui pretium porttitor.</p>
+      <h1 id="hovedOverskrift">Toaletter</h1>
+      <p> Må du på do, er du kommet til riktig plass nå. I Bergen er det nemelig veldig mange offentlige toaletter som
+          bare venter på at du skal komme å gjøre det du trenger å gjøre. Ja, jeg snakker om å bæsje og tisse (og muligens
+          bytte en tampong, hvis det er den tiden av månden og hvis du er det kjønnet som får mensen og du ligger et sted
+          mellom pubertet og overgangsalder). Under ser du et kart med alle de registrerte offentlige toalettene i Bergen,
+          med informasjon om åpningstider, kjønn
+          om det er handicaptoalett mm.. <br><br>Lykke til!
+      </p>
 
     </div>
-
+    <div id="map"></div>
     <footer class="footer">
-      <p>Redaktør: Malin Øien        Kontaktinformasjon: <a href="mailto:someone@example.com"> someone@example.com</a>.</p>
+      <p>Redaktør: Malin Øien </p>
+      <p>Kontaktinformasjon:<a href="mailto:someone@example.com"> someone@example.com</a>.</p>
     </footer>
-  </div>
+  </div> <!-- flexcontainer end -->
 </body>
 
 </html>
