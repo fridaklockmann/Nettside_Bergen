@@ -99,7 +99,7 @@ p {
   justify-content: space-around;
 }
 
-input[type=text] {
+#menuSearchbox {
   font-family: Lato;
   width: 100px;
   box-sizing: border-box;
@@ -113,7 +113,7 @@ input[type=text] {
   transition: width 0.4s ease-in-out;
 }
 
-input[type=text]:focus {
+#menuSearchbox:focus {
   width: 250px;
   outline: none;
 }
@@ -191,4 +191,13 @@ input[type=text]:focus {
 
 #avansertSøk{
   display: none;
+}
+
+#toalettSøkeboks{
+
+  font-family: Lato;
+  width: 100px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  background-color: white;
 }
