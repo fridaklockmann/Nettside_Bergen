@@ -188,3 +188,7 @@ input[type=text]:focus {
 }
 
 /* OM OSS */
+
+#avansertSøk{
+  display: none;
+}

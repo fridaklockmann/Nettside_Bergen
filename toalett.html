@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+  <script type="text/javascript" src="js/toalett.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSJGiedMtW8jLcE-Wg1vtdLolfIQDf6J0&callback=initMap">
+  </script>
+  <title> Bergen </title>
+</head>
+
+<body onload="loadFile();">
+  <div id="flexcontainer">
+    <ul id="topNav">
+      <li id="bergen"><a href="index.html">BERGEN</a></li>
+      <li><a href="quiz.html">QUIZ</a></li>
+      <li><a href="info.html">INFORMASJON</a></li>
+      <li class="active"><a href="toalett.html">Toaletter</a></li>
+      <li class="sosial"> <a class="fa fa-snapchat-ghost" href="http://snapchat.com"></a> </li>
+      <li class="sosial"> <a class="fa fa-facebook" href="http://facebook.com"></a> </li>
+      <li class="sosial"> <a class="fa fa-instagram" href="http://instagram.com"></a> </li>
+      <li class="sosial"> <a class="fa fa-twitter" href="http://twitter.com"></a>
+        <li>
+          <li>
+            <div class="search-container">
+              <form action="/action_page.php">
+                <input type="text" placeholder="Søk.." name="search">
+              </form>
+            </div>
+          </li>
+    </ul>
+    <!--MENU END -->
+
+    <div id="hovedDiv">
+      <h1 id="hovedOverskrift">Toaletter</h1>
+      <p>
+      </p>
+      <button id="avansertSøkKnapp" onclick="visSøk()">Avansert søk </button>
+      <div id=avansertSøk>
+        <p>
+        Kvinne <input id="kvinne" type="checkbox">
+        Herre <input id="herre" type="checkbox">
+        Rullestoltilgang <input id="rullestol" type="checkbox">
+        Åpen nå <input id="åpenNå" type="checkbox">
+        Åpen <select id="åpen">
+            <option value="0">00:00</option>
+            <option value="1">01:00</option>
+            <option value="2">02:00</option>
+            <option value="3">03:00</option>
+            <option value="4">04:00</option>
+            <option value="5">05:00</option>
+            <option value="6">06:00</option>
+            <option value="7">07:00</option>
+            <option value="8">08:00</option>
+            <option value="9">09:00</option>
+            <option value="10">10:00</option>
+            <option value="11">11:00</option>
+            <option value="12">12:00</option>
+            <option value="13">23:00</option>
+            <option value="14">14:00</option>
+            <option value="15">15:00</option>
+            <option value="16">16:00</option>
+            <option value="17">17:00</option>
+            <option value="18">18:00</option>
+            <option value="19">19:00</option>
+            <option value="20">20:00</option>
+            <option value="21">21:00</option>
+            <option value="22">22:00</option>
+            <option value="23">23:00</option>
+          </select>
+        Stellerom <input id="stellerom" type="checkbox">
+        Makspris <input id="makspris" type="text">
+        Gratis <input id="gratis" type="checkbox">
+        Søk (navn/adresse) <input type="text" id="toalettSøk">
+      </p>
+      </div>
+
+      <div id=toaletter></div>
+    <div id="map"></div>
+
+      </div>
+    <footer class="footer">
+      <p>Redaktør: Malin Øien </p>
+      <p>Kontaktinformasjon:<a href="mailto:someone@example.com"> someone@example.com</a>.</p>
+    </footer>
+  </div> <!-- flexcontainer end -->
+</body>
+
+</html>
