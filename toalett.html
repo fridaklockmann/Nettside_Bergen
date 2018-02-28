@@ -5,10 +5,7 @@
   <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
   <script type="text/javascript" src="js/toalett.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSJGiedMtW8jLcE-Wg1vtdLolfIQDf6J0&callback=initMap">
-  </script>
-  <title> Bergen </title>
+  <title> Toaletter </title>
 </head>
 
 <body onload="loadFile();">
@@ -40,47 +37,68 @@
       <button id="avansertSøkKnapp" onclick="visSøk()">Avansert søk </button>
       <div id=avansertSøk>
         <p>
-        Kvinne <input id="kvinne" type="checkbox">
-        Herre <input id="herre" type="checkbox">
-        Rullestoltilgang <input id="rullestol" type="checkbox">
-        Åpen nå <input id="åpenNå" type="checkbox">
-        Åpen <select id="åpen">
-            <option value="0">00:00</option>
-            <option value="1">01:00</option>
-            <option value="2">02:00</option>
-            <option value="3">03:00</option>
-            <option value="4">04:00</option>
-            <option value="5">05:00</option>
-            <option value="6">06:00</option>
-            <option value="7">07:00</option>
-            <option value="8">08:00</option>
-            <option value="9">09:00</option>
-            <option value="10">10:00</option>
-            <option value="11">11:00</option>
-            <option value="12">12:00</option>
-            <option value="13">23:00</option>
-            <option value="14">14:00</option>
-            <option value="15">15:00</option>
-            <option value="16">16:00</option>
-            <option value="17">17:00</option>
-            <option value="18">18:00</option>
-            <option value="19">19:00</option>
-            <option value="20">20:00</option>
-            <option value="21">21:00</option>
-            <option value="22">22:00</option>
-            <option value="23">23:00</option>
-          </select>
-        Stellerom <input id="stellerom" type="checkbox">
-        Makspris <input id="makspris" type="text" id="toalettSøkeboks">
-        Gratis <input id="gratis" type="checkbox">
-        Søk (navn/adresse) <input type="text" id="toalettSøkeboks">
+        <div class="søkekolonne">
+          <div><input id="kvinne" type="checkbox" class="checkbox">Kvinne</div>
+          <div><input id="herre" type="checkbox" class="checkbox">Herre</div>
+          <div><input id="rullestol" type="checkbox" class="checkbox">Rullestoltilgang</div>
+        </div>
+        <div class="søkekolonne">
+          <div><input id="stellerom" type="checkbox" class="checkbox">Stellerom </div>
+          <div><input id="gratis" type="checkbox" class="checkbox">Gratis</div>
+          <div><input id="åpenNå" type="checkbox" class="checkbox">Åpen nå</div>
+        </div>
+        <div class="søkekolonne">
+          <div>Åpen <select id="åpen">
+              <option value="0">00:00</option>
+              <option value="1">01:00</option>
+              <option value="2">02:00</option>
+              <option value="3">03:00</option>
+              <option value="4">04:00</option>
+              <option value="5">05:00</option>
+              <option value="6">06:00</option>
+              <option value="7">07:00</option>
+              <option value="8">08:00</option>
+              <option value="9">09:00</option>
+              <option value="10">10:00</option>
+              <option value="11">11:00</option>
+              <option value="12">12:00</option>
+              <option value="13">13:00</option>
+              <option value="14">14:00</option>
+              <option value="15">15:00</option>
+              <option value="16">16:00</option>
+              <option value="17">17:00</option>
+              <option value="18">18:00</option>
+              <option value="19">19:00</option>
+              <option value="20">20:00</option>
+              <option value="21">21:00</option>
+              <option value="22">22:00</option>
+              <option value="23">23:00</option>
+            </select></div>
+          <div>Makspris<input id="makspris" type="text" class="toalettSøkeboks" placeholder="kr"></div>
+          <div>Søk<input type="text" class="toalettSøkeboks" placeholder="Adresse"></div>
+        </div>
       </p>
       </div>
 
-      <div id=toaletter></div>
-    <div id="map"></div>
+      <p><div id=toaletter></div></p>
+      <table>
+        <thead>
+        	<tr>
+        	  <th>Id</th>
+        	  <th>Plassering</th>
+        	  <th>Adresse</th>
+            <th>Pris</th>
+            <th>Tid hverdag</th>
+            <th>Tid lørdag</th>
+            <th>Tid søndag</th>
+        	</tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+    </table>
+      <div id="toilettos"></div>
 
-      </div>
+    </div>
     <footer class="footer">
       <p>Redaktør: Malin Øien </p>
       <p>Kontaktinformasjon:<a href="mailto:someone@example.com"> someone@example.com</a>.</p>
