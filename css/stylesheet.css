@@ -80,15 +80,16 @@ input[type=checkbox]{
   transition: 0.4s;
 }
 
-@media screen and (max-width: 800px){
-  #topNav a:not(:first-child) { display: none; }
+@media screen and (max-width: 650px){
+  #topNav a:not(:first-child) {
+    display: none;
+  }
+
   #topNav a.hamburger{
     float: right;
     display: block;
   }
-}
 
-@media screen and (max-width: 800px){
   #topNav.responsive {
     position: relative;
     flex-direction: column;
@@ -128,16 +129,13 @@ input[type=checkbox]{
 }
 
 #topNav a:not(#bergen) {
+  padding-top: 5px;
   font-size: 30px;
   font-variant: all-small-caps;
 }
 
 #topNav a:last-child {
   padding-top: 15px;
-}
-
-#topNav .sosial {
-  flex-direction: row;
 }
 
 #topNav .search-container {
@@ -163,21 +161,6 @@ input[type=checkbox]{
   background-color: #cccac5;
   font-family: "Lato";
   position: relative;
-}
-
-.footer {
-  position: fixed center;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  width: 80%;
-  background-color: #cccac5;
-  color: black;
-  font-size: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
 }
 
 #menuSearchbox {
@@ -248,14 +231,6 @@ input[type=checkbox]{
   border-image: 50 round;
   width: 250px;
 }
-/*Skal det ha absolute posisjon?. */
-.top-right {
-  position: absolute;
-  width: 88%;
-  top: 80px;
-  right: 16px;
-  color: red;
-}
 
 /* INFORMASJON */
 
@@ -295,4 +270,28 @@ input[type=checkbox]{
 
 #åpen{
   font-family: "Lato", sans-serif;
+}
+
+/* FOOTER */
+.footer {
+  position: fixed center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 80%;
+  background-color: #cccac5;
+  color: black;
+  font-size: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  underline: none;
+}
+
+.sosial a {
+  padding: 5px;
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
 }

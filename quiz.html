@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
   <script type="text/javascript" src="js/quiz.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSJGiedMtW8jLcE-Wg1vtdLolfIQDf6J0&callback=initMap">
@@ -11,36 +12,35 @@
   <title> Bergen </title>
 </head>
 
-<body onload="startProgram();">
+<body>
   <div id="flexcontainer">
-    <ul id="topNav">
-      <li id="bergen" ><a href="index.html">BERGEN</a></li>
-      <li class="active"><a href="quiz.html">QUIZ</a></li>
-      <li><a href="info.html">INFORMASJON</a></li>
-      <li><a href="toalett.html">Toaletter</a></li>
-      <li class="sosial"> <a class="fa fa-snapchat-ghost" href="http://snapchat.com"></a> </li>
-      <li class="sosial"> <a class="fa fa-facebook" href="http://facebook.com"></a> </li>
-      <li class="sosial"> <a class="fa fa-instagram" href="http://instagram.com"></a> </li>
-      <li class="sosial"> <a class="fa fa-twitter" href="http://twitter.com"></a>
-        <li>
-          <li>
-            <div class="search-container">
-              <form action="/action_page.php">
-                <input type="text" id="menuSearchbox" placeholder="Søk.." name="search">
-              </form>
-            </div>
-          </li>
-    </ul>
-  <!--MENU END -->
+    <div id="topNav" class = "navbar">
+      <a id="bergen" class="active" href="index.html">BERGEN</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="info.html">Informasjon</a>
+      <a href="toalett.html">Toaletter</a>
+      <a href="#" class="search-container">
+        <form action="/action_page.php">
+            <input type="text" id="menuSearchbox" placeholder="Søk.." name="search">
+        </form>
+      </a>
+      <a href="javascript:void(0)" class="hamburger" id="hamburger">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </a>
+    </div>
+  </div>
+    <!--MENU END -->
+    
     <div id="hovedDiv">
       <h1 id="hovedOverskrift"> Quiz i Bergen </h1>
       <div id="quizer">
         <div class="quizrad">
           <div class="quiztext">
             <img class="quizimg" src="img/inside.jpg">
-            <div class="top-right">
-              <a class="fa fa-star"></a> <a class="fa fa-star"></a> <a class="fa fa-star"></a> <a class="fa fa-star"></a> <a class="fa fa-star-o"></a></div>
-            <p><strong>Sted: </strong>Inside Fløyen <strong>Tid: </strong>Torsdag 20:00 <strong>Tema: </strong>Allmenn <strong>Pris: </strong>50 per pers <br></p>
+            <p><strong>Sted: </strong>Inside Fløyen <strong>Tid: </strong>Torsdag 20:00 <strong>Tema: </strong>Allmenn <strong>Pris: </strong>50 per pers <br><strong>Rating: </strong>
+            <a class="fa fa-star"></a> <a class="fa fa-star"></a> <a class="fa fa-star"></a> <a class="fa fa-star"></a> <a class="fa fa-star-o"></a></p>
           </div>
 
           <div class="quiztext">
