@@ -261,7 +261,7 @@ var toalettliste = [{
          "longitude":"5.307858"
       }];
 
-function loadFile() {
+window.onload = function loadFile() {
   var tabell = document.getElementById("tableBody");
   toalettliste.forEach(function(element){
     tabell.appendChild(element.createElement());
