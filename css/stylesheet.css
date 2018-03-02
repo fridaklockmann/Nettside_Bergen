@@ -241,6 +241,24 @@ input[type=checkbox]{
   justify-content: space-between;
 }
 
+#avansertSøkKnapp{
+  font-size: 16px;
+  border: none;
+  padding: 15px 32px;
+  display: inline-block;
+  width: 25%;
+  font-family: "Lato", sans-serif;
+  background-color: #f4f3ef;
+  opacity: 1;
+  transition: 0.3s;
+  cursor: pointer;
+  outline: none;
+}
+#avansertSøkKnapp:hover{
+    opacity: 0.6;
+  }
+
+
 .søkekolonne{
   display: flex;
   flex-direction: column;
@@ -253,7 +271,8 @@ input[type=checkbox]{
   box-sizing: border-box;
   border: 2px solid #ccc;
   background-color: white;
-  outline:none;
+  outline: none;
+  padding: 5%;
 }
 
 #toaletter{
