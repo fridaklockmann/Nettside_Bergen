@@ -28,9 +28,9 @@ p {
   margin-right: auto;
 }
 
+/*Gjør checkboksene ørlittegrann større.. er dette vits?*/
+
 input[type=checkbox]{
-  background-color: green;
-  color: green;
   height: 20px;
   width: 20px;
 }
@@ -79,7 +79,8 @@ input[type=checkbox]{
   transition: 0.4s;
 }
 
-@media screen and (max-width: 750px){
+
+@media screen and (max-width: 768px){
   #topNav a:not(:first-child) {
     display: none;
   }
@@ -199,7 +200,7 @@ input[type=checkbox]{
   justify-content:space-around;
 }
 
-@media screen and (min-width: 630px) {
+@media screen and (min-width: 700px) {
   .quizrad{
       flex-direction: row;
   }
@@ -275,13 +276,20 @@ input[type=checkbox]{
   padding: 5%;
 }
 
-#toaletter{
-  overflow:scroll;
-}
-
 #åpen{
   font-family: "Lato", sans-serif;
 }
+
+#toalettTabell{
+  width:100%;
+  border-collapse: collapse;
+}
+#toalettTabell th, td{
+  border: 1.5px solid black;
+}
+
+
+
 
 /* FOOTER */
 .footer {

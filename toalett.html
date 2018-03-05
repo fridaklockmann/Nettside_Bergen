@@ -2,6 +2,7 @@
 <html lang="nb">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
   <script type="text/javascript" src="js/toalett.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
@@ -9,7 +10,7 @@
   <title> Toaletter </title>
 </head>
 
-<body>
+<body onload="loadFile();">
   <div id="flexcontainer">
     <div id="topNav" class = "navbar">
       <a id="bergen" class="active" href="index.html">BERGEN</a>
@@ -81,8 +82,8 @@
       </div>
 
       <p><div id=toaletter></div></p>
-      
-      <table>
+
+      <table id=toalettTabell>
         <thead>
         	<tr>
         	  <th>Id</th>
