@@ -29,6 +29,7 @@ p {
 }
 
 /*Gjør checkboksene ørlittegrann større.. er dette vits?*/
+
 input[type=checkbox]{
   height: 20px;
   width: 20px;
@@ -42,7 +43,7 @@ input[type=checkbox]{
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 1%;
-  width: 100%;
+  width: 80%;
   list-style-type: none;
   overflow: hidden;
   background-color: #f4f3ef;
@@ -56,7 +57,7 @@ input[type=checkbox]{
   text-align: left;
   text-decoration-line: none;
   .last-child{
-    float: left;
+    float:right;
   }
 }
 
@@ -240,6 +241,24 @@ input[type=checkbox]{
   justify-content: space-between;
 }
 
+#avansertSøkKnapp{
+  font-size: 16px;
+  border: none;
+  padding: 15px 32px;
+  display: inline-block;
+  width: 25%;
+  font-family: "Lato", sans-serif;
+  background-color: #f4f3ef;
+  opacity: 1;
+  transition: 0.3s;
+  cursor: pointer;
+  outline: none;
+}
+#avansertSøkKnapp:hover{
+    opacity: 0.6;
+  }
+
+
 .søkekolonne{
   display: flex;
   flex-direction: column;
@@ -252,7 +271,8 @@ input[type=checkbox]{
   box-sizing: border-box;
   border: 2px solid #ccc;
   background-color: white;
-  outline:none;
+  outline: none;
+  padding: 5%;
 }
 
 #åpen{
