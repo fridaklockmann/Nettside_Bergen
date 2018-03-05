@@ -264,13 +264,20 @@ input[type=checkbox]{
   outline:none;
 }
 
-#toaletter{
-  overflow:scroll;
-}
-
 #åpen{
   font-family: "Lato", sans-serif;
 }
+
+#toalettTabell{
+  width:100%;
+  border-collapse: collapse;
+}
+#toalettTabell th, td{
+  border: 1.5px solid black;
+}
+
+
+
 
 /* FOOTER */
 .footer {

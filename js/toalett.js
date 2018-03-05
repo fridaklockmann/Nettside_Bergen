@@ -261,43 +261,67 @@ var toalettliste = [{
          "longitude":"5.307858"
       }];
 
-window.onload = function loadFile() {
+function loadFile() {
   var tabell = document.getElementById("tableBody");
   toalettliste.forEach(function(element){
-    tabell.appendChild(element.createElement());
+    console.log(element);
+    tabell.appendChild(createElement(element));
   })
 }
-
-function createElement() {
+function toalett(){
+  this.id = id;
+  this.plassering = plassering;
+  this.adresse = adresse;
+  this.pris = pris;
+  this.tid_hverdag = tid_hverdag;
+  this.tid_lordag = tid_lordag;
+  this.tid_sondag = tid_sondag;
+}
+function createElement(element) {
     var rekke = document.createElement("tr");
-    rekke.classList.add("valuta");
+    rekke.classList.add("toalett");
 
-    // oppretter span-element for forkortelse
-    // (Merk forskjell: forkortelse og this.forkortelse)
-    var forkortelse = document.createElement("td");
-    forkortelse.classList.add("forkortelse");
-    forkortelse.innerHTML = this.forkortelse;
-    rekke.appendChild(forkortelse);
+    // oppretter span-element for id
+    var id = document.createElement("td");
+    id.classList.add("id");
+    id.innerHTML = element.id;
+    rekke.appendChild(id);
 
-    // oppretter span-element for gjennomsnitt
-    var snitt = document.createElement("td");
-    snitt.classList.add("gjennomsnitt");
-    snitt.innerHTML = this.snitt;
-    rekke.appendChild(snitt);
+    // oppretter span-element for plassering
+    var plassering = document.createElement("td");
+    plassering.classList.add("plassering");
+    plassering.innerHTML = element.plassering;
+    rekke.appendChild(plassering);
 
+    // oppretter span-element for adresse
+    var adresse = document.createElement("td");
+    adresse.classList.add("adresse");
+    adresse.innerHTML = element.adresse;
+    rekke.appendChild(adresse);
 
-    // oppretter span-element for endring
-    var endring = document.createElement("td");
-    endring.classList.add("endring");
-    if(this.endring > 0) {
-	endring.classList.add("positiv");
-    } else if (this.endring < 0) {
-	endring.classList.add("negativ");
-    } else {
-	endring.classList.add("uendret");
-    }
-    endring.innerHTML = this.endring;
-    rekke.appendChild(endring)
+    // oppretter span-element for pris
+    var pris = document.createElement("td");
+    pris.classList.add("pris");
+    pris.innerHTML = element.pris;
+    rekke.appendChild(pris);
 
+    // oppretter span-element for tid hverdag
+    var tid_hverdag = document.createElement("td");
+    tid_hverdag.classList.add("tid_hverdag");
+    tid_hverdag.innerHTML = element.tid_hverdag;
+    rekke.appendChild(tid_hverdag);
+
+    // oppretter span-element for tid_lørdag
+    var tid_lørdag = document.createElement("td");
+    tid_lørdag.classList.add("tid_lørdag");
+    tid_lørdag.innerHTML = element.tid_lordag;
+    rekke.appendChild(tid_lørdag);
+
+    // oppretter span-element for tid_søndag
+    var tid_søndag = document.createElement("td");
+    tid_søndag.classList.add("tid_søndag");
+    tid_søndag.innerHTML = element.tid_sondag;
+    rekke.appendChild(tid_søndag);
+    console.log(rekke);
     return rekke;
 };
