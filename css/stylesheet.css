@@ -29,6 +29,7 @@ p {
 }
 
 /*Gjør checkboksene ørlittegrann større.. er dette vits?*/
+
 input[type=checkbox]{
   height: 20px;
   width: 20px;
@@ -41,6 +42,7 @@ input[type=checkbox]{
   justify-content: space-between;
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 1%;
   width: 80%;
   list-style-type: none;
   overflow: hidden;
@@ -52,9 +54,11 @@ input[type=checkbox]{
   float: left;
   color: black;
   text-decoration-color: yellow;
-  text-align: center;
-  padding: 14px 16px;
+  text-align: left;
   text-decoration-line: none;
+  .last-child{
+    float:right;
+  }
 }
 
 #topNav .hamburger{
@@ -74,6 +78,7 @@ input[type=checkbox]{
   margin: 6px 0;
   transition: 0.4s;
 }
+
 
 @media screen and (max-width: 768px){
   #topNav a:not(:first-child) {
@@ -133,10 +138,6 @@ input[type=checkbox]{
   padding-top: 15px;
 }
 
-#topNav .search-container {
-  padding-right: 20px;
-}
-
 #topNav a:hover {
   text-decoration: underline yellow;
 }
@@ -160,7 +161,7 @@ input[type=checkbox]{
 
 #menuSearchbox {
   font-family: Lato;
-  width: 100px;
+  width: 90px;
   box-sizing: border-box;
   border: 2px solid #ccc;
   background-color: white;
@@ -173,13 +174,10 @@ input[type=checkbox]{
 }
 
 #menuSearchbox:focus {
-  width: 250px;
+  width: 200px;
   outline: none;
 }
 
-@media screen and (min-width:1300px) {
-  #flexcontainer{width:1300px;}
-}
 /* COMMON END */
 /* INDEX */
 #forsidebilde {
@@ -244,6 +242,24 @@ input[type=checkbox]{
   justify-content: space-between;
 }
 
+#avansertSøkKnapp{
+  font-size: 16px;
+  border: none;
+  padding: 15px 32px;
+  display: inline-block;
+  width: 25%;
+  font-family: "Lato", sans-serif;
+  background-color: #f4f3ef;
+  opacity: 1;
+  transition: 0.3s;
+  cursor: pointer;
+  outline: none;
+}
+#avansertSøkKnapp:hover{
+    opacity: 0.6;
+  }
+
+
 .søkekolonne{
   display: flex;
   flex-direction: column;
@@ -256,7 +272,8 @@ input[type=checkbox]{
   box-sizing: border-box;
   border: 2px solid #ccc;
   background-color: white;
-  outline:none;
+  outline: none;
+  padding: 5%;
 }
 
 #åpen{

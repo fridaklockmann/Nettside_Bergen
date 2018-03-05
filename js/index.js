@@ -8,7 +8,7 @@ window.onload = function(){
   var hamb = document.getElementById("hamburger");
 
   if(hamb){
-    console.log("trykket");
+    console.log("Hamburger-meny fungerer!");
     hamb.addEventListener("click", endreNavn);
     //  Gjør slik at elementene i hambugrerklassen bytter navn
     //  og endrer style i CSS-dokumentet
