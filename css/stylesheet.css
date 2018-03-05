@@ -28,13 +28,8 @@ p {
   margin-right: auto;
 }
 
-.checkbox{
-  background-color: green;
-}
-
+/*Gjør checkboksene ørlittegrann større.. er dette vits?*/
 input[type=checkbox]{
-  background-color: green;
-  color: green;
   height: 20px;
   width: 20px;
 }
@@ -80,7 +75,7 @@ input[type=checkbox]{
   transition: 0.4s;
 }
 
-@media screen and (max-width: 650px){
+@media screen and (max-width: 768px){
   #topNav a:not(:first-child) {
     display: none;
   }
@@ -207,7 +202,7 @@ input[type=checkbox]{
   justify-content:space-around;
 }
 
-@media screen and (min-width: 630px) {
+@media screen and (min-width: 700px) {
   .quizrad{
       flex-direction: row;
   }
