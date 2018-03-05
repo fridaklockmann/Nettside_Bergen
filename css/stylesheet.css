@@ -22,7 +22,7 @@ p {
   display: flex;
   flex-direction: column;
   justify-content:space-between;
-  width: 100%;
+  width: 80%;
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -41,7 +41,8 @@ input[type=checkbox]{
   justify-content: space-between;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
+  padding-bottom: 1%;
+  width: 100%;
   list-style-type: none;
   overflow: hidden;
   background-color: #f4f3ef;
@@ -52,9 +53,11 @@ input[type=checkbox]{
   float: left;
   color: black;
   text-decoration-color: yellow;
-  text-align: center;
-  padding: 14px 16px;
+  text-align: left;
   text-decoration-line: none;
+  .last-child{
+    float: left;
+  }
 }
 
 #topNav .hamburger{
@@ -75,7 +78,7 @@ input[type=checkbox]{
   transition: 0.4s;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 750px){
   #topNav a:not(:first-child) {
     display: none;
   }
@@ -133,10 +136,6 @@ input[type=checkbox]{
   padding-top: 15px;
 }
 
-#topNav .search-container {
-  padding-right: 20px;
-}
-
 #topNav a:hover {
   text-decoration: underline yellow;
 }
@@ -160,7 +159,7 @@ input[type=checkbox]{
 
 #menuSearchbox {
   font-family: Lato;
-  width: 100px;
+  width: 90px;
   box-sizing: border-box;
   border: 2px solid #ccc;
   background-color: white;
@@ -173,13 +172,10 @@ input[type=checkbox]{
 }
 
 #menuSearchbox:focus {
-  width: 250px;
+  width: 200px;
   outline: none;
 }
 
-@media screen and (min-width:1300px) {
-  #flexcontainer{width:1300px;}
-}
 /* COMMON END */
 /* INDEX */
 #forsidebilde {
