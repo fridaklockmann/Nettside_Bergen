@@ -1,28 +1,22 @@
-function startprogram() {
-  console.log("JavaScript-fil 'index.js' hører til dette dokumentet");
-}
-
 //  Gjør at scriptet ikke prøver å finne hamburger-elementet før siden
 //  er ferdig innlastet, og unngår null-pointer
-window.onload = function(){
+// window.onload = function(){
   var hamb = document.getElementById("hamburger");
-
   if(hamb){
     console.log("Hamburger-meny fungerer!");
     hamb.addEventListener("click", endreNavn);
-    //  Gjør slik at elementene i hambugrerklassen bytter navn
-    //  og endrer style i CSS-dokumentet
+    //  Gjør slik at elementene i hambugrerklassen bytter navn og endrer style i CSS-dokumentet
     hamb.addEventListener("click", function(){hamb.classList.toggle("change");});
   } else {
-    console.log("nope");
+    console.log("Finner ikke elementet 'hamburger'");
   }
 };
 
   function endreNavn() {
-    var x = document.getElementById("topNav");
-    if (x.className === "navbar") {
-        x.className += " responsive";
+    var topNav = document.getElementById("topNav");
+    if (topNav.className === "navbar") {
+        topNav.className += " responsive";
     } else {
-        x.className = "navbar";
+        topNav.className = "navbar";
     }
 }

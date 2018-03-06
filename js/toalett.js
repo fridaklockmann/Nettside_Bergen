@@ -1,9 +1,52 @@
-// Viser og skjuler avansert søk ved klikk
-function visSøk(){
-  var avansert = document.getElementById("avansertSøk");
-  if(avansert.style.display === "flex") avansert.style.display = "none";
-  else avansert.style.display = "flex";
+window.onload = function(){
+  hamburger();
+  visSøk();
+  loadFile();
+};
+
+//  Gjør at scriptet ikke prøver å finne hamburger-elementet før siden
+//  er ferdig innlastet, og unngår null-pointer
+ function hamburger(){
+  var hamb = document.getElementById("hamburger");
+  if(hamb){
+    console.log("Hamburger-meny fungerer!");
+    hamb.addEventListener("click", endreNavn);
+    //  Gjør slik at elementene i hambugrerklassen bytter navn og endrer style i CSS-dokumentet
+    hamb.addEventListener("click", function(){hamb.classList.toggle("change");});
+  } else {
+    console.log("Finner ikke elementet 'hamburger'");
+  }
+};
+
+  function endreNavn() {
+    var topNav = document.getElementById("topNav");
+    if (topNav.className === "navbar") {
+        topNav.className += " responsive";
+    } else {
+        topNav.className = "navbar";
+    }
 }
+
+// Viser og skjuler avansert søk ved klikk
+ function visSøk(){
+    console.log(document.getElementById("avansertSøkKnapp"));
+    var knapp = document.getElementById("avansertSøkKnapp");
+    if(knapp){
+      console.log("Knapp fungerer!");
+      knapp.addEventListener("click", function(){
+        var avansert = document.getElementById("avansertSøk");
+        if (avansert.style.display === "flex") {
+          avansert.style.display = "none";
+        } else {
+          avansert.style.display = "flex";
+        }
+      });
+    }
+    else {
+      console.log("Finner ikke elementet 'avansertSøkKnapp'");
+    }
+  }
+
 
 var toalettliste = [{
          "herre":"1",
@@ -264,7 +307,7 @@ var toalettliste = [{
 function loadFile() {
   var tabell = document.getElementById("tableBody");
   toalettliste.forEach(function(element){
-    console.log(element);
+//    console.log(element);
     tabell.appendChild(createElement(element));
   })
 }
@@ -322,6 +365,6 @@ function createElement(element) {
     tid_søndag.classList.add("tid_søndag");
     tid_søndag.innerHTML = element.tid_sondag;
     rekke.appendChild(tid_søndag);
-    console.log(rekke);
+  //  console.log(rekke);
     return rekke;
 };
