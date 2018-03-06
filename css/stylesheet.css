@@ -1,12 +1,13 @@
 /* COMMON */
 body {
-  background-color: white;
   font-family: "Lato", sans-serif;
+  color: #233237;
 }
 
 h1 {
   font-family: "Pattaya", sans-serif;
   text-align: center;
+  line-height: 4;
 }
 
 p {
@@ -48,7 +49,6 @@ input[type=checkbox]{
   width: 100%;
   list-style-type: none;
   overflow: hidden;
-  background-color: white;
 }
 
 #topNav a {
@@ -56,7 +56,7 @@ input[type=checkbox]{
   display: block;
   float: left;
   color: black;
-  text-decoration-color: yellow;
+  text-decoration-color: #FF5D3F;
   text-align: left;
   text-decoration-line: none;
   .last-child{
@@ -141,11 +141,11 @@ input[type=checkbox]{
 }
 
 #topNav a:hover {
-  text-decoration: underline #598BD7;
+  text-decoration: underline #FF5D3F;
 }
 
 #topNav .active {
-  text-decoration: underline #598BD7;
+  text-decoration: underline #FF5D3F;
 }
 
 /*TOP NAVIGATION END*/
@@ -156,7 +156,7 @@ input[type=checkbox]{
   margin-right: auto;
   padding-bottom: 10px;
   width: 80%;
-  background-color: #C19E44;
+  background-color: #f4f4f4;
   font-family: "Lato";
   position: relative;
 }
@@ -298,11 +298,11 @@ input[type=checkbox]{
   position: fixed center;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 7px;
+  padding-bottom: 5px;
   width: 80%;
-  background-color: #C19E44;
-  color: black;
+  background-color: #f4f4f4;
+  color: 	#494848;
   font-size: 10px;
   display: flex;
   flex-direction: row;
@@ -313,6 +313,6 @@ input[type=checkbox]{
 .sosial a {
   padding: 5px;
   font-size: 20px;
-  color: black;
+  color: 	#494848;
   text-decoration: none;
 }
