@@ -1,14 +1,16 @@
 /* COMMON */
 body {
-  background-color: #f4f3ef;
+  background-color: white;
   font-family: "Lato", sans-serif;
 }
 
 h1 {
+  font-family: "Pattaya", sans-serif;
   text-align: center;
 }
 
 p {
+  font-family: "Work Sans", sans-serif;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -46,10 +48,11 @@ input[type=checkbox]{
   width: 100%;
   list-style-type: none;
   overflow: hidden;
-  background-color: #f4f3ef;
+  background-color: white;
 }
 
 #topNav a {
+  font-family: "Work Sans", sans-serif;
   display: block;
   float: left;
   color: black;
@@ -122,9 +125,9 @@ input[type=checkbox]{
 }
 
 #topNav a:first-child {
-  font-weight: bold;
-  font-size: 30px;
-  padding-top: 5px;
+  font-family: "Pattaya", sans-serif;
+  font-size: 35px;
+  padding-top: 0px;
 }
 
 #topNav a:not(#bergen) {
@@ -138,11 +141,11 @@ input[type=checkbox]{
 }
 
 #topNav a:hover {
-  text-decoration: underline yellow;
+  text-decoration: underline #598BD7;
 }
 
 #topNav .active {
-  text-decoration: underline yellow;
+  text-decoration: underline #598BD7;
 }
 
 /*TOP NAVIGATION END*/
@@ -153,7 +156,7 @@ input[type=checkbox]{
   margin-right: auto;
   padding-bottom: 10px;
   width: 80%;
-  background-color: #cccac5;
+  background-color: #C19E44;
   font-family: "Lato";
   position: relative;
 }
@@ -298,7 +301,7 @@ input[type=checkbox]{
   padding-top: 10px;
   padding-bottom: 10px;
   width: 80%;
-  background-color: #cccac5;
+  background-color: #C19E44;
   color: black;
   font-size: 10px;
   display: flex;
