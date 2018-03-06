@@ -1,6 +1,6 @@
 //  Gjør at scriptet ikke prøver å finne hamburger-elementet før siden
 //  er ferdig innlastet, og unngår null-pointer
-// window.onload = function(){
+window.onload = function(){
   var hamb = document.getElementById("hamburger");
   if(hamb){
     console.log("Hamburger-meny fungerer!");

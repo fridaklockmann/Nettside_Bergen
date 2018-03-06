@@ -5,11 +5,13 @@ body {
 }
 
 h1 {
+  font-family: "Pattaya", sans-serif;
   text-align: center;
   line-height: 4;
 }
 
 p {
+  font-family: "Work Sans", sans-serif;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -47,10 +49,10 @@ input[type=checkbox]{
   width: 100%;
   list-style-type: none;
   overflow: hidden;
-
 }
 
 #topNav a {
+  font-family: "Work Sans", sans-serif;
   display: block;
   float: left;
   color: black;
@@ -123,9 +125,9 @@ input[type=checkbox]{
 }
 
 #topNav a:first-child {
-  font-weight: bold;
-  font-size: 30px;
-  padding-top: 5px;
+  font-family: "Pattaya", sans-serif;
+  font-size: 35px;
+  padding-top: 0px;
 }
 
 #topNav a:not(#bergen) {
@@ -140,12 +142,10 @@ input[type=checkbox]{
 
 #topNav a:hover {
   text-decoration: underline #FF5D3F;
-
 }
 
 #topNav .active {
   text-decoration: underline #FF5D3F;
-
 }
 
 /*TOP NAVIGATION END*/
