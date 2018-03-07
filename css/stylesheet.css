@@ -239,10 +239,14 @@ input[type=checkbox]{
 /* TOALETTER */
 
 #avansertSøk{
-  display: none;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+ #boksTilSøk{
+   display:none;
+   flex-direction: column;
+ }
 
 #avansertSøkKnapp{
   background-color: #FF5D3F;

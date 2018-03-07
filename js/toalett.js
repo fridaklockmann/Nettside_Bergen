@@ -1,53 +1,3 @@
-window.onload = function(){
-  hamburger();
-  visSøk();
-  loadFile();
-};
-
-//  Gjør at scriptet ikke prøver å finne hamburger-elementet før siden
-//  er ferdig innlastet, og unngår null-pointer
- function hamburger(){
-  var hamb = document.getElementById("hamburger");
-  if(hamb){
-    console.log("Hamburger-meny fungerer!");
-    hamb.addEventListener("click", endreNavn);
-    //  Gjør slik at elementene i hambugrerklassen bytter navn og endrer style i CSS-dokumentet
-    hamb.addEventListener("click", function(){hamb.classList.toggle("change");});
-  } else {
-    console.log("Finner ikke elementet 'hamburger'");
-  }
-};
-
-  function endreNavn() {
-    var topNav = document.getElementById("topNav");
-    if (topNav.className === "navbar") {
-        topNav.className += " responsive";
-    } else {
-        topNav.className = "navbar";
-    }
-}
-
-// Viser og skjuler avansert søk ved klikk
- function visSøk(){
-    console.log(document.getElementById("avansertSøkKnapp"));
-    var knapp = document.getElementById("avansertSøkKnapp");
-    if(knapp){
-      console.log("Knapp fungerer!");
-      knapp.addEventListener("click", function(){
-        var avansert = document.getElementById("avansertSøk");
-        if (avansert.style.display === "flex") {
-          avansert.style.display = "none";
-        } else {
-          avansert.style.display = "flex";
-        }
-      });
-    }
-    else {
-      console.log("Finner ikke elementet 'avansertSøkKnapp'");
-    }
-  }
-
-
 var toalettliste = [{
          "herre":"1",
          "tid_sondag":"07.00 - 23.15",
@@ -304,13 +254,94 @@ var toalettliste = [{
          "longitude":"5.307858"
       }];
 
+//  Gjør at scriptet ikke prøver å finne elementer før siden
+//  er ferdig innlastet, og unngår null-pointer
+window.onload = function(){
+  hamburger();
+  visSøk();
+  loadFile();
+  filtrer();
+};
+
+//lager hamburgermeny
+ function hamburger(){
+  var hamb = document.getElementById("hamburger");
+  if(hamb){
+    console.log("Hamburger-meny fungerer!");
+    hamb.addEventListener("click", endreNavn);
+    //  Gjør slik at elementene i hambugrerklassen bytter navn og endrer style i CSS-dokumentet
+    hamb.addEventListener("click", function(){hamb.classList.toggle("change");});
+  } else {
+    console.log("Finner ikke elementet 'hamburger'");
+  }
+};
+
+//bytter navn på classene, slik at man får andre egenskaper i css-filen
+  function endreNavn() {
+    var topNav = document.getElementById("topNav");
+    if (topNav.className === "navbar") {
+        topNav.className += " responsive";
+    } else {
+        topNav.className = "navbar";
+    }
+}
+
+// Viser og skjuler avansert søk ved klikk
+ function visSøk(){
+    console.log(document.getElementById("avansertSøkKnapp"));
+    var knapp = document.getElementById("avansertSøkKnapp");
+    if(knapp){
+      console.log("Knapp fungerer!");
+      knapp.addEventListener("click", function(){
+        var avansert = document.getElementById("boksTilSøk");
+        if (avansert.style.display === "flex") {
+          avansert.style.display = "none";
+        } else {
+          avansert.style.display = "flex";
+        }
+      });
+    }
+    else {
+      console.log("Finner ikke elementet 'avansertSøkKnapp'");
+    }
+}
+
+function initMap() {
+  var bergen = {
+    lat: 60.39299,
+    lng: 5.327455
+  };
+  //lager kart med sentrum i Bergen
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 15,
+    center: bergen
+  });
+
+  //lager punkter på kartet.
+  for(var i = 0; i < toalettliste.length; i++){
+    //finner geoLocations for punktet på tabellen
+    var bergen = {
+      lat: parseFloat(toalettliste[i].latitude),
+      lng: parseFloat(toalettliste[i].longitude)
+    };
+    console.log(bergen);
+    //Setter markør på kartet
+    var bergen = new google.maps.Marker({
+      position: bergen,
+      map: map,
+      title: 'Toalett nummer: ' + toalettliste[i].id
+    });
+  }
+} //end initMap
+
+
 function loadFile() {
   var tabell = document.getElementById("tableBody");
-  toalettliste.forEach(function(element){
-//    console.log(element);
-    tabell.appendChild(createElement(element));
-  })
+  toalettliste.forEach(
+    function(element){ tabell.appendChild(createElement(element));}
+  )
 }
+
 function toalett(){
   this.id = id;
   this.plassering = plassering;
@@ -319,7 +350,20 @@ function toalett(){
   this.tid_hverdag = tid_hverdag;
   this.tid_lordag = tid_lordag;
   this.tid_sondag = tid_sondag;
+  this.dame = dame;
+  this.herre = herre;
+  this.rullestol = rullestol;
+  this.stellerom = stellerom;
+  this.place = place;
+  this.pissoir_only = pissoir_only;
+  this.latitude = latitude;
+  this.longitude = longitude;
 }
+
+function filtrer(){
+  console.log("du har trykket på filtrerknappen :)");
+}
+
 function createElement(element) {
     var rekke = document.createElement("tr");
     rekke.classList.add("toalett");
@@ -365,6 +409,55 @@ function createElement(element) {
     tid_søndag.classList.add("tid_søndag");
     tid_søndag.innerHTML = element.tid_sondag;
     rekke.appendChild(tid_søndag);
+
+    // oppretter span-element for dame
+    var dame = document.createElement("td");
+    dame.classList.add("dame");
+    dame.innerHTML = element.dame;
+    rekke.appendChild(dame);
+
+    // oppretter span-element for herre
+    var herre = document.createElement("td");
+    herre.classList.add("herre");
+    herre.innerHTML = element.herre;
+    rekke.appendChild(herre);
+
+    // oppretter span-element for rullestol
+    var rullestol = document.createElement("td");
+    rullestol.classList.add("dame");
+    rullestol.innerHTML = element.rullestol;
+    rekke.appendChild(rullestol);
+
+    // oppretter span-element for stellerom
+    var stellerom = document.createElement("td");
+    stellerom.classList.add("stellerom");
+    stellerom.innerHTML = element.stellerom;
+    rekke.appendChild(stellerom);
+
+    // oppretter span-element for place
+    var place = document.createElement("td");
+    place.classList.add("place");
+    place.innerHTML = element.place;
+    rekke.appendChild(place);
+
+    // oppretter span-element for pissoir_only
+    var pissoir_only = document.createElement("td");
+    pissoir_only.classList.add("pissoir_only");
+    pissoir_only.innerHTML = element.pissoir_only;
+    rekke.appendChild(pissoir_only);
+
+    // oppretter span-element for latitude
+    var latitude = document.createElement("td");
+    latitude.classList.add("latitude");
+    latitude.innerHTML = element.latitude;
+    rekke.appendChild(latitude);
+
+    // oppretter span-element for longitude
+    var longitude = document.createElement("td");
+    longitude.classList.add("longitude");
+    longitude.innerHTML = element.longitude;
+    rekke.appendChild(longitude);
+
   //  console.log(rekke);
     return rekke;
 };
