@@ -245,18 +245,24 @@ input[type=checkbox]{
 }
 
 #avansertSøkKnapp{
-  font-size: 16px;
-  border: none;
-  padding: 15px 32px;
+  background-color: #FF5D3F;
+  color: white;
+  text-align: center;
+  text-decoration: none;
   display: inline-block;
-  width: 25%;
+  font-size: 16px;
+  margin: 4px 2px;
+  border: none;
+  padding: 10px;
+  width: 15%;
   font-family: "Lato", sans-serif;
-  background-color: #f4f3ef;
   opacity: 1;
   transition: 0.3s;
   cursor: pointer;
   outline: none;
+  border-radius: 15px;
 }
+
 #avansertSøkKnapp:hover{
     opacity: 0.6;
   }
@@ -285,13 +291,34 @@ input[type=checkbox]{
 #toalettTabell{
   width:100%;
   border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #ddd;
 }
-#toalettTabell th, td{
-  border: 1.5px solid black;
+
+#toalettTabell tr:nth-child(even) {
+  background-color: white;
 }
 
+#toalettTabell th{
+  color: #FF5D3F;
+}
 
+#toalettTabell th, td, tr{
+  border: 1px solid black;
+  text-align: left;
+  padding: 10px;
+}
 
+@media screen and (max-width: 1300px) {
+    #toalettTabell{
+      font-size: 12px;
+    }
+
+}
+
+#ALLCAPS{
+  text-transform: capitalize;
+}
 
 /* FOOTER */
 .footer {
