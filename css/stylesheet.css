@@ -247,7 +247,7 @@ input[type=checkbox]{
    display:none;
    flex-direction: column;
  }
-
+/* søkeknapp */
 #avansertSøkKnapp{
   background-color: #FF5D3F;
   color: white;
