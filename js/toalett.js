@@ -437,6 +437,7 @@ function avansertSøk(){
   var kvinneSøk = document.getElementById("kvinne").checked;
   var herreSøk = document.getElementById("herre").checked;
   var rullestolSøk = document.getElementById("rullestol").checked;
+  var stelleromSøk = document.getElementById("stellerom").checked;
 
   //Går igjennom hele listen
   for(var i = 0; i<toalettliste.length; i++){
@@ -449,6 +450,23 @@ function avansertSøk(){
         markerArray[toalettliste[i].id-1].setMap(null);
       }
     }
+    if(kvinneSøk){
+      // fjerner alle toaletter uten rullesotltilgang fra listen
+      if(toalettliste[i].dame<1||toalettliste[i].dame == "NULL"){
+        document.getElementById(toalettliste[i].id).style.display = "none";
+        //fjerner markørene til disse toalettene
+        markerArray[toalettliste[i].id-1].setMap(null);
+      }
+    }
+    if(stellerom){
+      // fjerner alle toaletter uten rullesotltilgang fra listen
+      if(toalettliste[i].stellerom<1||toalettliste[i].stellerom == "NULL"){
+        document.getElementById(toalettliste[i].id).style.display = "none";
+        //fjerner markørene til disse toalettene
+        markerArray[toalettliste[i].id-1].setMap(null);
+      }
+    }
+
 
   }
 
