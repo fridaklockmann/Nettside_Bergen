@@ -329,6 +329,7 @@ function initMap() {
     var bergen = new google.maps.Marker({
       position: bergen,
       map: map,
+      label: toalettliste[i].id,
       title: 'Toalett nummer: ' + toalettliste[i].id
     });
   }
