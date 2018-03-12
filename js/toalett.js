@@ -260,7 +260,6 @@ window.onload = function(){
   hamburger();
   visSøk();
   loadFile();
-  filtrer();
 };
 
 //lager hamburgermeny
@@ -288,7 +287,6 @@ window.onload = function(){
 
 // Viser og skjuler avansert søk ved klikk
  function visSøk(){
-    console.log(document.getElementById("avansertSøkKnapp"));
     var knapp = document.getElementById("avansertSøkKnapp");
     if(knapp){
       console.log("Knapp fungerer!");
@@ -304,6 +302,9 @@ window.onload = function(){
     else {
       console.log("Finner ikke elementet 'avansertSøkKnapp'");
     }
+    //gir
+    var filtrerSøkKnapp = document.getElementById("filtrerSøk");
+    filtrerSøkKnapp.addEventListener("click", avansertSøk);
 }
 
 function initMap() {
@@ -324,7 +325,6 @@ function initMap() {
       lat: parseFloat(toalettliste[i].latitude),
       lng: parseFloat(toalettliste[i].longitude)
     };
-    console.log(bergen);
     //Setter markør på kartet
     var bergen = new google.maps.Marker({
       position: bergen,
@@ -361,9 +361,10 @@ function toalett(){
   this.longitude = longitude;
 }
 
-function filtrer(){
-  console.log("du har trykket på filtrerknappen :)");
-}
+
+
+//filtrersøkknapp.addEventListener("click", avansertSøk());
+
 
 function createElement(element) {
     var rekke = document.createElement("tr");
@@ -462,3 +463,8 @@ function createElement(element) {
   //  console.log(rekke);
     return rekke;
 };
+
+//Avansert søk!
+function avansertSøk(){
+  console.log("avansert søk ");
+}
