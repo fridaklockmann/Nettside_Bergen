@@ -438,36 +438,78 @@ function avansertSøk(){
   var herreSøk = document.getElementById("herre").checked;
   var rullestolSøk = document.getElementById("rullestol").checked;
   var stelleromSøk = document.getElementById("stellerom").checked;
+  var gratisSøk = document.getElementById("gratis").checked;
+  var åpenNåSøk = document.getElementById("åpenNå").checked;
 
   //Går igjennom hele listen
-  for(var i = 0; i<toalettliste.length; i++){
+  for(var i = 0; i < toalettliste.length; i++){
     //Hvis rullestol er huket av
     if(rullestolSøk){
       // fjerner alle toaletter uten rullesotltilgang fra listen
-      if(toalettliste[i].rullestol<1||toalettliste[i].rullestol == "NULL"){
+      if(toalettliste[i].rullestol < 1 || toalettliste[i].rullestol == "NULL"){
         document.getElementById(toalettliste[i].id).style.display = "none";
         //fjerner markørene til disse toalettene
         markerArray[toalettliste[i].id-1].setMap(null);
       }
     }
     if(kvinneSøk){
-      // fjerner alle toaletter uten rullesotltilgang fra listen
-      if(toalettliste[i].dame<1||toalettliste[i].dame == "NULL"){
+      // fjerner alle toaletter uten dame fra listen
+      if(toalettliste[i].dame < 1 || toalettliste[i].dame == "NULL"){
         document.getElementById(toalettliste[i].id).style.display = "none";
         //fjerner markørene til disse toalettene
         markerArray[toalettliste[i].id-1].setMap(null);
       }
     }
-    if(stellerom){
-      // fjerner alle toaletter uten rullesotltilgang fra listen
-      if(toalettliste[i].stellerom<1||toalettliste[i].stellerom == "NULL"){
+    if(herreSøk){
+      // fjerner alle toaletter uten herre fra listen
+      if(toalettliste[i].herre < 1 || toalettliste[i].herre == "NULL" && toalettliste[i].pissoir_only != 1){
         document.getElementById(toalettliste[i].id).style.display = "none";
         //fjerner markørene til disse toalettene
         markerArray[toalettliste[i].id-1].setMap(null);
       }
     }
+    if(stelleromSøk){
+      // fjerner alle toaletter uten stellerom fra listen
+      if(toalettliste[i].stellerom < 1 || toalettliste[i].stellerom == "NULL"){
+        document.getElementById(toalettliste[i].id).style.display = "none";
+        //fjerner markørene til disse toalettene
+        markerArray[toalettliste[i].id-1].setMap(null);
+      }
+    }
+    if(gratisSøk){
+      // fjerner alle toaletter som ikke er gratis fra listen
+      // må lage sjekk for null, men vi fikk det ikke til nå
+      if(toalettliste[i].pris > 0){
+        document.getElementById(toalettliste[i].id).style.display = "none";
+        //fjerner markørene til disse toalettene
+        markerArray[toalettliste[i].id-1].setMap(null);
+      }
+    }
+    if(åpenNåSøk){
+      // fjerner alle toaletter som ikke er gratis fra listen
+      var inTime = new Date().toLocaleTimeString('en-US', { hour12: false, hour: "numeric", minute: "numeric"});
+      var time = parseInt(inTime.replace(":", "."));
+      // søndag = 0, mandag = 1, tirsdag = 2, onsdag = 3, torsdag = 4 osv..
+      var day = new Date().getDay();
 
+      if(day > 1 && day < 6){
+        if(toalettliste[i].tid_hverdag.includes("-")){
+          var tider = toalettliste[i].tid_hverdag.split(" - ");
+          if(time < parseInt(tider[0]) || time > parseInt(tider[1])){
+            document.getElementById(toalettliste[i].id).style.display = "none";
+            //fjerner markørene til disse toalettene
+            markerArray[toalettliste[i].id-1].setMap(null);
+          }
+        }
+      }
+      if(day == 0){
+    //      if(toalettliste[i].tid_sondag == NULL)
+      }
+      if(day == 6){
+    //      if(toalettliste[i].tid_lordag == NULL)
+      }
 
+    }
   }
 
   var søkeKriterie = {
