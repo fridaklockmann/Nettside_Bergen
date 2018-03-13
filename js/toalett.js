@@ -260,7 +260,6 @@ window.onload = function(){
   hamburger();
   visSøk();
   loadFile();
-  filtrer();
 };
 
 //lager hamburgermeny
@@ -288,7 +287,6 @@ window.onload = function(){
 
 // Viser og skjuler avansert søk ved klikk
  function visSøk(){
-    console.log(document.getElementById("avansertSøkKnapp"));
     var knapp = document.getElementById("avansertSøkKnapp");
     if(knapp){
       console.log("Knapp fungerer!");
@@ -304,8 +302,12 @@ window.onload = function(){
     else {
       console.log("Finner ikke elementet 'avansertSøkKnapp'");
     }
+    //gir
+    var filtrerSøkKnapp = document.getElementById("filtrerSøk");
+    filtrerSøkKnapp.addEventListener("click", avansertSøk);
 }
-
+//Array til å lagte markørene i
+var markerArray = [];
 function initMap() {
   var bergen = {
     lat: 60.39299,
@@ -320,17 +322,20 @@ function initMap() {
   //lager punkter på kartet.
   for(var i = 0; i < toalettliste.length; i++){
     //finner geoLocations for punktet på tabellen
-    var bergen = {
+    var toalettPosisjon = {
       lat: parseFloat(toalettliste[i].latitude),
       lng: parseFloat(toalettliste[i].longitude)
     };
-    console.log(bergen);
+
     //Setter markør på kartet
     var bergen = new google.maps.Marker({
-      position: bergen,
+      position: toalettPosisjon,
       map: map,
+      label: toalettliste[i].id,
       title: 'Toalett nummer: ' + toalettliste[i].id
     });
+    //lagrer markørene i Array
+    markerArray.push(bergen);
   }
 } //end initMap
 
@@ -342,31 +347,12 @@ function loadFile() {
   )
 }
 
-function toalett(){
-  this.id = id;
-  this.plassering = plassering;
-  this.adresse = adresse;
-  this.pris = pris;
-  this.tid_hverdag = tid_hverdag;
-  this.tid_lordag = tid_lordag;
-  this.tid_sondag = tid_sondag;
-  this.dame = dame;
-  this.herre = herre;
-  this.rullestol = rullestol;
-  this.stellerom = stellerom;
-  this.place = place;
-  this.pissoir_only = pissoir_only;
-  this.latitude = latitude;
-  this.longitude = longitude;
-}
 
-function filtrer(){
-  console.log("du har trykket på filtrerknappen :)");
-}
 
 function createElement(element) {
     var rekke = document.createElement("tr");
     rekke.classList.add("toalett");
+    rekke.setAttribute("id", element.id);
 
     // oppretter span-element for id
     var id = document.createElement("td");
@@ -434,30 +420,58 @@ function createElement(element) {
     stellerom.innerHTML = element.stellerom;
     rekke.appendChild(stellerom);
 
-    // oppretter span-element for place
-    var place = document.createElement("td");
-    place.classList.add("place");
-    place.innerHTML = element.place;
-    rekke.appendChild(place);
-
     // oppretter span-element for pissoir_only
     var pissoir_only = document.createElement("td");
     pissoir_only.classList.add("pissoir_only");
     pissoir_only.innerHTML = element.pissoir_only;
     rekke.appendChild(pissoir_only);
 
-    // oppretter span-element for latitude
-    var latitude = document.createElement("td");
-    latitude.classList.add("latitude");
-    latitude.innerHTML = element.latitude;
-    rekke.appendChild(latitude);
-
-    // oppretter span-element for longitude
-    var longitude = document.createElement("td");
-    longitude.classList.add("longitude");
-    longitude.innerHTML = element.longitude;
-    rekke.appendChild(longitude);
 
   //  console.log(rekke);
     return rekke;
 };
+
+//Avansert søk!
+function avansertSøk(){
+  //true hvis kvinne er huket av, false hvis ikke.
+  var kvinneSøk = document.getElementById("kvinne").checked;
+  var herreSøk = document.getElementById("herre").checked;
+  var rullestolSøk = document.getElementById("rullestol").checked;
+  var stelleromSøk = document.getElementById("stellerom").checked;
+
+  //Går igjennom hele listen
+  for(var i = 0; i<toalettliste.length; i++){
+    //Hvis rullestol er huket av
+    if(rullestolSøk){
+      // fjerner alle toaletter uten rullesotltilgang fra listen
+      if(toalettliste[i].rullestol<1||toalettliste[i].rullestol == "NULL"){
+        document.getElementById(toalettliste[i].id).style.display = "none";
+        //fjerner markørene til disse toalettene
+        markerArray[toalettliste[i].id-1].setMap(null);
+      }
+    }
+    if(kvinneSøk){
+      // fjerner alle toaletter uten rullesotltilgang fra listen
+      if(toalettliste[i].dame<1||toalettliste[i].dame == "NULL"){
+        document.getElementById(toalettliste[i].id).style.display = "none";
+        //fjerner markørene til disse toalettene
+        markerArray[toalettliste[i].id-1].setMap(null);
+      }
+    }
+    if(stellerom){
+      // fjerner alle toaletter uten rullesotltilgang fra listen
+      if(toalettliste[i].stellerom<1||toalettliste[i].stellerom == "NULL"){
+        document.getElementById(toalettliste[i].id).style.display = "none";
+        //fjerner markørene til disse toalettene
+        markerArray[toalettliste[i].id-1].setMap(null);
+      }
+    }
+
+
+  }
+
+  var søkeKriterie = {
+
+  }
+
+}
