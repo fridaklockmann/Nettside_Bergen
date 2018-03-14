@@ -147,22 +147,7 @@ input[type=checkbox]{
 #topNav .active {
   text-decoration: underline #FF5D3F;
 }
-
-/*TOP NAVIGATION END*/
-#hovedDiv {
-  display: flex;
-  flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 10px;
-  width: 80%;
-  background-color: #f4f4f4;
-  font-family: "Lato";
-  position: relative;
-}
-
 #menuSearchbox {
-  font-family: Lato;
   width: 90px;
   box-sizing: border-box;
   border: 2px solid #ccc;
@@ -179,6 +164,21 @@ input[type=checkbox]{
   width: 200px;
   outline: none;
 }
+
+/*TOP NAVIGATION END*/
+#hovedDiv {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10px;
+  width: 80%;
+  background-color: #f4f4f4;
+  font-family: "Lato";
+  position: relative;
+}
+
+
 
 /* COMMON END */
 /* INDEX */
@@ -266,10 +266,14 @@ input[type=checkbox]{
   outline: none;
   border-radius: 15px;
 }
-
 #avansertSøkKnapp:hover{
     opacity: 0.6;
-  }
+}
+.filterRad{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 
 
 .søkekolonne{
@@ -311,6 +315,7 @@ input[type=checkbox]{
   border: 1px solid black;
   text-align: left;
   padding: 10px;
+
 }
 
 @media screen and (max-width: 1300px) {

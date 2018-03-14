@@ -302,9 +302,12 @@ window.onload = function(){
     else {
       console.log("Finner ikke elementet 'avansertSøkKnapp'");
     }
-    //gir
+    //gir filtrerknappen funksjon
     var filtrerSøkKnapp = document.getElementById("filtrerSøk");
     filtrerSøkKnapp.addEventListener("click", avansertSøk);
+    //gir fjern-filter-knappen funksjon
+    document.getElementById("tilbakestillSøk").addEventListener("click", tilbakestillSøk);
+
 }
 //Array til å lagte markørene i
 var markerArray = [];
@@ -335,7 +338,7 @@ function initMap() {
       title: 'Toalett nummer: ' + toalettliste[i].id
     });
     //lagrer markørene i Array
-    markerArray.push(bergen);
+    markerArray[i]=bergen;
   }
 } //end initMap
 
@@ -431,6 +434,17 @@ function createElement(element) {
     return rekke;
 };
 
+var searchCriteria = {
+  kvinneSøk:false,
+  herreSøk:false,
+  rullestolSøk:false,
+  stelleromSøk:false,
+  gratisSøk:false,
+  åpenNåSøk:false,
+  maxPrisSøk:"",
+  åpenSøk:""
+
+}
 //Avansert søk!
 function avansertSøk(){
   //true hvis kvinne er huket av, false hvis ikke.
@@ -440,6 +454,8 @@ function avansertSøk(){
   var stelleromSøk = document.getElementById("stellerom").checked;
   var gratisSøk = document.getElementById("gratis").checked;
   var åpenNåSøk = document.getElementById("åpenNå").checked;
+  var maxPrisSøk = document.getElementById("makspris").value;
+  var åpenSøk = document.getElementById("åpen").value;
 
   //Går igjennom hele listen
   for(var i = 0; i < toalettliste.length; i++){
@@ -479,11 +495,8 @@ function avansertSøk(){
     if(gratisSøk){
       // fjerner alle toaletter som ikke er gratis fra listen
       // må lage sjekk for null, men vi fikk det ikke til nå
-      if(toalettliste[i].pris > 0){
-        document.getElementById(toalettliste[i].id).style.display = "none";
-        //fjerner markørene til disse toalettene
-        markerArray[toalettliste[i].id-1].setMap(null);
-      }
+      slettToaletterOverPrisen(0);
+
     }
     if(åpenNåSøk){
       // fjerner alle toaletter som ikke er åpne nå fra listen
@@ -503,19 +516,50 @@ function avansertSøk(){
         //sjekker for lørdager
         sjekkÅpningstid(toalettliste[i].tid_lordag);
       }
-
-      function sjekkÅpningstid(tid_dagtype){
-        if(tid_dagtype.includes("-")){
-          var tider = tid_dagtype.split(" - ");
-          if(time < parseInt(tider[0]) || time > parseInt(tider[1])){
-            document.getElementById(toalettliste[i].id).style.display = "none";
-            //fjerner markørene til disse toalettene
-            markerArray[toalettliste[i].id-1].setMap(null);
-          }
-        }
-      }//end sjekkÅpningstid
-
+    }//end åpentNåSøk.
+    //funker ikke enda!!
+    if(åpenSøk){
+      console.log(åpenSøk);
     }
+    function sjekkÅpningstid(tid_dagtype){
+      if(tid_dagtype.includes("-")){
+        var tider = tid_dagtype.split(" - ");
+        if(time < parseInt(tider[0]) || time > parseInt(tider[1])){
+          document.getElementById(toalettliste[i].id).style.display = "none";
+          //fjerner markørene til disse toalettene
+          markerArray[toalettliste[i].id-1].setMap(null);
+        }
+      }
+    }//end sjekkÅpningstid
+    if(maxPrisSøk!=""){
+      var maxPris = parseInt(maxPrisSøk);
+      slettToaletterOverPrisen(maxPris);
+    }
+    function slettToaletterOverPrisen(maxpris){
+      if(toalettliste[i].pris > maxpris){
+        document.getElementById(toalettliste[i].id).style.display = "none";
+        //fjerner markørene til disse toalettene
+        markerArray[toalettliste[i].id-1].setMap(null);
+      }
+    }
+  }//end for-løkke
+}//end avansert søk.
+function tilbakestillSøk(){
+  console.log("fjernerfilter");
+  for (var i = 0; i < toalettliste.length; i++) {
+    document.getElementById(toalettliste[i].id).style.display = "table-row";
+    initMap();
+    fjernAlleChecked();
   }
+}
+function fjernAlleChecked(){
+  document.getElementById("kvinne").checked = false;
+  document.getElementById("herre").checked = false;
+  document.getElementById("rullestol").checked = false;
+  document.getElementById("stellerom").checked = false;
+  document.getElementById("gratis").checked = false;
+  document.getElementById("åpenNå").checked = false;
+  document.getElementById("makspris").value = "";
+  document.getElementById("søkAdresse").value = "";
 
 }

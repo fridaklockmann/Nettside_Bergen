@@ -36,8 +36,10 @@
 
     <div id="hovedDiv">
       <h1 id="hovedOverskrift">Toaletter</h1>
-
-      <button id="avansertSøkKnapp">Avansert søk</button>
+      <div class="filterRad">
+        <button id="avansertSøkKnapp">Avansert søk</button>
+        <input id="hurtigsøk" placeholder="hurtigsøk"></input>
+      </div>
       <div id="boksTilSøk">
         <div id="avansertSøk">
           <div class="søkekolonne">
@@ -52,6 +54,7 @@
           </div>
           <div class="søkekolonne">
             <div>Åpen <select id="åpen">
+                <option value=false>Velg</option>
                 <option value="0">00:00</option>
                 <option value="1">01:00</option>
                 <option value="2">02:00</option>
@@ -78,10 +81,11 @@
                 <option value="23">23:00</option>
               </select></div>
             <div>Makspris<input id="makspris" type="text" class="toalettSøkeboks" placeholder="kr"></div>
-            <div>Søk<input type="text" class="toalettSøkeboks" placeholder="Adresse"></div>
+            <div>Søk<input id="søkAdresse" type="text" class="toalettSøkeboks" placeholder="Adresse"></div>
           </div>
         </div><!-- end avansertsøk -->
         <button id="filtrerSøk">Filtrer</button>
+        <button id="tilbakestillSøk">Fjern filter</button>
     </div><!-- end bokstilsøk -->
 
       <p><div id=toaletter></div></p>
