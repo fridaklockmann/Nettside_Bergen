@@ -486,34 +486,36 @@ function avansertSøk(){
       }
     }
     if(åpenNåSøk){
-      // fjerner alle toaletter som ikke er gratis fra listen
+      // fjerner alle toaletter som ikke er åpne nå fra listen
       var inTime = new Date().toLocaleTimeString('en-US', { hour12: false, hour: "numeric", minute: "numeric"});
       var time = parseInt(inTime.replace(":", "."));
       // søndag = 0, mandag = 1, tirsdag = 2, onsdag = 3, torsdag = 4 osv..
       var day = new Date().getDay();
 
       if(day > 1 && day < 6){
-        if(toalettliste[i].tid_hverdag.includes("-")){
-          var tider = toalettliste[i].tid_hverdag.split(" - ");
+        //sjekker for hverdager
+        sjekkÅpningstid(toalettliste[i].tid_hverdag);
+      }if(day == 0){
+        //sjekker for søndager
+        sjekkÅpningstid(toalettliste[i].tid_sondag);
+      }
+      if(day == 6){
+        //sjekker for lørdager
+        sjekkÅpningstid(toalettliste[i].tid_lordag);
+      }
+
+      function sjekkÅpningstid(tid_dagtype){
+        if(tid_dagtype.includes("-")){
+          var tider = tid_dagtype.split(" - ");
           if(time < parseInt(tider[0]) || time > parseInt(tider[1])){
             document.getElementById(toalettliste[i].id).style.display = "none";
             //fjerner markørene til disse toalettene
             markerArray[toalettliste[i].id-1].setMap(null);
           }
         }
-      }
-      if(day == 0){
-    //      if(toalettliste[i].tid_sondag == NULL)
-      }
-      if(day == 6){
-    //      if(toalettliste[i].tid_lordag == NULL)
-      }
+      }//end sjekkÅpningstid
 
     }
-  }
-
-  var søkeKriterie = {
-
   }
 
 }
