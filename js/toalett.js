@@ -251,8 +251,7 @@ var toalettliste = [{
          "id":"15",
          "place":"NORDNES SKOLE",
          "dame":"NULL",
-         "longitude":"5.307858"
-      }];
+         "longitude":"5.307858"}];
 
 //  Gjør at scriptet ikke prøver å finne elementer før siden
 //  er ferdig innlastet, og unngår null-pointer
@@ -350,8 +349,7 @@ function loadFile() {
   )
 }
 
-
-
+//legger til elementer i tabellen
 function createElement(element) {
     var rekke = document.createElement("tr");
     rekke.classList.add("toalett");
@@ -456,6 +454,7 @@ function avansertSøk(){
   var åpenNåSøk = document.getElementById("åpenNå").checked;
   var maxPrisSøk = document.getElementById("makspris").value;
   var åpenSøk = document.getElementById("åpen").value;
+  var adresseSøk = document.getElementById("søkAdresse").value;
 
   //Går igjennom hele listen
   for(var i = 0; i < toalettliste.length; i++){
@@ -469,7 +468,7 @@ function avansertSøk(){
       }
     }
     if(kvinneSøk){
-      // fjerner alle toaletter uten dame fra listen
+      // fjerner alle toaletter uten dametoalett fra listen
       if(toalettliste[i].dame < 1 || toalettliste[i].dame == "NULL"){
         document.getElementById(toalettliste[i].id).style.display = "none";
         //fjerner markørene til disse toalettene
@@ -477,7 +476,7 @@ function avansertSøk(){
       }
     }
     if(herreSøk){
-      // fjerner alle toaletter uten herre fra listen
+      // fjerner alle toaletter uten herretoalett fra listen
       if(toalettliste[i].herre < 1 || toalettliste[i].herre == "NULL" && toalettliste[i].pissoir_only != 1){
         document.getElementById(toalettliste[i].id).style.display = "none";
         //fjerner markørene til disse toalettene
@@ -495,11 +494,9 @@ function avansertSøk(){
     if(gratisSøk){
       // fjerner alle toaletter som ikke er gratis fra listen
       // må lage sjekk for null, men vi fikk det ikke til nå
-      slettToaletterOverPrisen(0);
-
+      slettToaletterOverPrisen("0");
     }
     if(åpenNåSøk){
-      // fjerner alle toaletter som ikke er åpne nå fra listen
       var inTime = new Date().toLocaleTimeString('en-US', { hour12: false, hour: "numeric", minute: "numeric"});
       var time = parseInt(inTime.replace(":", "."));
       // søndag = 0, mandag = 1, tirsdag = 2, onsdag = 3, torsdag = 4 osv..
@@ -507,42 +504,91 @@ function avansertSøk(){
 
       if(day > 1 && day < 6){
         //sjekker for hverdager
-        sjekkÅpningstid(toalettliste[i].tid_hverdag);
+        sjekkÅpningstid(toalettliste[i].tid_hverdag, null);
       }if(day == 0){
         //sjekker for søndager
-        sjekkÅpningstid(toalettliste[i].tid_sondag);
+        sjekkÅpningstid(toalettliste[i].tid_sondag, null);
       }
       if(day == 6){
         //sjekker for lørdager
-        sjekkÅpningstid(toalettliste[i].tid_lordag);
+        sjekkÅpningstid(toalettliste[i].tid_lordag, null);
       }
     }//end åpentNåSøk.
-    //funker ikke enda!!
-    if(åpenSøk){
-      console.log(åpenSøk);
-    }
-    function sjekkÅpningstid(tid_dagtype){
-      if(tid_dagtype.includes("-")){
-        var tider = tid_dagtype.split(" - ");
-        if(time < parseInt(tider[0]) || time > parseInt(tider[1])){
-          document.getElementById(toalettliste[i].id).style.display = "none";
-          //fjerner markørene til disse toalettene
-          markerArray[toalettliste[i].id-1].setMap(null);
+
+    if(åpenSøk!="ikkeValgt"){
+      var inTime = new Date().toLocaleTimeString('en-US', { hour12: false, hour: "numeric", minute: "numeric"});
+      var time = parseInt(inTime.replace(":", "."));
+      var day = new Date().getDay();
+      // Dersom klokkeslettet ikke enda har vært i dag, gjelder søket for denne dagen; ellers gjelder det for i morgen
+      if(time > åpenSøk){
+        if(day == 6){
+          day = 0;
+        }else{
+          day += 1;
         }
       }
-    }//end sjekkÅpningstid
+      if(day >= 1 && day < 6){
+        //sjekker for hverdager
+        sjekkÅpningstid(toalettliste[i].tid_hverdag, åpenSøk);
+      }if(day == 0){
+        //sjekker for søndager
+        sjekkÅpningstid(toalettliste[i].tid_sondag, åpenSøk);
+      }
+      if(day == 6){
+        //sjekker for lørdager
+        sjekkÅpningstid(toalettliste[i].tid_lordag, åpenSøk);
+      }
+    }
+    function sjekkÅpningstid(tid_dagtype, nu){
+      if(tid_dagtype.includes("-")){
+        var tider = tid_dagtype.split(" - ");
+        if (nu != null){
+          if(nu < parseInt(tider[0]) || nu > parseInt(tider[1])){
+            document.getElementById(toalettliste[i].id).style.display = "none";
+            //fjerner markørene til disse toalettene
+            markerArray[toalettliste[i].id-1].setMap(null);
+          }
+        }else{
+            if(time < parseInt(tider[0]) || time >= parseInt(tider[1])){
+              document.getElementById(toalettliste[i].id).style.display = "none";
+              //fjerner markørene til disse toalettene
+              markerArray[toalettliste[i].id-1].setMap(null);
+            }
+        }
+    }else if(tid_dagtype=="NULL"){
+      document.getElementById(toalettliste[i].id).style.display = "none";
+      //fjerner markørene til disse toalettene
+      markerArray[toalettliste[i].id-1].setMap(null);
+    }
+  }//end sjekkÅpningstid
     if(maxPrisSøk!=""){
       var maxPris = parseInt(maxPrisSøk);
       slettToaletterOverPrisen(maxPris);
     }
     function slettToaletterOverPrisen(maxpris){
-      if(toalettliste[i].pris > maxpris){
+      if(toalettliste[i].pris > maxpris && toalettliste[i].pris!= "NULL"){
         document.getElementById(toalettliste[i].id).style.display = "none";
         //fjerner markørene til disse toalettene
         markerArray[toalettliste[i].id-1].setMap(null);
       }
     }
-  }//end for-løkke
+
+  if(adresseSøk){
+    adresseSøk = adresseSøk.toUpperCase();
+    for(var i = 0; i < toalettliste.length; i++){
+      var adresse = toalettliste[i].adresse.toUpperCase().replace(/[0-9]/g,'');
+      if(adresse.includes(adresseSøk) ||
+        toalettliste[i].place.toUpperCase().includes(adresseSøk)){
+        console.log("Fant adressen/navnet");
+      }
+      else{
+        console.log(adresse);
+        document.getElementById(toalettliste[i].id).style.display = "none";
+        markerArray[toalettliste[i].id-1].setMap(null);
+      }
+    }
+  }//end adressesøk
+  }
 }//end avansert søk.
 function tilbakestillSøk(){
   console.log("fjernerfilter");
