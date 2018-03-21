@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+  <script type="text/javascript" src="js/toalettliste.js"></script>
   <script type="text/javascript" src="js/toalett.js"></script>
   <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSJGiedMtW8jLcE-Wg1vtdLolfIQDf6J0&callback=initMap">
@@ -40,6 +41,7 @@
         <button id="avansertSøkKnapp">Avansert søk</button>
         <input id="hurtigsøk" placeholder="Hurtigsøk"></input>
       </div>
+      <br>
       <div id="boksTilSøk">
         <div id="avansertSøk">
           <div class="søkekolonne">
@@ -84,34 +86,38 @@
             <div><input id="søkAdresse" type="text" class="toalettSøkeboks" placeholder="Adresse"></div>
           </div>
         </div><!-- end avansertsøk -->
-        <button id="filtrerSøk">Filtrer</button>
-        <button id="tilbakestillSøk">Fjern filter</button>
+        <div id=filterknapper>
+          <button id="filtrerSøk">Filtrer</button>
+          <button id="tilbakestillSøk">Fjern filter</button>
+        </div>
     </div><!-- end bokstilsøk -->
 
-      <p><div id=toaletter></div></p>
+      <br>
 
-      <table id=toalettTabell>
-        <thead>
-        	<tr>
-        	  <th>Id</th>
-        	  <th>Plassering</th>
-        	  <th>Adresse</th>
-            <th>Pris</th>
-            <th>Tid hverdag</th>
-            <th>Tid lørdag</th>
-            <th>Tid søndag</th>
-            <th>Dame</th>
-            <th>Herre</th>
-            <th>Rullestol</th>
-            <th>Stellerom</th>
-            <th>Pissoir only</th>
-        	</tr>
-        </thead>
-        <tbody id="tableBody">
-        </tbody>
-    </table>
+      <div class="scrollebar">
+        <table id=toalettTabell>
+          <thead>
+          	<tr>
+          	  <th>Id</th>
+          	  <th>Plassering</th>
+          	  <th>Adresse</th>
+              <th>Pris</th>
+              <th>Tid hverdag</th>
+              <th>Tid lørdag</th>
+              <th>Tid søndag</th>
+         <!-- <th>Dame</th>
+              <th>Herre</th> -->
+              <th>Rullestol</th>
+              <th>Stellerom</th>
+              <th>Pissoir only</th>
+          	</tr>
+          </thead>
+          <tbody id="tableBody">
+          </tbody>
+        </table>
+      </div>
     <div id="map"></div>
-    </div>
+  </div><!--Hoveddic end-->
     <footer class="footer">
       <p>Redaktør: Malin Øien </p>
       <p>Kontaktinformasjon:<a href="mailto:someone@example.com"> someone@example.com</a>.</p>

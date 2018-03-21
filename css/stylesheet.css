@@ -1,13 +1,7 @@
 /* COMMON */
-body {
-  font-family: "Lato", sans-serif;
-  color: #233237;
-}
-
 h1 {
   font-family: "Pattaya", sans-serif;
   text-align: center;
-  line-height: 4;
 }
 
 p {
@@ -48,7 +42,7 @@ input[type=checkbox]{
   padding-bottom: 1%;
   width: 100%;
   list-style-type: none;
-  overflow: hidden;
+
 }
 
 #topNav a {
@@ -227,6 +221,7 @@ input[type=checkbox]{
   width: 250px;
 }
 
+
 /* INFORMASJON */
 
 #infobilde {
@@ -234,7 +229,10 @@ input[type=checkbox]{
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+  border: none;
 }
+
+
 
 /* TOALETTER */
 
@@ -243,38 +241,46 @@ input[type=checkbox]{
   flex-direction: row;
   justify-content: space-between;
 }
- #boksTilSøk{
-   display:none;
+#boksTilSøk{
+   display: none;
    flex-direction: column;
- }
+   justify-content: space-around;
+   padding-left: 20%;
+   padding-right: 20%;
+}
+@media screen and (max-width: 880px) {
+  #boksTilSøk{
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+}
+
+
+
 /* søkeknapp */
 #avansertSøkKnapp{
   background-color: #FF5D3F;
   color: white;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
-  border: none;
   padding: 10px;
+  border-radius: 15px;
   width: 15%;
   font-family: "Lato", sans-serif;
-  opacity: 1;
   transition: 0.3s;
   cursor: pointer;
   outline: none;
-  border-radius: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
 }
-#avansertSøkKnapp:hover{
-    opacity: 0.6;
-}
+
 .filterRad{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
-
 
 .søkekolonne{
   display: flex;
@@ -292,34 +298,99 @@ input[type=checkbox]{
   padding: 5%;
 }
 
+#hurtigsøk{
+  outline: none;
+  height: 39px;
+  font-family: "Lato", sans-serif;
+}
+
+#filterknapper{
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+#filtrerSøk{
+  background-color: #FF5D3F;
+  color: white;
+  font-size: 12px;
+  margin: 2px 2px;
+  padding: 5px;
+  border-radius: 10px;
+  width: 15%;
+  font-family: "Lato", sans-serif;
+  transition: 0.3s;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+}
+
+#tilbakestillSøk{
+  background-color: white;
+  color: #FF5D3F;
+  font-size: 12px;
+  margin: 2px 2px;
+  padding: 5px;
+  border-radius: 10px;
+  width: 15%;
+  font-family: "Lato", sans-serif;
+  transition: 0.3s;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+}
+
 #åpen{
   font-family: "Lato", sans-serif;
+}
+
+.scrollebar{
+  width: 100%;
+  max-height: 620px;
+  overflow: scroll;
+  background-color: #f4f4f4;
+}
+.scrollebar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scrollebar::-webkit-scrollbar-thumb {
+  background-color: #FF5D3F;
+  border-radius: 10px;
+}
+.scrollebar::-webkit-scrollbar-corner{
+  background-color: #f4f4f4;
 }
 
 #toalettTabell{
   width:100%;
   border-collapse: collapse;
   border-spacing: 0;
-  border: 1px solid #ddd;
   font-size: 11px;
-}
-
-#toalettTabell tr:nth-child(even) {
-  background-color: white;
+  background-color: #f4f4f4;
 }
 
 #toalettTabell th{
+  background-color: white;
   color: #FF5D3F;
 }
 
 #toalettTabell th, td, tr{
-  border: 1px solid black;
   text-align: left;
   padding: 10px;
-
 }
 #toalettTabell th:first-child{
   width: 3%;
+}
+
+#toalettTabell tr:nth-child(even){
+  background-color: white;
 }
 
 #toalettTabell th:nth-child(2),th:nth-child(3){
@@ -334,9 +405,9 @@ input[type=checkbox]{
 }
 
 @media screen and (max-width: 1300px) {
-    #toalettTabell{
-      font-size: 12px;
-    }
+  #toalettTabell{
+    font-size: 12px;
+  }
 }
 
 #ALLCAPS{
