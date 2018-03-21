@@ -236,6 +236,7 @@ input[type=checkbox]{
 
 /* TOALETTER */
 
+
 #avansertSøk{
   display: flex;
   flex-direction: row;
@@ -248,13 +249,13 @@ input[type=checkbox]{
    padding-left: 20%;
    padding-right: 20%;
 }
+
 @media screen and (max-width: 880px) {
   #boksTilSøk{
     padding-left: 0%;
     padding-right: 0%;
   }
 }
-
 
 
 /* søkeknapp */
@@ -436,4 +437,33 @@ input[type=checkbox]{
   font-size: 20px;
   color: 	#494848;
   text-decoration: none;
+}
+
+/* media query for mobile */
+@media only screen and (max-width: 768px) {
+  #flexcontainer{
+    width: 100%;
+  }
+  #hovedDiv{
+    width: 100%;
+  }
+  .filterRad{
+    flex-direction: column-reverse;
+
+  }
+  #avansertSøk{
+    flex-direction: column;
+  }
+  .toalettSøkeboks{
+    padding: 0%;
+  }
+#filterknapper{
+    flex-direction: column;
+  }
+  .footer{
+    width: 100%;
+  }
+  #avansertSøkKnapp{
+    width: 100%;
+  }
 }

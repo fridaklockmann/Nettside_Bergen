@@ -37,8 +37,10 @@ window.onload = function(){
         var avansert = document.getElementById("boksTilSøk");
         if (avansert.style.display === "flex") {
           avansert.style.display = "none";
+          knapp.innerHTML='Vis filtrering  <a class="fa fa-sort-desc"></a>';
         } else {
           avansert.style.display = "flex";
+          knapp.innerHTML='Skjul filtrering <a class="fa fa-sort-asc"></a>';
         }
       });
     }
