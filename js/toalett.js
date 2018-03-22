@@ -186,7 +186,7 @@ function createElement(element) {
     return rekke;
 };
 
-
+//Dette er søkeobjektet vårt
 var searchCriteria = {
   kvinneSøk:false,
   herreSøk:false,
@@ -211,29 +211,47 @@ function hurtigSøk(){
   }
   for(var i = 0; i < splittet.length; i++){
     if(typeof(splittet[i])==="string"){
-      console.log(splittet[i]+" er en string");
       if(splittet[i]=="herre"||splittet[i]=="mann"){
         searchCriteria.herreSøk=true;
+        document.getElementById("herre").checked = true;
       }else if(splittet[i]=="kvinne"||splittet[i]=="dame"){
         searchCriteria.kvinneSøk=true;
+        document.getElementById("kvinne").checked = true;
       }else if(splittet[i]=="rullestol"){
         searchCriteria.rullestolSøk=true;
+        document.getElementById("rullestol").checked = true;
       }else if(splittet[i]=="stellerom"){
         searchCriteria.stelleromSøk=true;
       }else if(splittet[i]=="gratis"){
+        document.getElementById("gratis").checked = true;
         searchCriteria.gratisSøk=true;
       }else if(splittet[i]=="åpen"){
+        document.getElementById("åpenNå").checked = true;
         searchCriteria.åpenNåSøk=true;
       }else if(splittet[i]!=""){
         searchCriteria.adresseSøk=splittet[i];
+        document.getElementById("søkAdresse").value = splittet[i];
       }
     }else{
       if(splittet[i][0] == "kjønn"){
-        if(splittet[i][1] == "herre"||splittet[i][1]=="mann") searchCriteria.herreSøk = true;
-        if(splittet[i][1] == "dame"||splittet[i][1]=="kvinne") searchCriteria.kvinneSøk = true;
+        if(splittet[i][1] == "herre"||splittet[i][1]=="mann"){
+          searchCriteria.herreSøk = true;
+          document.getElementById("herre").checked = true;
+        }
+        if(splittet[i][1] == "dame"||splittet[i][1]=="kvinne"){
+          searchCriteria.kvinneSøk = true;
+          document.getElementById("kvinne").checked = true;
+        }
       }
-      if(splittet[i][0] == "max"||splittet[i][0]=="maks") searchCriteria.maxPrisSøk = splittet[i][1];
-      if(splittet[i][0] == "åpent")searchCriteria.åpenSøk = splittet[i][1];
+      if(splittet[i][0] == "max"||splittet[i][0]=="maks"){
+        searchCriteria.maxPrisSøk = splittet[i][1];
+        document.getElementById("søkAdresse").value = splittet[i][1];
+      }
+      if(splittet[i][0] == "åpent"){
+        searchCriteria.åpenSøk = splittet[i][1];
+        document.getElementById("åpen").value = splittet[i][1];
+
+      }
 
     }
     avansertSøk(searchCriteria);
