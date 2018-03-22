@@ -222,6 +222,7 @@ function hurtigSøk(){
         document.getElementById("rullestol").checked = true;
       }else if(splittet[i]=="stellerom"){
         searchCriteria.stelleromSøk=true;
+        document.getElementById("stellerom").checked = true;
       }else if(splittet[i]=="gratis"){
         document.getElementById("gratis").checked = true;
         searchCriteria.gratisSøk=true;
@@ -245,7 +246,7 @@ function hurtigSøk(){
       }
       if(splittet[i][0] == "max"||splittet[i][0]=="maks"){
         searchCriteria.maxPrisSøk = splittet[i][1];
-        document.getElementById("søkAdresse").value = splittet[i][1];
+        document.getElementById("makspris").value = splittet[i][1];
       }
       if(splittet[i][0] == "åpent"){
         searchCriteria.åpenSøk = splittet[i][1];
