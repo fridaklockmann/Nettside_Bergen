@@ -142,7 +142,7 @@ input[type=checkbox]{
   text-decoration: underline #FF5D3F;
 }
 #menuSearchbox {
-  width: 90px;
+  width: 95px;
   box-sizing: border-box;
   border: 2px solid #ccc;
   background-color: white;
@@ -301,8 +301,17 @@ input[type=checkbox]{
 
 #hurtigsøk{
   outline: none;
+  margin: 4px 2px;
   height: 39px;
   font-family: "Lato", sans-serif;
+  width: 20%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  background-color: white;
+  background-image: url('http://w3schools.com/howto/searchicon.png');
+  background-position: 7px 7px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
 }
 
 #filterknapper{
@@ -449,7 +458,6 @@ input[type=checkbox]{
   }
   .filterRad{
     flex-direction: column-reverse;
-
   }
   #avansertSøk{
     flex-direction: column;
@@ -465,5 +473,10 @@ input[type=checkbox]{
   }
   #avansertSøkKnapp{
     width: 100%;
+    margin: 10px 0px 0px 0px;
+  }
+  #hurtigsøk{
+    width: 100%;
+    margin: 0%;
   }
 }
