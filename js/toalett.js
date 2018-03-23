@@ -129,25 +129,33 @@ function createElement(element) {
     var pris = document.createElement("td");
     pris.classList.add("pris");
     pris.innerHTML = element.pris;
+    if(pris.innerHTML == "NULL") pris.innerHTML = "0";
     rekke.appendChild(pris);
 
     // oppretter span-element for tid hverdag
     var tid_hverdag = document.createElement("td");
     tid_hverdag.classList.add("tid_hverdag");
     tid_hverdag.innerHTML = element.tid_hverdag;
+    if(tid_hverdag.innerHTML == "ALL") tid_hverdag.innerHTML = "Døgnåpen";
     rekke.appendChild(tid_hverdag);
 
     // oppretter span-element for tid_lørdag
     var tid_lørdag = document.createElement("td");
     tid_lørdag.classList.add("tid_lørdag");
     tid_lørdag.innerHTML = element.tid_lordag;
+    if(tid_lørdag.innerHTML == "NULL") tid_lørdag.innerHTML = "-";
+    if(tid_lørdag.innerHTML == "ALL") tid_lørdag.innerHTML = "Døgnåpen";
+    console.log(tid_lørdag)
     rekke.appendChild(tid_lørdag);
 
     // oppretter span-element for tid_søndag
     var tid_søndag = document.createElement("td");
     tid_søndag.classList.add("tid_søndag");
     tid_søndag.innerHTML = element.tid_sondag;
+    if(tid_søndag.innerHTML == "NULL") tid_søndag.innerHTML = "-";
+    if(tid_søndag.innerHTML == "ALL") tid_søndag.innerHTML = "Døgnåpen";
     rekke.appendChild(tid_søndag);
+
   //Her har vi også muligheten til å legge inn kjønn i tabellen
   /*  // oppretter span-element for dame
     var dame = document.createElement("td");
@@ -167,18 +175,24 @@ function createElement(element) {
     var rullestol = document.createElement("td");
     rullestol.classList.add("dame");
     rullestol.innerHTML = element.rullestol;
+    if(rullestol.innerHTML == "NULL" || rullestol.innerHTML == "") rullestol.innerHTML = "-";
+    if(rullestol.innerHTML == "1") rullestol.innerHTML = "Ja";
     rekke.appendChild(rullestol);
 
     // oppretter span-element for stellerom
     var stellerom = document.createElement("td");
     stellerom.classList.add("stellerom");
     stellerom.innerHTML = element.stellerom;
+    if(stellerom.innerHTML == "NULL") stellerom.innerHTML = "-";
+    if(stellerom.innerHTML == "1") stellerom.innerHTML = "Ja";
     rekke.appendChild(stellerom);
 
     // oppretter span-element for pissoir_only
     var pissoir_only = document.createElement("td");
     pissoir_only.classList.add("pissoir_only");
     pissoir_only.innerHTML = element.pissoir_only;
+    if(pissoir_only.innerHTML == "NULL") pissoir_only.innerHTML = "-";
+    if(pissoir_only.innerHTML == "1") pissoir_only.innerHTML = "Ja";
     rekke.appendChild(pissoir_only);
 
 
