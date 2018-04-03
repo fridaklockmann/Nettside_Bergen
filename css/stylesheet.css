@@ -266,7 +266,7 @@ input[type=checkbox]{
   margin: 4px 2px;
   padding: 10px;
   border-radius: 15px;
-  width: 15%;
+  width: 20%;
   font-family: "Lato", sans-serif;
   transition: 0.3s;
   cursor: pointer;
@@ -480,9 +480,12 @@ input[type=checkbox]{
   #tilbakestillSøk{
     width: 20%;
   }
+  #hurtigsøk{
+    width: 100%;
+  }
 }
 
-/* media query for ipad */
+/* media query for tablet */
 @media only screen and (min-width: 768px) and (max-width: 1024px)  {
   #flexcontainer{
     width: 100%;
@@ -507,4 +510,15 @@ input[type=checkbox]{
     width: 100%;
     margin: 0%;
   }
+}
+
+/*media query for desktop*/
+@media only screen and (min-width: 1280px){
+  #hovedDiv{
+    width: 1000px;
+  }
+  #flexcontainer{
+    width: 1000px;
+  }
+
 }

@@ -10,7 +10,6 @@ window.onload = function(){
  function hamburger(){
   var hamb = document.getElementById("hamburger");
   if(hamb){
-    console.log("Hamburger-meny fungerer!");
     hamb.addEventListener("click", endreNavn);
     //  Gjør slik at elementene i hambugrerklassen bytter navn og endrer style i CSS-dokumentet
     hamb.addEventListener("click", function(){hamb.classList.toggle("change");});
@@ -145,7 +144,6 @@ function createElement(element) {
     tid_lørdag.innerHTML = element.tid_lordag;
     if(tid_lørdag.innerHTML == "NULL") tid_lørdag.innerHTML = "-";
     if(tid_lørdag.innerHTML == "ALL") tid_lørdag.innerHTML = "Døgnåpen";
-    console.log(tid_lørdag)
     rekke.appendChild(tid_lørdag);
 
     // oppretter span-element for tid_søndag
@@ -196,7 +194,7 @@ function createElement(element) {
     rekke.appendChild(pissoir_only);
 
 
-  //  console.log(rekke);
+
     return rekke;
 };
 
@@ -429,7 +427,6 @@ function avansertSøk(searchCriteria){
       var adresse = toalettliste[i].adresse.toUpperCase().replace(/[0-9]/g,'');
       if(adresse.includes(adresseSøk) ||
         toalettliste[i].place.toUpperCase().includes(adresseSøk)){
-        console.log("Fant adressen/navnet");
       }
       else{
         document.getElementById(toalettliste[i].id).style.display = "none";
@@ -440,7 +437,6 @@ function avansertSøk(searchCriteria){
   }
 }//end avansert søk.
 function tilbakestillSøk(){
-  console.log("fjernerfilter");
   for (var i = 0; i < toalettliste.length; i++) {
     searchCriteria.kvinneSøk=false,
     searchCriteria.herreSøk=false,
