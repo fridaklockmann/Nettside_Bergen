@@ -16,6 +16,7 @@ function hentToalettliste() {
         toalettliste = doliste.entries;
         visSøk();
         loadFile();
+        initMap();
     }
   };
   xhr.send();
@@ -76,40 +77,44 @@ function hentToalettliste() {
 //Array til å lagte markørene i
 var markerArray = [];
 function initMap() {
-  var bergen = {
-    lat: 60.39299,
-    lng: 5.327455
-  };
-  //lager kart med sentrum i Bergen
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 15,
-    center: bergen
-  });
-
-  //lager punkter på kartet.
-  for(var i = 0; i < toalettliste.length; i++){
-    //finner geoLocations for punktet på tabellen
-    var toalettPosisjon = {
-      lat: parseFloat(toalettliste[i].latitude),
-      lng: parseFloat(toalettliste[i].longitude)
+  if(toalettliste!="ikke oppdatert"){
+    var bergen = {
+      lat: 60.39299,
+      lng: 5.327455
     };
-
-    //Setter markør på kartet
-    var bergen = new google.maps.Marker({
-      position: toalettPosisjon,
-      map: map,
-      label: toalettliste[i].id,
-      title: 'Toalett nummer: ' + toalettliste[i].id
+    //lager kart med sentrum i Bergen
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: bergen
     });
-    //lagrer markørene i Array
-    markerArray[i]=bergen;
+
+    //lager punkter på kartet.
+    for(var i = 0; i < Object.keys(toalettliste).length; i++){
+
+      //finner geoLocations for punktet på tabellen
+      var toalettPosisjon = {
+        lat: parseFloat(toalettliste[i].latitude),
+        lng: parseFloat(toalettliste[i].longitude)
+      };
+
+      //Setter markør på kartet
+      var bergen = new google.maps.Marker({
+        position: toalettPosisjon,
+        map: map,
+        label: toalettliste[i].id,
+        title: 'Toalett nummer: ' + toalettliste[i].id
+      });
+      //lagrer markørene i Array
+      markerArray[i]=bergen;
+    }
   }
+
 } //end initMap
 
 
 function loadFile() {
   var tabell = document.getElementById("tableBody");
-  var length = Object.keys(toalettliste).length
+  var length = Object.keys(toalettliste).length;
   for(var i = 0; i<length; i++){
     tabell.appendChild(createElement(toalettliste[i]));
   }
