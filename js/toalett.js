@@ -1,11 +1,25 @@
 //  Gjør at scriptet ikke prøver å finne elementer før siden
 //  er ferdig innlastet, og unngår null-pointer
 window.onload = function(){
+  hentToalettliste();
   hamburger();
-  visSøk();
-  loadFile();
-};
 
+
+};
+var toalettliste="ikke oppdatert";
+function hentToalettliste() {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "https://hotell.difi.no/api/json/bergen/dokart?");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        var doliste = JSON.parse(xhr.responseText);
+        toalettliste = doliste.entries;
+        visSøk();
+        loadFile();
+    }
+  };
+  xhr.send();
+}
 //lager hamburgermeny
  function hamburger(){
   var hamb = document.getElementById("hamburger");
@@ -95,9 +109,11 @@ function initMap() {
 
 function loadFile() {
   var tabell = document.getElementById("tableBody");
-  toalettliste.forEach(
-    function(element){ tabell.appendChild(createElement(element));}
-  )
+  var length = Object.keys(toalettliste).length
+  for(var i = 0; i<length; i++){
+    tabell.appendChild(createElement(toalettliste[i]));
+  }
+
 }
 
 //legger til elementer i tabellen
@@ -229,7 +245,7 @@ function hurtigSøk(){
       }else if(splittet[i]=="kvinne"||splittet[i]=="dame"){
         searchCriteria.kvinneSøk=true;
         document.getElementById("kvinne").checked = true;
-      }else if(splittet[i]=="rullestol"){
+      }else if(splittet[i]=="rullestol" ||splittet[i]=="rullestoltilgang" ){
         searchCriteria.rullestolSøk=true;
         document.getElementById("rullestol").checked = true;
       }else if(splittet[i]=="stellerom"){
@@ -271,7 +287,6 @@ function hurtigSøk(){
     if(hSøk==""){
       tilbakestillSøk();
     }
-
   }
 }
 
@@ -305,7 +320,7 @@ function avansertSøk(searchCriteria){
 
 
   //Går igjennom hele listen
-  for(var i = 0; i < toalettliste.length; i++){
+  for(var i = 0; i < Object.keys(toalettliste).length; i++){
     //Hvis rullestol er huket av
     if(rullestolSøk){
       // fjerner alle toaletter uten rullesotltilgang fra listen

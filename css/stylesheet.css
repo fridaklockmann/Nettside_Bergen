@@ -25,8 +25,6 @@ p {
   margin-right: auto;
 }
 
-/*Gjør checkboksene ørlittegrann større.. er dette vits?*/
-
 input[type=checkbox]{
   height: 20px;
   width: 20px;
@@ -42,7 +40,6 @@ input[type=checkbox]{
   padding-bottom: 1%;
   width: 100%;
   list-style-type: none;
-
 }
 
 #topNav a {
@@ -141,6 +138,7 @@ input[type=checkbox]{
 #topNav .active {
   text-decoration: underline #FF5D3F;
 }
+
 #menuSearchbox {
   width: 95px;
   box-sizing: border-box;
@@ -171,8 +169,6 @@ input[type=checkbox]{
   font-family: "Lato";
   position: relative;
 }
-
-
 
 /* COMMON END */
 /* INDEX */
@@ -232,11 +228,7 @@ input[type=checkbox]{
   border: none;
 }
 
-
-
 /* TOALETTER */
-
-
 #avansertSøk{
   display: flex;
   flex-direction: row;
@@ -256,7 +248,6 @@ input[type=checkbox]{
     padding-right: 0%;
   }
 }
-
 
 /* søkeknapp */
 #avansertSøkKnapp{
@@ -395,6 +386,7 @@ input[type=checkbox]{
   text-align: left;
   padding: 10px;
 }
+
 #toalettTabell th:first-child{
   width: 3%;
 }
@@ -410,6 +402,7 @@ input[type=checkbox]{
 #toalettTabell th:nth-child(n+8){
   width: 5%;
 }
+
 #toalettTabell th:nth-child(4){
   width: 5%;
 }
@@ -520,5 +513,7 @@ input[type=checkbox]{
   #flexcontainer{
     width: 1000px;
   }
-
+  .footer{
+    width: 1000px;
+  }
 }
