@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
-  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/geturl.js"></script>
+  <script type="text/javascript" src="js/lekeplasser.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pattaya|Work+Sans">
   <title> Bergen </title>
@@ -15,7 +16,7 @@
     <div id="topNav" class = "navbar">
       <a id="bergen"  href="index.html">Bergen</a>
       <a href="quiz.html">Quiz</a>
-      <a href="info.html"class="active">Informasjon</a>
+      <a href="lekeplasser.html"class="active">Lekeplasser</a>
       <a href="toalett.html">Toaletter</a>
       <a href="#" class="search-container">
         <form action="/action_page.php">
@@ -31,13 +32,20 @@
   </div>
     <!--MENU END -->
     <div id="hovedDiv">
-      <h1 id="hovedOverskrift"> Informasjon </h1>
-      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis vehicula nunc, vitae bibendum dui vehicula ut. Nam a quam ut elit malesuada vestibulum ultricies vel nisi. Praesent lacus nisi, sodales vitae nisl nec, facilisis iaculis arcu. Curabitur
-        varius consectetur lacus in condimentum. Mauris mollis justo sed convallis varius. Integer eget eros massa. Vestibulum non pretium est. Cras vulputate lobortis felis quis cursus. Praesent suscipit, orci nec pellentesque egestas, mauris tellus ultricies
-        nulla, sit amet consectetur ligula leo quis risus. Duis facilisis neque non quam ornare, consequat tincidunt tortor ultrices. Praesent malesuada mi in tellus sagittis auctor. <br> Duis vehicula volutpat ligula eget tristique. Nulla lobortis mi dui,
-        a scelerisque mi elementum in. Sed accumsan dui ut risus lacinia dapibus. Donec tristique orci sit amet sem placerat auctor. Proin posuere, augue sed maximus ultrices, magna libero interdum augue, vitae feugiat sapien urna vitae tortor. Proin vel
-        rutrum augue. Fusce et elit id dui pretium porttitor.</p>
-      <img src="img/info.jpg" id="infobilde">
+      <h1 id="hovedOverskrift"> Lekeplasser </h1>
+      <div class="scrollebar">
+        <table>
+          <thead>
+            <th>ID</th>
+            <th>Navn</th>
+            <th>latitude</th>
+            <th>longitude</th>
+          </thead>
+          <tbody id="tableBody">
+          </tbody>
+        </table>
+      </div>
+      <img src="media/info.jpg" id="infobilde">
     </div>
     <footer class="footer">
       <p>Redaktør: Malin Øien </p>

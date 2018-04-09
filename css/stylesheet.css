@@ -353,7 +353,7 @@ input[type=checkbox]{
 
 .scrollebar{
   width: 100%;
-  max-height: 620px;
+  max-height: 600px;
   overflow: scroll;
   background-color: #f4f4f4;
 }
