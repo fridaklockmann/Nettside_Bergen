@@ -212,8 +212,6 @@ function createElement(element) {
     if(pissoir_only.innerHTML == "1") pissoir_only.innerHTML = "Ja";
     rekke.appendChild(pissoir_only);
 
-
-
     return rekke;
 };
 
@@ -294,7 +292,6 @@ function hurtigSøk(){
 }
 
 function skjemaSøk(){
-
   //true hvis kvinne er huket av, false hvis ikke.
   searchCriteria.kvinneSøk = document.getElementById("kvinne").checked;
   searchCriteria.herreSøk = document.getElementById("herre").checked;
