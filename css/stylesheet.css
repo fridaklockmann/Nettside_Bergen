@@ -417,6 +417,23 @@ input[type=checkbox]{
   text-transform: capitalize;
 }
 
+
+/* LEKEPLASSER */
+
+#Lekeplasstabell th, td, tr{
+  text-align: left;
+  padding: 10px;
+}
+
+h3{
+  padding-left: 10px;
+}
+
+#avstandsskjema{
+  padding-left: 10px;
+}
+
+
 /* FOOTER */
 .footer {
   position: fixed center;

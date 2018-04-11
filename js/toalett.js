@@ -116,9 +116,6 @@ function initMap() {
 
 } //end initMap
 
-
-
-
 //legger til elementer i tabellen
 function createElement(element) {
     var rekke = document.createElement("tr");
