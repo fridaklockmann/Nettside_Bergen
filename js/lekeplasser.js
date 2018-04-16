@@ -100,7 +100,7 @@ function leggTilFav(){
 }
 
 function oppdaterFav(lekeplass){
-  console.log(lekeplass.navn + "er lagt til som favoritt");
   document.getElementById("favLekeplassId").value = lekeplass.id;
-  
+  var hrefListe = document.getElementById("lekeplassLink");
+  hrefListe.href = "minFavLekeplass.html?favLekeplassId="+lekeplass.id;
 }
