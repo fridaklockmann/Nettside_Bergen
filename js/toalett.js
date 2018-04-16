@@ -26,27 +26,7 @@ function loadData() {
 
 
 
-//lager hamburgermeny
- function hamburger(){
-  var hamb = document.getElementById("hamburger");
-  if(hamb){
-    hamb.addEventListener("click", endreNavn);
-    //  Gjør slik at elementene i hambugrerklassen bytter navn og endrer style i CSS-dokumentet
-    hamb.addEventListener("click", function(){hamb.classList.toggle("change");});
-  } else {
-    console.log("Finner ikke elementet 'hamburger'");
-  }
-};
 
-//bytter navn på classene, slik at man får andre egenskaper i css-filen
-  function endreNavn() {
-    var topNav = document.getElementById("topNav");
-    if (topNav.className === "navbar") {
-        topNav.className += " responsive";
-    } else {
-        topNav.className = "navbar";
-    }
-  }
 
 // Viser og skjuler avansert søk ved klikk
  function visSøk(){

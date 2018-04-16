@@ -180,6 +180,7 @@ input[type=checkbox]{
 }
 
 /* QUIZ */
+/*
 #quizer{
   display: flex;
   flex-direction: column;
@@ -216,7 +217,7 @@ input[type=checkbox]{
   border-image: 50 round;
   width: 250px;
 }
-
+*/
 
 /* INFORMASJON */
 

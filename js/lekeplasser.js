@@ -2,6 +2,7 @@ var dataliste="";
 
 window.onload = function(){
   loadData();
+  hamburger();
 }
 var rbliste="";
 

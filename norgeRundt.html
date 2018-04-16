@@ -4,13 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
-  <script type="text/javascript" src="js/quiz.js"></script>
-  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/felles.js"></script>
+  <script type="text/javascript" src="js/norgeRundt.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pattaya|Work+Sans">
-  <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSJGiedMtW8jLcE-Wg1vtdLolfIQDf6J0&callback=initMap">
-  </script>
   <title> Bergen </title>
 </head>
 
@@ -38,37 +35,62 @@
 
     <div id="hovedDiv">
       <h1 id="hovedOverskrift"> Norge rundt </h1>
-      <div id="quizer">
-        <div class="quizrad">
-          <div class="quiztext">
-            <img class="quizimg" src="media/inside.jpg">
-            <p><strong>Sted: </strong>Inside Fløyen <strong>Tid: </strong>Torsdag 20:00 <strong>Tema: </strong>Allmenn <strong>Pris: </strong>50 per pers <br><strong>Rating: </strong>
-            <a class="fa fa-star"></a> <a class="fa fa-star"></a> <a class="fa fa-star"></a> <a class="fa fa-star"></a> <a class="fa fa-star-o"></a></p>
-          </div>
-
-          <div class="quiztext">
-            <img class="quizimg" src="media/kvarteret.jpg">
-            <p><strong>Sted: </strong>Kvarteret <strong>Tid: </strong>Tirsdag 20:00 <strong>Tema: </strong>Allmenn <strong>Pris: </strong>gratis <br><strong>Rating: </strong>
-              <a class="fa fa-star"></a> <a class="fa fa-star"></a> <a class="fa fa-star"></a> <a class="fa fa-star-o"></a> <a class="fa fa-star-o"></a></p>
-          </div>
-        </div>
-        <div class="quizrad">
-          <div class="quiztext">
-            <img class="quizimg" src="media/cafeopera.jpg">
-            <p><strong>Sted: </strong>Café Opera <strong>Tid: </strong>Mandag 21:00 <strong>Tema: </strong>Allmenn <strong>Pris: </strong>40 per pers <br><strong>Rating: </strong>
-              <a class="fa fa-star"></a> <a class="fa fa-star"></a> <a class="fa fa-star"></a> <a class="fa fa-star"></a> <a class="fa fa-star"></a></p>
-          </div>
-
-          <div class="quiztext">
-            <img class="quizimg" src="media/garage.jpg">
-            <p><strong>Sted: </strong>Garage <strong>Tid: </strong>Mandag 21:00 <strong>Tema: </strong>Musikk/Rock <strong>Pris: </strong>40 per pers <br><strong>Rating: </strong>
-              <a class="fa fa-star"></a> <a class="fa fa-star"></a> <a class="fa fa-star-o"></a> <a class="fa fa-star-o"></a> <a class="fa fa-star-o"></a></p>
-          </div>
-        </div>
+      <div class="filterRad">
+        <button id="avansertSøkKnapp">Vis filtrering <a class="fa fa-sort-desc"></a></button>
       </div>
-
-      <div id="map"></div>
+      <br>
+      <div class="filterRad" id="boksTilSøk">
+        <div id="avansertSøk">
+          <div class="søkekolonne">
+            <div><input id="kvinne" type="checkbox" class="checkbox">Kvinnlig hovedrolle</div>
+            <div><input id="herre" type="checkbox" class="checkbox">Mannlig hovedrolle</div>
+            <div><input id="rullestol" type="checkbox" class="checkbox">Rullestoltilgang</div>
+          </div>
+          <div class="søkekolonne">
+            <div><input id="stellerom" type="checkbox" class="checkbox">Stellerom </div>
+            <div><input id="gratis" type="checkbox" class="checkbox">Gratis</div>
+            <div><input id="åpenNå" type="checkbox" class="checkbox">Åpen nå</div>
+          </div>
+          <div class="søkekolonne">
+            <div>Åpen <select id="åpen">
+                <option value="ikkeValgt">Velg</option>
+                <option value="0">00:00</option>
+                <option value="1">01:00</option>
+                <option value="2">02:00</option>
+                <option value="3">03:00</option>
+                <option value="4">04:00</option>
+                <option value="5">05:00</option>
+                <option value="6">06:00</option>
+                <option value="7">07:00</option>
+                <option value="8">08:00</option>
+                <option value="9">09:00</option>
+                <option value="10">10:00</option>
+                <option value="11">11:00</option>
+                <option value="12">12:00</option>
+                <option value="13">13:00</option>
+                <option value="14">14:00</option>
+                <option value="15">15:00</option>
+                <option value="16">16:00</option>
+                <option value="17">17:00</option>
+                <option value="18">18:00</option>
+                <option value="19">19:00</option>
+                <option value="20">20:00</option>
+                <option value="21">21:00</option>
+                <option value="22">22:00</option>
+                <option value="23">23:00</option>
+              </select></div>
+            <div><input id="makspris" type="text" class="toalettSøkeboks" placeholder="Makspris"></div>
+            <div><input id="søkAdresse" type="text" class="toalettSøkeboks" placeholder="Adresse"></div>
+          </div>
+        </div><!-- end avansertsøk -->
+        <div id=filterknapper>
+          <button id="filtrerSøk">Filtrer</button>
+          <button id="tilbakestillSøk">Fjern filter</button>
+        </div>
+    </div><!-- end bokstilsøk -->
+      <div id="norgerundtdatasett"></div>
     </div>
+    <img src="media/norgeRundt.jpg" id="infobilde">
     <!-- End hovedDiv-->
 
     <footer class="footer">
