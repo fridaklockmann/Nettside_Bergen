@@ -18,7 +18,7 @@
       <a href="norgeRundt.html">Norge Rundt</a>
       <a href="lekeplasser.html"class="active">Lekeplasser</a>
       <a href="toalett.html">Toaletter</a>
-      <a href="minFavLekeplass.html">Min Favoritt Lekeplass</a>
+      <!-- <a href="minFavLekeplass.html">Min Favoritt Lekeplass</a>-->
       <a href="#" class="search-container">
         <form action="/action_page.php">
             <input type="text" id="menuSearchbox" placeholder="Søk.." name="search">
@@ -41,7 +41,7 @@
             <th>Navn</th>
             <th>Latitude</th>
             <th>Longitude</th>
-            <th>Favoritt<th>
+            <th>Favoritt</th>
           </thead>
           <tbody id="tableBody">
           </tbody>
@@ -57,6 +57,11 @@
           <button type="button" id="regnUtAvstand">Regn ut</button>
           <p id="avstanden"></p>
         </div>
+        <h3>Velg din favorittLekeplass:</h3>
+        <FORM METHOD="LINK" ACTION="minFavLekeplass.html">
+          Favorittlekeplassen min er den med id:  <INPUT TYPE="text" NAME="favLekeplassId" id="favLekeplassId">
+          <INPUT TYPE="submit" VALUE="Se nærmere på denne">
+        </FORM>
       </div>
 
       <img src="media/floien.jpg" id="infobilde">

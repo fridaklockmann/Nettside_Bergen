@@ -2,9 +2,6 @@ var dataliste="";
 
 window.onload = function(){
   loadData();
-
-
-
 }
 var rbliste="";
 
@@ -15,13 +12,11 @@ function loadData() {
 	     function(response) {
           dataliste = JSON.parse(response).entries;
           loadFile();
-          document.getElementById("regnUtAvstand").addEventListener('checked', regnUtAvstand);
+          document.getElementById("regnUtAvstand").addEventListener('click', regnUtAvstand);
           var radiobuttons = document.getElementsByClassName("rbutton");
           rbliste = Array.from(radiobuttons);
-          console.log(rbliste.length);
           for(var i = 0; i < rbliste.length; i ++){
             rbliste[i].addEventListener('click', leggTilFav);
-              console.log("legger til eventlistener på "+ rbliste[i]);
           }
 	     }
     ).catch(
@@ -56,7 +51,7 @@ function createElement(element) {
 
     var favoritt = document.createElement("td");
     favoritt.innerHTML = "<input type='radio' name='favoritt' class='rbutton'></input>"
-    favoritt.classList.add(element.latitude);
+    favoritt.childNodes[0].classList.add(element.latitude);
     rekke.appendChild(favoritt);
 
     return rekke;
@@ -91,22 +86,13 @@ function regnUtAvstand(){
   }
   document.getElementById("avstanden").innerHTML = "Avstanden mellom lekeplassene "+ a.navn + " og "+ b.navn +" er "+ sjekkAvstand(a, b) + " km";
 }
-
 function leggTilFav(){
-  console.log("prøver å legge til fav");
   for(var i = 0; i < rbliste.length; i++){
-    console.log("første for");
     if(rbliste[i].checked){
-      console.log("første if");
       for(var j = 0; j<dataliste.length; j++){
-          console.log("andre for");
-          console.log(rbliste[i].className[1]);
-        if(rbliste[i].className[1] === dataliste[j].latitude){
+        if(rbliste[i].className.includes(dataliste[j].latitude)){
           oppdaterFav(dataliste[j]);
-          console.log("fant en favoritt");
-        }
-        else{
-          console.log("nope");
+          break;
         }
       }
     }
@@ -115,4 +101,6 @@ function leggTilFav(){
 
 function oppdaterFav(lekeplass){
   console.log(lekeplass.navn + "er lagt til som favoritt");
+  document.getElementById("favLekeplassId").value = lekeplass.id;
+  
 }

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
   <script type="text/javascript" src="js/geturl.js"></script>
-  <script type="text/javascript" src="js/lekeplasser.js"></script>
+  <script type="text/javascript" src="js/favoritt.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pattaya|Work+Sans">
   <title> Bergen </title>
@@ -18,7 +18,7 @@
       <a href="norgeRundt.html">Norge Rundt</a>
       <a href="lekeplasser.html">Lekeplasser</a>
       <a href="toalett.html">Toaletter</a>
-      <a href="minFavLekeplass.html"class="active">Min Favoritt Lekeplass</a>
+<!-- <a href="minFavLekeplass.html">Min Favoritt Lekeplass</a>-->
       <a href="#" class="search-container">
         <form action="/action_page.php">
             <input type="text" id="menuSearchbox" placeholder="Søk.." name="search">
@@ -33,30 +33,11 @@
   </div>
     <!--MENU END -->
     <div id="hovedDiv">
-      <h1 id="hovedOverskrift"> Favoritt lekeplass</h1>
-      <div class="scrollebar">
-        <table id="Lekeplasstabell">
-          <thead>
-            <th>ID</th>
-            <th>Navn</th>
-            <th>Latitude</th>
-            <th>Longitude</th>
-          </thead>
-          <tbody id="tableBody">
-          </tbody>
-        </table>
-      </div>
-      <div>
-        <br>
-        <h3>Mål avstanden mellom to lekeplasser:</h3>
-        <p>Skriv inn fullt navn eller id</p>
-        <div id="avstandsskjema">
-          <input type="text" placeholder="Lekeplass 1" id="plass1"></input>
-          <input type="text" placeholder="Lekeplass 2" id="plass2"></input>
-          <button type="button" id="regnUtAvstand">Regn ut</button>
-          <p id="avstanden"></p>
-        </div>
-      </div>
+      <h1 id="favOverskrift"> Favoritt lekeplass</h1>
+      <p id="firstP">Du har ikke noen favoritt lekeplass enda!</p>
+      <p id="seccondP"></p>
+
+
 
       <img src="media/floien.jpg" id="infobilde">
     </div>

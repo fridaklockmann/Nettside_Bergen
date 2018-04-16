@@ -45,7 +45,3 @@ function sjekkAvstand(coords1, coords2){
 function deg2rad(deg){
   return deg * (Math.PI/180)
 }
-
-function oppgave8(Datasett){
-
-}
