@@ -24,10 +24,6 @@ function loadData() {
     );
 }
 
-
-
-
-
 // Viser og skjuler avansert søk ved klikk
  function visSøk(){
     var knapp = document.getElementById("avansertSøkKnapp");

@@ -434,6 +434,26 @@ h3{
   padding-left: 10px;
 }
 
+/* NORGE RUNDT */
+
+#norgeRundtTabell{
+  width:100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 11px;
+  background-color: #f4f4f4;
+}
+
+#norgeRundtTabell th{
+  background-color: white;
+  color: #FF5D3F;
+}
+
+#norgeRundtTabell th, td, tr{
+  text-align: left;
+  padding: 10px;
+}
+
 
 /* FOOTER */
 .footer {

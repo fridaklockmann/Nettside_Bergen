@@ -44,43 +44,15 @@
           <div class="søkekolonne">
             <div><input id="kvinne" type="checkbox" class="checkbox">Kvinnlig hovedrolle</div>
             <div><input id="herre" type="checkbox" class="checkbox">Mannlig hovedrolle</div>
-            <div><input id="rullestol" type="checkbox" class="checkbox">Rullestoltilgang</div>
           </div>
           <div class="søkekolonne">
-            <div><input id="stellerom" type="checkbox" class="checkbox">Stellerom </div>
-            <div><input id="gratis" type="checkbox" class="checkbox">Gratis</div>
-            <div><input id="åpenNå" type="checkbox" class="checkbox">Åpen nå</div>
-          </div>
-          <div class="søkekolonne">
-            <div>Åpen <select id="åpen">
+            <div>Årstall<select id="årstall">
                 <option value="ikkeValgt">Velg</option>
-                <option value="0">00:00</option>
-                <option value="1">01:00</option>
-                <option value="2">02:00</option>
-                <option value="3">03:00</option>
-                <option value="4">04:00</option>
-                <option value="5">05:00</option>
-                <option value="6">06:00</option>
-                <option value="7">07:00</option>
-                <option value="8">08:00</option>
-                <option value="9">09:00</option>
-                <option value="10">10:00</option>
-                <option value="11">11:00</option>
-                <option value="12">12:00</option>
-                <option value="13">13:00</option>
-                <option value="14">14:00</option>
-                <option value="15">15:00</option>
-                <option value="16">16:00</option>
-                <option value="17">17:00</option>
-                <option value="18">18:00</option>
-                <option value="19">19:00</option>
-                <option value="20">20:00</option>
-                <option value="21">21:00</option>
-                <option value="22">22:00</option>
-                <option value="23">23:00</option>
-              </select></div>
-            <div><input id="makspris" type="text" class="toalettSøkeboks" placeholder="Makspris"></div>
-            <div><input id="søkAdresse" type="text" class="toalettSøkeboks" placeholder="Adresse"></div>
+              </select>
+            </div>
+            <div>
+              <input id="frisøk" type="text" class="toalettSøkeboks" placeholder="Frisøk">
+            </div>
           </div>
         </div><!-- end avansertsøk -->
         <div id=filterknapper>
@@ -88,13 +60,30 @@
           <button id="tilbakestillSøk">Fjern filter</button>
         </div>
     </div><!-- end bokstilsøk -->
-      <div id="norgerundtdatasett"></div>
+      <div class="scrollebar">
+        <table id=norgeRundtTabell>
+          <thead>
+            <tr>
+              <th>Link</th>
+              <th>Årstall</th>
+              <th>Sted</th>
+              <th>Tittel</th>
+              <th>Tema</th>
+              <th>Antrekk</th>
+              <th>Følelse</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+          </tbody>
+        </table>
+      </div>
+          <img src="media/norgeRundt.jpg" id="infobilde">
     </div>
-    <img src="media/norgeRundt.jpg" id="infobilde">
+
     <!-- End hovedDiv-->
 
     <footer class="footer">
-      <p>Redaktør: Malin Øien </p>
+      <p>Redaktør: Admin A. Adminsen </p>
       <p>Kontaktinformasjon:<a href="mailto:someone@example.com"> someone@example.com</a>.</p>
       <div class = "sosial">
         <a class="fa fa-snapchat-ghost" href="http://snapchat.com"></a>
