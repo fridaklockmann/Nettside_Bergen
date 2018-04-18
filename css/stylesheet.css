@@ -29,6 +29,51 @@ input[type=checkbox]{
   height: 20px;
   width: 20px;
 }
+#map {
+  height: 500px;
+  width: 100%;
+}
+
+.tabell{
+  width:100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 11px;
+  background-color: #f4f4f4;
+}
+
+.tabell th{
+  background-color: white;
+  color: #FF5D3F;
+}
+
+.tabell th, td, tr{
+  text-align: left;
+  padding: 10px;
+}
+
+.tabell tr:nth-child(even){
+  background-color: white;
+}
+
+.scrollebar{
+  width: 100%;
+  max-height: 600px;
+  overflow: scroll;
+  background-color: #f4f4f4;
+}
+.scrollebar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scrollebar::-webkit-scrollbar-thumb {
+  background-color: #FF5D3F;
+  border-radius: 10px;
+}
+.scrollebar::-webkit-scrollbar-corner{
+  background-color: #f4f4f4;
+}
+
 
 /*TOP NAVIGATION*/
 #topNav {
@@ -171,6 +216,7 @@ input[type=checkbox]{
 }
 
 /* COMMON END */
+
 /* INDEX */
 #forsidebilde {
   position: relative;
@@ -205,12 +251,9 @@ input[type=checkbox]{
   margin-right: 15px;
   padding: 10px;
 }
+*/
 
-#map {
-  height: 500px;
-  width: 100%;
-}
-
+/*
 .quizimg {
   border-radius: 50%;
   border: 1px solid #ddd;
@@ -230,12 +273,13 @@ input[type=checkbox]{
 }
 
 /* TOALETTER */
-#avansertSøk{
+#avansertSøk{ /* Common? */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-#boksTilSøk{
+
+#boksTilSøk{ /* Common? */
    display: none;
    flex-direction: column;
    justify-content: space-around;
@@ -243,7 +287,7 @@ input[type=checkbox]{
    padding-right: 20%;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 880px) { /* Common? */
   #boksTilSøk{
     padding-left: 0%;
     padding-right: 0%;
@@ -251,7 +295,7 @@ input[type=checkbox]{
 }
 
 /* søkeknapp */
-#avansertSøkKnapp{
+#avansertSøkKnapp{ /* Common? */
   background-color: #FF5D3F;
   color: white;
   font-size: 16px;
@@ -269,19 +313,19 @@ input[type=checkbox]{
   border: none;
 }
 
-.filterRad{
+.filterRad{ /* Common? */
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
-.søkekolonne{
+.søkekolonne{ /* Common? */
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 
-.toalettSøkeboks{
+.friSøk{ /* Common? */
   font-family: Lato;
   width: 100px;
   box-sizing: border-box;
@@ -291,7 +335,7 @@ input[type=checkbox]{
   padding: 5%;
 }
 
-#hurtigsøk{
+#hurtigsøk{ /* Common? */
   outline: none;
   margin: 4px 2px;
   height: 39px;
@@ -306,13 +350,13 @@ input[type=checkbox]{
   padding: 12px 20px 12px 40px;
 }
 
-#filterknapper{
+#filterknapper{ /* Common? */
   padding-top: 20px;
   display: flex;
   justify-content: space-around;
 }
 
-#filtrerSøk{
+#filtrerSøk{ /* Common? */
   background-color: #FF5D3F;
   color: white;
   font-size: 12px;
@@ -330,7 +374,7 @@ input[type=checkbox]{
   border: none;
 }
 
-#tilbakestillSøk{
+#tilbakestillSøk{ /* Common? */
   background-color: white;
   color: #FF5D3F;
   font-size: 12px;
@@ -352,48 +396,8 @@ input[type=checkbox]{
   font-family: "Lato", sans-serif;
 }
 
-.scrollebar{
-  width: 100%;
-  max-height: 600px;
-  overflow: scroll;
-  background-color: #f4f4f4;
-}
-.scrollebar::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-.scrollebar::-webkit-scrollbar-thumb {
-  background-color: #FF5D3F;
-  border-radius: 10px;
-}
-.scrollebar::-webkit-scrollbar-corner{
-  background-color: #f4f4f4;
-}
-
-#toalettTabell{
-  width:100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  font-size: 11px;
-  background-color: #f4f4f4;
-}
-
-#toalettTabell th{
-  background-color: white;
-  color: #FF5D3F;
-}
-
-#toalettTabell th, td, tr{
-  text-align: left;
-  padding: 10px;
-}
-
 #toalettTabell th:first-child{
   width: 3%;
-}
-
-#toalettTabell tr:nth-child(even){
-  background-color: white;
 }
 
 #toalettTabell th:nth-child(2),th:nth-child(3){
@@ -408,23 +412,7 @@ input[type=checkbox]{
   width: 5%;
 }
 
-@media screen and (max-width: 1300px) {
-  #toalettTabell{
-    font-size: 12px;
-  }
-}
-
-#ALLCAPS{
-  text-transform: capitalize;
-}
-
-
 /* LEKEPLASSER */
-
-#Lekeplasstabell th, td, tr{
-  text-align: left;
-  padding: 10px;
-}
 
 h3{
   padding-left: 10px;
@@ -435,24 +423,6 @@ h3{
 }
 
 /* NORGE RUNDT */
-
-#norgeRundtTabell{
-  width:100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  font-size: 11px;
-  background-color: #f4f4f4;
-}
-
-#norgeRundtTabell th{
-  background-color: white;
-  color: #FF5D3F;
-}
-
-#norgeRundtTabell th, td, tr{
-  text-align: left;
-  padding: 10px;
-}
 
 
 /* FOOTER */
@@ -479,6 +449,8 @@ h3{
   text-decoration: none;
 }
 
+/* MEDIAQUERIES FOR DIFFERENT SCREENS */
+
 /* media query for mobile */
 @media only screen and (max-width: 768px) {
   #flexcontainer{
@@ -493,7 +465,7 @@ h3{
   #avansertSøk{
     flex-direction: column;
   }
-  .toalettSøkeboks{
+  .friSøk{
     padding: 0%;
   }
   #filterknapper{
@@ -514,6 +486,9 @@ h3{
   #hurtigsøk{
     width: 100%;
   }
+  .fjerneMobil{
+    display: none;
+  }
 }
 
 /* media query for tablet */
@@ -527,7 +502,7 @@ h3{
   .filterRad{
     flex-direction: column-reverse;
   }
-  .toalettSøkeboks{
+  .friSøk{
     padding: 0%;
   }
   .footer{

@@ -21,7 +21,6 @@
       <a href="norgeRundt.html">Norge Rundt</a>
       <a href="lekeplasser.html">Lekeplasser</a>
       <a href="toalett.html"class="active">Toaletter</a>
-      <a href="minFavLekeplass.html">Min Favoritt Lekeplass</a>
       <a href="#" class="search-container">
         <form action="/action_page.php">
             <input type="text" id="menuSearchbox" placeholder="Søk.." name="search">
@@ -83,8 +82,8 @@
                 <option value="22">22:00</option>
                 <option value="23">23:00</option>
               </select></div>
-            <div><input id="makspris" type="text" class="toalettSøkeboks" placeholder="Makspris"></div>
-            <div><input id="søkAdresse" type="text" class="toalettSøkeboks" placeholder="Adresse"></div>
+            <div><input id="makspris" type="text" class="friSøk" placeholder="Makspris"></div>
+            <div><input id="søkAdresse" type="text" class="friSøk" placeholder="Adresse"></div>
           </div>
         </div><!-- end avansertsøk -->
         <div id=filterknapper>
@@ -96,7 +95,7 @@
       <br>
 
       <div class="scrollebar">
-        <table id=toalettTabell>
+        <table id=toalettTabell class="tabell">
           <thead>
           	<tr>
           	  <th>Id</th>

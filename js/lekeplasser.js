@@ -102,6 +102,6 @@ function leggTilFav(){
 
 function oppdaterFav(lekeplass){
   document.getElementById("favLekeplassId").value = lekeplass.id;
-  var hrefListe = document.getElementById("lekeplassLink");
-  hrefListe.href = "minFavLekeplass.html?favLekeplassId="+lekeplass.id;
+  var favLekeplassKnapp = document.getElementById("lekeplassLink");
+  favLekeplassKnapp.href = "minFavLekeplass.html?favLekeplassId="+lekeplass.id;
 }

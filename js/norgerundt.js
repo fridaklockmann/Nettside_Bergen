@@ -1,16 +1,19 @@
-var norgeRundtListe;
+var dataliste;
+var page = 103;
 window.onload = function(){
   loadData();
   hamburger();
   loadYears();
+  document.getElementById("navLeft").addEventListener("click", pageLeft);
+  document.getElementById("navRight").addEventListener("click", pageRight);
+  document.getElementById("sideVelger").addEventListener("change", goToChosenPage);
 }
 function loadData() {
-    var url = "https://hotell.difi.no/api/json/nrk/norge-rundt?";
+    var url = "https://hotell.difi.no/api/json/nrk/norge-rundt?page=" + page;
     promise = getURL(url);
     promise.then(
 	     function(response) {
           dataliste = JSON.parse(response).entries;
-          console.log(dataliste);
           loadFile();
           visSøk();
 	     }
@@ -31,9 +34,10 @@ function createElement(element) {
     var rekke = document.createElement("tr");
 
     // oppretter span-element for link
-    var link = document.createElement("td");
-    link.innerHTML = element.video_url;
-    rekke.appendChild(link);
+    var tittel = document.createElement("td");
+    var videolink = "<a href='" + element.video_url + "'>"+element.tittel+"</a>";
+    tittel.innerHTML = element.tittel;
+    rekke.appendChild(tittel);
 
     // oppretter span-element for årstall
     var årstall = document.createElement("td");
@@ -43,28 +47,24 @@ function createElement(element) {
     // oppretter span-element for sted
     var sted = document.createElement("td");
     sted.innerHTML = element.kommune;
+    sted.classList.add("fjerneMobil");
     rekke.appendChild(sted);
-
-    // oppretter span-element for tittel
-    var tittel = document.createElement("td");
-    tittel.innerHTML = element.tittel;
-    rekke.appendChild(tittel);
 
     // oppretter span-element for tema
     var tema = document.createElement("td");
     tema.innerHTML = element.tema;
+    tema.classList.add("fjerneMobil");
     rekke.appendChild(tema);
 
     // oppretter span-element for antrekk
     var antrekk = document.createElement("td");
     antrekk.innerHTML = element.antrekk;
+    antrekk.classList.add("fjerneMobil");
     rekke.appendChild(antrekk);
 
-    // oppretter span-element for følelse
-    var følelse = document.createElement("td");
-    følelse.innerHTML = element.folelse;
-    rekke.appendChild(følelse);
-
+    var link = document.createElement("td");
+    link.innerHTML = "<a href=" + element.video_url + "><a class='fa fa-external-link-square'></a> </a>";
+    rekke.appendChild(link);
     return rekke;
 };
 
@@ -95,4 +95,27 @@ function createElement(element) {
 }
   function skjemaSøk(){
     console.log("nå skal vi søke fra skjemaet");
+  }
+  function pageLeft(){
+    if(page != 1){
+      goToPage(page-1);
+    }
+  }
+  function pageRight(){
+    if(page < 103){
+      goToPage(page+1);
+    }
+  }
+  function goToChosenPage(){
+    var valgtSide = document.getElementById("sideVelger").value;
+    if(valgtSide<104&&valgtSide>0){
+      goToPage(valgtSide);
+    }
+  }
+  function goToPage(s){
+    page = s;
+    console.log(page);
+    document.getElementById("tableBody").innerHTML="";
+    document.getElementById("sideVelger").value = page;
+    loadData()
   }
