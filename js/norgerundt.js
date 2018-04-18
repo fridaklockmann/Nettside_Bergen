@@ -32,6 +32,7 @@ function loadYears() {
 
 function createElement(element) {
     var rekke = document.createElement("tr");
+    rekke.setAttribute("id", element.video_url);
 
     // oppretter span-element for link
     var tittel = document.createElement("td");
@@ -87,15 +88,13 @@ function createElement(element) {
       console.log("Finner ikke elementet 'avansertSøkKnapp'");
     }
     //gir filtrerknappen funksjon
-    var filtrerSøkKnapp = document.getElementById("filtrerSøk");
-    filtrerSøkKnapp.addEventListener("click", skjemaSøk);
+    document.getElementById("filtrerSøk").addEventListener("click",filtrerSøk);
+    document.getElementById("tilbakestillSøk").addEventListener("click",tilbakesillSøk);
     //gir fjern-filter-knappen funksjon
     document.getElementById("tilbakestillSøk").addEventListener("click", tilbakestillSøk);
 
-}
-  function skjemaSøk(){
-    console.log("nå skal vi søke fra skjemaet");
   }
+
   function pageLeft(){
     if(page != 1){
       goToPage(page-1);
@@ -119,3 +118,24 @@ function createElement(element) {
     document.getElementById("sideVelger").value = page;
     loadData()
   }
+function filtrerSøk(){
+  var kvinnligHovedrolle = document.getElementById("kvinne").checked;
+  var mannligHovedrolle = document.getElementById("herre").checked;
+  var årsall = document.getElementById("årstall").value;
+  var frisøk = document.getElementById("frisøk").value;
+
+  for(var i = 0; i<dataliste.length; i++){
+
+    if(kvinnligHovedrolle){
+      if(dataliste[i].hovedperson1_kjonn != "Kvinne"){
+        document.getElementById(dataliste[i].video_url).style.display = "none";
+      }else{
+        console.log(dataliste[i].tittel+" Har kvinnelig hovedrolle");
+      }
+    }
+  }
+  console.log("filtrere");
+}
+function tilbakesillSøk() {
+ console.log("tilbakestiller");
+}
