@@ -82,7 +82,6 @@ function initMap() {
 
 function setMarker(i){
   //Finner geoLocations for punktet på tabellen
-  console.log(dataliste[i]);
   var toalettPosisjon = {
     lat: parseFloat(dataliste[i].latitude),
     lng: parseFloat(dataliste[i].longitude)
@@ -92,7 +91,7 @@ function setMarker(i){
   var bergen = new google.maps.Marker({
     position: toalettPosisjon,
     map: map,
-    label: i.toString(),
+    label: (i+1).toString(),
     title: dataliste[i].plassering
   });
   //Lagrer markørene i Array
@@ -235,16 +234,14 @@ function avansertSøk(searchCriteria){
       // fjerner alle toaletter uten herretoalett fra listen
       if(dataliste[i].herre < 1 || dataliste[i].herre == "NULL" && dataliste[i].pissoir_only != 1){
         document.getElementById(dataliste[i].id).style.display = "none";
-        //fjerner markørene til disse toalettene
-        markerArray[dataliste[i].id-1].setMap(null);
+
       }
     }
     if(stelleromSøk){
       // fjerner alle toaletter uten stellerom fra listen
       if(dataliste[i].stellerom < 1 || dataliste[i].stellerom == "NULL"){
         document.getElementById(dataliste[i].id).style.display = "none";
-        //fjerner markørene til disse toalettene
-        markerArray[dataliste[i].id-1].setMap(null);
+
       }
     }
     if(gratisSøk){
@@ -301,20 +298,14 @@ function avansertSøk(searchCriteria){
         if (nu != null){
           if(nu < parseInt(tider[0]) || nu > parseInt(tider[1])){
             document.getElementById(dataliste[i].id).style.display = "none";
-            //fjerner markørene til disse toalettene
-            markerArray[dataliste[i].id-1].setMap(null);
           }
         }else{
             if(time < parseInt(tider[0]) || time >= parseInt(tider[1])){
               document.getElementById(dataliste[i].id).style.display = "none";
-              //fjerner markørene til disse toalettene
-              markerArray[dataliste[i].id-1].setMap(null);
             }
         }
     }else if(tid_dagtype=="NULL"){
       document.getElementById(dataliste[i].id).style.display = "none";
-      //fjerner markørene til disse toalettene
-      markerArray[dataliste[i].id-1].setMap(null);
     }
   }//end sjekkÅpningstid
     if(maxPrisSøk!=""){
@@ -324,8 +315,6 @@ function avansertSøk(searchCriteria){
     function slettToaletterOverPrisen(maxpris){
       if(dataliste[i].pris > maxpris && dataliste[i].pris!= "NULL"){
         document.getElementById(dataliste[i].id).style.display = "none";
-        //fjerner markørene til disse toalettene
-        markerArray[dataliste[i].id-1].setMap(null);
       }
     }
 
@@ -380,8 +369,9 @@ function setNewMarkers(){
   var htmlListe = document.getElementById("tableBody").childNodes;
   for(var i = 1; i<htmlListe.length; i++){
     if(htmlListe[i].style.display!= "none"){
-      correctLabel++;
       setMarker(correctLabel);
+      correctLabel++;
     }
   }
+  correctLabel=0;
 }
