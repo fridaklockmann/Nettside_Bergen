@@ -6,6 +6,7 @@ window.onload = function(){
   loadData();
 
 };
+
 var correctLabel = 0;
 var dataliste="";
 
@@ -33,22 +34,22 @@ function loadData() {
         var avansert = document.getElementById("boksTilSøk");
         if (avansert.style.display === "flex") {
           avansert.style.display = "none";
-          knapp.innerHTML='Vis filtrering  <a class="fa fa-sort-desc"></a>';
+          knapp.innerHTML = 'Vis filtrering <a class="fa fa-sort-desc"></a>';
         } else {
           avansert.style.display = "flex";
-          knapp.innerHTML='Skjul filtrering <a class="fa fa-sort-asc"></a>';
+          knapp.innerHTML = 'Skjul filtrering <a class="fa fa-sort-asc"></a>';
         }
       });
     }
     else {
       console.log("Finner ikke elementet 'avansertSøkKnapp'");
     }
-    //gir filtrerknappen funksjon
+    //Gir filtrerknappen funksjon
     var filtrerSøkKnapp = document.getElementById("filtrerSøk");
     filtrerSøkKnapp.addEventListener("click", skjemaSøk);
-    //gir fjern-filter-knappen funksjon
+    //Gir fjern-filter-knappen funksjon
     document.getElementById("tilbakestillSøk").addEventListener("click", tilbakestillSøk);
-    //gir hurtigsøk en funksjon
+    //Gir hurtigsøk en funksjon
     document.getElementById("hurtigsøk").addEventListener("keypress", function(e){
       var key = e.which || e.keyCode;
       if (key == 13){
@@ -56,45 +57,49 @@ function loadData() {
       }
     });
 }
-//Array til å lagte markørene i
+var map = "";
+
+//Array til å lagre markørene i
 var markerArray = [];
 function initMap() {
-  if(dataliste!=""){
+  if(dataliste != ""){
     var bergen = {
       lat: 60.39299,
       lng: 5.327455
     };
-    //lager kart med sentrum i Bergen
-    var map = new google.maps.Map(document.getElementById('map'), {
+    //Lager kart med Bergen i sentrum
+    map = new google.maps.Map(document.getElementById('map'), {
       zoom: 15,
       center: bergen
     });
 
-    //lager punkter på kartet.
+    //Lager punkter på kartet
     for(var i = 0; i < Object.keys(dataliste).length; i++){
-
-      //finner geoLocations for punktet på tabellen
-      var toalettPosisjon = {
-        lat: parseFloat(dataliste[i].latitude),
-        lng: parseFloat(dataliste[i].longitude)
-      };
-
-      //Setter markør på kartet
-      var riktigLabel = getCorrectLabel(i);
-      var bergen = new google.maps.Marker({
-        position: toalettPosisjon,
-        map: map,
-        label: riktigLabel.toString(),
-        title: 'Toalett nummer: ' + dataliste[i].id
-      });
-      //lagrer markørene i Array
-      markerArray[i]=bergen;
+      setMarker(i);
     }
   }
+} //End initMap
 
-} //end initMap
+function setMarker(i){
+  //Finner geoLocations for punktet på tabellen
+  console.log(dataliste[i]);
+  var toalettPosisjon = {
+    lat: parseFloat(dataliste[i].latitude),
+    lng: parseFloat(dataliste[i].longitude)
+  };
 
-//legger til elementer i tabellen
+  //Setter markør på kartet
+  var bergen = new google.maps.Marker({
+    position: toalettPosisjon,
+    map: map,
+    label: i.toString(),
+    title: dataliste[i].plassering
+  });
+  //Lagrer markørene i Array
+  markerArray[i]=bergen;
+}
+
+//Legger til elementer i tabellen
 function createElement(element) {
   var listItem = document.createElement("li");
   listItem.classList.add("toalett");
@@ -106,100 +111,6 @@ function createElement(element) {
   listChild.appendChild(listAdresse);
   listItem.appendChild(listChild);
   return listItem;
-  /*
-    var rekke = document.createElement("tr");
-    rekke.classList.add("toalett");
-    rekke.setAttribute("id", element.id);
-
-    // oppretter span-element for id
-    var id = document.createElement("td");
-    id.classList.add("id");
-    id.innerHTML = element.id;
-    rekke.appendChild(id);
-
-    // oppretter span-element for plassering
-    var plassering = document.createElement("td");
-    plassering.classList.add("plassering");
-    plassering.innerHTML = element.plassering;
-    rekke.appendChild(plassering);
-
-    // oppretter span-element for adresse
-    var adresse = document.createElement("td");
-    adresse.classList.add("adresse");
-    adresse.innerHTML = element.adresse;
-    rekke.appendChild(adresse);
-
-    // oppretter span-element for pris
-    var pris = document.createElement("td");
-    pris.classList.add("pris");
-    pris.innerHTML = element.pris;
-    if(pris.innerHTML == "NULL") pris.innerHTML = "0";
-    rekke.appendChild(pris);
-
-    // oppretter span-element for tid hverdag
-    var tid_hverdag = document.createElement("td");
-    tid_hverdag.classList.add("tid_hverdag");
-    tid_hverdag.innerHTML = element.tid_hverdag;
-    if(tid_hverdag.innerHTML == "ALL") tid_hverdag.innerHTML = "Døgnåpen";
-    rekke.appendChild(tid_hverdag);
-
-    // oppretter span-element for tid_lørdag
-    var tid_lørdag = document.createElement("td");
-    tid_lørdag.classList.add("tid_lørdag");
-    tid_lørdag.innerHTML = element.tid_lordag;
-    if(tid_lørdag.innerHTML == "NULL") tid_lørdag.innerHTML = "-";
-    if(tid_lørdag.innerHTML == "ALL") tid_lørdag.innerHTML = "Døgnåpen";
-    rekke.appendChild(tid_lørdag);
-
-    // oppretter span-element for tid_søndag
-    var tid_søndag = document.createElement("td");
-    tid_søndag.classList.add("tid_søndag");
-    tid_søndag.innerHTML = element.tid_sondag;
-    if(tid_søndag.innerHTML == "NULL") tid_søndag.innerHTML = "-";
-    if(tid_søndag.innerHTML == "ALL") tid_søndag.innerHTML = "Døgnåpen";
-    rekke.appendChild(tid_søndag);
-
-  //Her har vi også muligheten til å legge inn kjønn i tabellen
- // oppretter span-element for dame
-    var dame = document.createElement("td");
-    dame.classList.add("dame");
-    dame.innerHTML = element.dame;
-    rekke.appendChild(dame);
-
-    // oppretter span-element for herre
-    var herre = document.createElement("td");
-    herre.classList.add("herre");
-    herre.innerHTML = element.herre;
-    rekke.appendChild(herre);
-
-
-    // oppretter span-element for rullestol
-    var rullestol = document.createElement("td");
-    rullestol.classList.add("dame");
-    rullestol.innerHTML = element.rullestol;
-    if(rullestol.innerHTML == "NULL" || rullestol.innerHTML == "") rullestol.innerHTML = "-";
-    if(rullestol.innerHTML == "1") rullestol.innerHTML = "Ja";
-    rekke.appendChild(rullestol);
-
-    // oppretter span-element for stellerom
-    var stellerom = document.createElement("td");
-    stellerom.classList.add("stellerom");
-    stellerom.innerHTML = element.stellerom;
-    if(stellerom.innerHTML == "NULL") stellerom.innerHTML = "-";
-    if(stellerom.innerHTML == "1") stellerom.innerHTML = "Ja";
-    rekke.appendChild(stellerom);
-
-    // oppretter span-element for pissoir_only
-    var pissoir_only = document.createElement("td");
-    pissoir_only.classList.add("pissoir_only");
-    pissoir_only.innerHTML = element.pissoir_only;
-    if(pissoir_only.innerHTML == "NULL") pissoir_only.innerHTML = "-";
-    if(pissoir_only.innerHTML == "1") pissoir_only.innerHTML = "Ja";
-    rekke.appendChild(pissoir_only);
-
-    return rekke;
-    */
-
 };
 
 //Dette er søkeobjektet vårt
@@ -267,12 +178,10 @@ function hurtigSøk(){
       if(splittet[i][0] == "åpent"){
         searchCriteria.åpenSøk = splittet[i][1];
         document.getElementById("åpen").value = splittet[i][1];
-
       }
-
     }
     avansertSøk(searchCriteria);
-    if(hSøk==""){
+    if(hSøk==""||hSøk==" "){
       tilbakestillSøk();
     }
   }
@@ -292,7 +201,6 @@ function skjemaSøk(){
   avansertSøk(searchCriteria);
 }
 
-
 //Avansert søk!
 function avansertSøk(searchCriteria){
  var kvinneSøk=searchCriteria.kvinneSøk;
@@ -305,24 +213,22 @@ function avansertSøk(searchCriteria){
  var åpenSøk = searchCriteria.åpenSøk;
  var adresseSøk = searchCriteria.adresseSøk;
 
-
-  //Går igjennom hele listen
-  for(var i = 0; i < Object.keys(dataliste).length; i++){
-    //Hvis rullestol er huket av
-    if(rullestolSøk){
-      // fjerner alle toaletter uten rullesotltilgang fra listen
-      if(dataliste[i].rullestol < 1 || dataliste[i].rullestol == "NULL"){
-        document.getElementById(dataliste[i].id).style.display = "none";
-        //fjerner markørene til disse toalettene
-        markerArray[dataliste[i].id-1].setMap(null);
+ //Går igjennom hele listen
+ for(var i = 0; i < Object.keys(dataliste).length; i++){
+  //Fjerner markørene til alle toalettene
+  markerArray[dataliste[i].id-1].setMap(null);
+  //Hvis rullestol er huket av
+  if(rullestolSøk){
+    //Fjerner alle toaletter uten rullesotltilgang fra listen
+    if(dataliste[i].rullestol < 1 || dataliste[i].rullestol == "NULL"){
+      document.getElementById(dataliste[i].id).style.display = "none";
       }
     }
-    if(kvinneSøk){
-      // fjerner alle toaletter uten dametoalett fra listen
-      if(dataliste[i].dame < 1 || dataliste[i].dame == "NULL"){
-        document.getElementById(dataliste[i].id).style.display = "none";
-        //fjerner markørene til disse toalettene
-        markerArray[dataliste[i].id-1].setMap(null);
+  if(kvinneSøk){
+    // Fjerner alle toaletter uten dametoalett fra listen
+    if(dataliste[i].dame < 1 || dataliste[i].dame == "NULL"){
+      document.getElementById(dataliste[i].id).style.display = "none";
+      //Fjerner markørene til disse toalettene
       }
     }
     if(herreSøk){
@@ -436,7 +342,9 @@ function avansertSøk(searchCriteria){
       }
     }
   }//end adressesøk
+
   }
+    setNewMarkers();
 }//end avansert søk.
 function tilbakestillSøk(){
   for (var i = 0; i < dataliste.length; i++) {
@@ -449,7 +357,7 @@ function tilbakestillSøk(){
     searchCriteria.maxPrisSøk="",
     searchCriteria.åpenSøk="ikkeValgt",
     searchCriteria.adresseSøk=""
-    document.getElementById(dataliste[i].id).style.display = "table-row";
+    document.getElementById(dataliste[i].id).style.display = "list-item";
     initMap();
     fjernAlleChecked();
 
@@ -464,15 +372,16 @@ function fjernAlleChecked(){
   document.getElementById("åpenNå").checked = false;
   document.getElementById("makspris").value = "";
   document.getElementById("søkAdresse").value = "";
+  document.getElementById("hurtigsøk").value= "";
 
 }
-function getCorrectLabel(i){
+
+function setNewMarkers(){
   var htmlListe = document.getElementById("tableBody").childNodes;
-  if(i<htmlListe.length){
-    console.log(htmlListe[i+1].style)
-    if(htmlListe[i+1].style.display!= "none"){
+  for(var i = 1; i<htmlListe.length; i++){
+    if(htmlListe[i].style.display!= "none"){
       correctLabel++;
-      return correctLabel;
+      setMarker(correctLabel);
     }
   }
 }

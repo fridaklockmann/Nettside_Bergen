@@ -8,6 +8,7 @@ window.onload = function(){
   document.getElementById("navRight").addEventListener("click", pageRight);
   document.getElementById("sideVelger").addEventListener("change", goToChosenPage);
 }
+
 function loadData() {
     var url = "https://hotell.difi.no/api/json/nrk/norge-rundt?page=" + page;
     promise = getURL(url);
@@ -32,6 +33,7 @@ function loadYears() {
 
 function createElement(element) {
     var rekke = document.createElement("tr");
+    var episode_id = element.video_url + element.tittel;
     rekke.setAttribute("id", element.video_url);
 
     // oppretter span-element for link
@@ -70,7 +72,7 @@ function createElement(element) {
 };
 
 // Viser og skjuler avansert søk ved klikk
- function visSøk(){
+function visSøk(){
     var knapp = document.getElementById("avansertSøkKnapp");
     if(knapp){
       knapp.addEventListener("click", function(){
@@ -92,50 +94,53 @@ function createElement(element) {
     document.getElementById("tilbakestillSøk").addEventListener("click",tilbakesillSøk);
     //gir fjern-filter-knappen funksjon
     document.getElementById("tilbakestillSøk").addEventListener("click", tilbakestillSøk);
+}
 
-  }
-
-  function pageLeft(){
+function pageLeft(){
     if(page != 1){
       goToPage(page-1);
     }
-  }
-  function pageRight(){
+}
+function pageRight(){
     if(page < 103){
       goToPage(page+1);
     }
-  }
-  function goToChosenPage(){
+}
+function goToChosenPage(){
     var valgtSide = document.getElementById("sideVelger").value;
     if(valgtSide<104&&valgtSide>0){
       goToPage(valgtSide);
     }
-  }
-  function goToPage(s){
+}
+function goToPage(s){
     page = s;
     console.log(page);
     document.getElementById("tableBody").innerHTML="";
     document.getElementById("sideVelger").value = page;
     loadData()
-  }
+}
+
 function filtrerSøk(){
-  var kvinnligHovedrolle = document.getElementById("kvinne").checked;
+  var kvinneligHovedrolle = document.getElementById("kvinne").checked;
   var mannligHovedrolle = document.getElementById("herre").checked;
   var årsall = document.getElementById("årstall").value;
   var frisøk = document.getElementById("frisøk").value;
 
-  for(var i = 0; i<dataliste.length; i++){
+  for(var i = 0; i < dataliste.length; i++){
 
-    if(kvinnligHovedrolle){
+    if(kvinneligHovedrolle == true){
       if(dataliste[i].hovedperson1_kjonn != "Kvinne"){
+        console.log("denne har ikke kvinnelig hovedrolle, så denne må fjernes");
+        console.log(document.getElementById(dataliste[i].video_url));
         document.getElementById(dataliste[i].video_url).style.display = "none";
       }else{
-        console.log(dataliste[i].tittel+" Har kvinnelig hovedrolle");
+        console.log(dataliste[i].tittel + " Har kvinnelig hovedrolle");
       }
     }
   }
   console.log("filtrere");
 }
+
 function tilbakesillSøk() {
  console.log("tilbakestiller");
 }

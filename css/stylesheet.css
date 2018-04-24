@@ -156,8 +156,8 @@ input[type=checkbox]{
 }
 
 .change .bar3 {
-    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
-    transform: rotate(45deg) translate(-8px, -8px) ;
+  -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+  transform: rotate(45deg) translate(-8px, -8px) ;
 }
 
 #topNav a:first-child {
@@ -225,43 +225,6 @@ input[type=checkbox]{
   width: 100%;
 }
 
-/* QUIZ */
-/*
-#quizer{
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-.quizrad{
-  display: flex;
-  flex-direction: column;
-  justify-content:space-around;
-}
-
-@media screen and (min-width: 700px) {
-  .quizrad{
-      flex-direction: row;
-  }
-}
-
-.quiztext {
-  width: 250px;
-  margin-left: 15px;
-  margin-right: 15px;
-  padding: 10px;
-}
-*/
-
-/*
-.quizimg {
-  border-radius: 50%;
-  border: 1px solid #ddd;
-  border-image: 50 round;
-  width: 250px;
-}
-*/
-
 /* INFORMASJON */
 
 #infobilde {
@@ -280,11 +243,11 @@ input[type=checkbox]{
 }
 
 #boksTilSøk{ /* Common? */
-   display: none;
-   flex-direction: column;
-   justify-content: space-around;
-   padding-left: 20%;
-   padding-right: 20%;
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 20%;
+  padding-right: 20%;
 }
 
 @media screen and (max-width: 880px) { /* Common? */
@@ -292,6 +255,11 @@ input[type=checkbox]{
     padding-left: 0%;
     padding-right: 0%;
   }
+}
+
+#tableBody{
+  height: 200px;
+  font-family: "Lato", sans-serif;
 }
 
 /* søkeknapp */
