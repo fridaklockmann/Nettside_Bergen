@@ -75,12 +75,12 @@ function initMap() {
 
     //Lager punkter på kartet
     for(var i = 0; i < Object.keys(dataliste).length; i++){
-      setMarker(i);
+      setMarker(i,i);
     }
   }
 } //End initMap
 
-function setMarker(i){
+function setMarker(i,label){
   //Finner geoLocations for punktet på tabellen
   var toalettPosisjon = {
     lat: parseFloat(dataliste[i].latitude),
@@ -91,7 +91,7 @@ function setMarker(i){
   var bergen = new google.maps.Marker({
     position: toalettPosisjon,
     map: map,
-    label: (i+1).toString(),
+    label: (label+1).toString(),
     title: dataliste[i].plassering
   });
   //Lagrer markørene i Array
@@ -369,7 +369,7 @@ function setNewMarkers(){
   var htmlListe = document.getElementById("tableBody").childNodes;
   for(var i = 1; i<htmlListe.length; i++){
     if(htmlListe[i].style.display!= "none"){
-      setMarker(correctLabel);
+      setMarker((i-1),correctLabel);
       correctLabel++;
     }
   }
