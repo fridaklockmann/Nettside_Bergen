@@ -6,6 +6,7 @@ window.onload = function(){
   loadData();
 
 };
+var correctLabel = 0;
 var dataliste="";
 
 function loadData() {
@@ -79,10 +80,11 @@ function initMap() {
       };
 
       //Setter markør på kartet
+      var riktigLabel = getCorrectLabel(i);
       var bergen = new google.maps.Marker({
         position: toalettPosisjon,
         map: map,
-        label: dataliste[i].id,
+        label: riktigLabel.toString(),
         title: 'Toalett nummer: ' + dataliste[i].id
       });
       //lagrer markørene i Array
@@ -94,6 +96,17 @@ function initMap() {
 
 //legger til elementer i tabellen
 function createElement(element) {
+  var listItem = document.createElement("li");
+  listItem.classList.add("toalett");
+  listItem.setAttribute("id", element.id);
+  listItem.innerHTML = element.plassering;
+  var listChild = document.createElement("ul");
+  var listAdresse = document.createElement("li");
+  listAdresse.innerHTML = element.adresse;
+  listChild.appendChild(listAdresse);
+  listItem.appendChild(listChild);
+  return listItem;
+  /*
     var rekke = document.createElement("tr");
     rekke.classList.add("toalett");
     rekke.setAttribute("id", element.id);
@@ -147,7 +160,7 @@ function createElement(element) {
     rekke.appendChild(tid_søndag);
 
   //Her har vi også muligheten til å legge inn kjønn i tabellen
-  /*  // oppretter span-element for dame
+ // oppretter span-element for dame
     var dame = document.createElement("td");
     dame.classList.add("dame");
     dame.innerHTML = element.dame;
@@ -159,7 +172,6 @@ function createElement(element) {
     herre.innerHTML = element.herre;
     rekke.appendChild(herre);
 
-    */
 
     // oppretter span-element for rullestol
     var rullestol = document.createElement("td");
@@ -186,6 +198,8 @@ function createElement(element) {
     rekke.appendChild(pissoir_only);
 
     return rekke;
+    */
+
 };
 
 //Dette er søkeobjektet vårt
@@ -438,6 +452,7 @@ function tilbakestillSøk(){
     document.getElementById(dataliste[i].id).style.display = "table-row";
     initMap();
     fjernAlleChecked();
+
   }
 }
 function fjernAlleChecked(){
@@ -449,4 +464,15 @@ function fjernAlleChecked(){
   document.getElementById("åpenNå").checked = false;
   document.getElementById("makspris").value = "";
   document.getElementById("søkAdresse").value = "";
+
+}
+function getCorrectLabel(i){
+  var htmlListe = document.getElementById("tableBody").childNodes;
+  if(i<htmlListe.length){
+    console.log(htmlListe[i+1].style)
+    if(htmlListe[i+1].style.display!= "none"){
+      correctLabel++;
+      return correctLabel;
+    }
+  }
 }
