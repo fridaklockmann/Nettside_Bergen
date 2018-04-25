@@ -1,5 +1,5 @@
 var dataliste;
-var page = 103;
+var page = 1;
 window.onload = function(){
   loadData();
   hamburger();
@@ -10,11 +10,12 @@ window.onload = function(){
 }
 
 function loadData() {
-    var url = "https://hotell.difi.no/api/json/nrk/norge-rundt?page=" + page;
+    var url = "https://hotell.difi.no/api/json/nrk/norge-rundt?page="+page+"&kommune=Bergen";
     promise = getURL(url);
     promise.then(
 	     function(response) {
           dataliste = JSON.parse(response).entries;
+          addIdsToEntries();
           loadFile();
           visSøk();
 	     }
@@ -22,6 +23,13 @@ function loadData() {
 	     function(reason) { alert("FEIL: " + reason);}
     );
 }
+
+function addIdsToEntries(){
+  for(var i = 0; i < dataliste.length; i++){
+    dataliste[i].id = i;
+  }
+}
+
 function loadYears() {
   var selector = document.getElementById("årstall");
   for(var i = 1975; i < 2019; i++){
@@ -33,8 +41,7 @@ function loadYears() {
 
 function createElement(element) {
     var rekke = document.createElement("tr");
-    var episode_id = element.video_url + element.tittel;
-    rekke.setAttribute("id", element.video_url);
+    rekke.setAttribute("id", element.id);
 
     // oppretter span-element for link
     var tittel = document.createElement("td");
@@ -46,12 +53,6 @@ function createElement(element) {
     var årstall = document.createElement("td");
     årstall.innerHTML = element.aar;
     rekke.appendChild(årstall);
-
-    // oppretter span-element for sted
-    var sted = document.createElement("td");
-    sted.innerHTML = element.kommune;
-    sted.classList.add("fjerneMobil");
-    rekke.appendChild(sted);
 
     // oppretter span-element for tema
     var tema = document.createElement("td");
@@ -66,7 +67,7 @@ function createElement(element) {
     rekke.appendChild(antrekk);
 
     var link = document.createElement("td");
-    link.innerHTML = "<a href=" + element.video_url + "><a class='fa fa-external-link-square'></a> </a>";
+    link.innerHTML = "<a href=" + element.video_url + " target='_blank'><i class='fa fa-external-link-square'></i> </a>";
     rekke.appendChild(link);
     return rekke;
 };
@@ -79,10 +80,10 @@ function visSøk(){
         var avansert = document.getElementById("boksTilSøk");
         if (avansert.style.display === "flex") {
           avansert.style.display = "none";
-          knapp.innerHTML='Vis filtrering  <a class="fa fa-sort-desc"></a>';
+          knapp.innerHTML='Vis filtrering  <i class="fa fa-sort-desc"></i>';
         } else {
           avansert.style.display = "flex";
-          knapp.innerHTML='Skjul filtrering <a class="fa fa-sort-asc"></a>';
+          knapp.innerHTML='Skjul filtrering <i class="fa fa-sort-asc"></i>';
         }
       });
     }
@@ -102,8 +103,8 @@ function pageLeft(){
     }
 }
 function pageRight(){
-    if(page < 103){
-      goToPage(page+1);
+    if(page <= 7){
+      goToPage(page + 1);
     }
 }
 function goToChosenPage(){
@@ -123,24 +124,54 @@ function goToPage(s){
 function filtrerSøk(){
   var kvinneligHovedrolle = document.getElementById("kvinne").checked;
   var mannligHovedrolle = document.getElementById("herre").checked;
-  var årsall = document.getElementById("årstall").value;
+  var årstall = document.getElementById("årstall").value;
   var frisøk = document.getElementById("frisøk").value;
 
   for(var i = 0; i < dataliste.length; i++){
 
     if(kvinneligHovedrolle == true){
       if(dataliste[i].hovedperson1_kjonn != "Kvinne"){
-        console.log("denne har ikke kvinnelig hovedrolle, så denne må fjernes");
-        console.log(document.getElementById(dataliste[i].video_url));
-        document.getElementById(dataliste[i].video_url).style.display = "none";
-      }else{
-        console.log(dataliste[i].tittel + " Har kvinnelig hovedrolle");
+        document.getElementById(dataliste[i].id).style.display = "none";
+      }
+    }
+    if(mannligHovedrolle == true){
+      if(dataliste[i].hovedperson1_kjonn != "Mann"){
+        document.getElementById(dataliste[i].id).style.display = "none";
+      }
+    }
+    if(årstall <= 2018 && årstall >= 1976){
+      if(dataliste[i].aar != årstall){
+        document.getElementById(dataliste[i].id).style.display="none";
+      }
+    }
+    if(frisøk){
+      frisøk = frisøk.toUpperCase();
+      for(var i = 0; i < dataliste.length; i++){
+        var søk = dataliste[i].tittel.toUpperCase();
+        if(søk.includes(frisøk) ||
+          dataliste[i].tema.toUpperCase().includes(frisøk) ||
+          dataliste[i].antrekk.toUpperCase().includes(frisøk)){
+        //Gjør ingenting - beholder elementene i listen
+        }
+        else{
+          document.getElementById(dataliste[i].id).style.display = "none";
+        }
       }
     }
   }
-  console.log("filtrere");
-}
+}//End filtrersøk
 
 function tilbakesillSøk() {
  console.log("tilbakestiller");
+ for (var i = 0; i < dataliste.length; i++) {
+   document.getElementById(dataliste[i].id).style.display = "table-row";
+   fjernAlleChecked();
+ }
+}
+
+function fjernAlleChecked(){
+document.getElementById("kvinne").checked = false;
+document.getElementById("herre").checked = false;
+document.getElementById("frisøk").value= "";
+
 }

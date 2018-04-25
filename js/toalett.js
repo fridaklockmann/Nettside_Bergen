@@ -34,10 +34,10 @@ function loadData() {
         var avansert = document.getElementById("boksTilSøk");
         if (avansert.style.display === "flex") {
           avansert.style.display = "none";
-          knapp.innerHTML = 'Vis filtrering <a class="fa fa-sort-desc"></a>';
+          knapp.innerHTML = 'Vis filtrering <i class="fa fa-sort-desc"></i>';
         } else {
           avansert.style.display = "flex";
-          knapp.innerHTML = 'Skjul filtrering <a class="fa fa-sort-asc"></a>';
+          knapp.innerHTML = 'Skjul filtrering <i class="fa fa-sort-asc"></i>';
         }
       });
     }
@@ -103,12 +103,12 @@ function createElement(element) {
   var listItem = document.createElement("li");
   listItem.classList.add("toalett");
   listItem.setAttribute("id", element.id);
-  listItem.innerHTML = element.plassering;
-  var listChild = document.createElement("ul");
-  var listAdresse = document.createElement("li");
-  listAdresse.innerHTML = element.adresse;
-  listChild.appendChild(listAdresse);
-  listItem.appendChild(listChild);
+  listItem.innerHTML = element.plassering.charAt(0).toUpperCase() + element.plassering.slice(1).toLowerCase();
+  //var listChild = document.createElement("ul");
+  //var listAdresse = document.createElement("li");
+  //listAdresse.innerHTML = element.adresse;
+//  listChild.appendChild(listAdresse);
+//  listItem.appendChild(listChild);
   return listItem;
 };
 

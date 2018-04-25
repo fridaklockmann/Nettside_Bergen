@@ -9,7 +9,9 @@ p {
   padding-left: 10px;
   padding-right: 10px;
 }
-
+a {
+  color: black;
+}
 @font-face {
   font-family: "Lato";
   src: url("Lato-Regular.otf");
@@ -29,6 +31,7 @@ input[type=checkbox]{
   height: 20px;
   width: 20px;
 }
+
 #map {
   height: 500px;
   width: 100%;
@@ -44,7 +47,7 @@ input[type=checkbox]{
 
 .tabell th{
   background-color: white;
-  color: #FF5D3F;
+  color: #FF7c4c;
 }
 
 .tabell th, td, tr{
@@ -258,9 +261,16 @@ input[type=checkbox]{
 }
 
 #tableBody{
-  height: 200px;
   font-family: "Lato", sans-serif;
+  -moz-column-count: 2;
+  -moz-column-gap: 100px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 100px;
+  column-count: 2;
+  column-gap: 100px;
+  margin: auto;
 }
+
 
 /* søkeknapp */
 #avansertSøkKnapp{ /* Common? */
@@ -391,7 +401,29 @@ h3{
 }
 
 /* NORGE RUNDT */
+#norgeRundtTabell th:nth-child(1){
+  width: 40%;
+}
 
+#norgeRundtTabell th:nth-child(2){
+  width: 2%;
+}
+
+#norgeRundtTabell th:nth-child(3){
+  width: 20%;
+}
+
+#norgeRundtTabell th:nth-child(4){
+  width: 20%;
+}
+
+#norgeRundtTabell th:nth-child(5){
+  width: 8%;
+}
+
+#norgeRundtTabell td:nth-child(5){
+  text-align: center;
+}
 
 /* FOOTER */
 .footer {
@@ -424,6 +456,16 @@ h3{
   #flexcontainer{
     width: 100%;
   }
+
+  #tableBody{
+    font-family: "Lato", sans-serif;
+    -moz-column-count: 1;
+    -webkit-column-count: 1;
+    column-count: 1;
+    margin: 0;
+
+  }
+
   #hovedDiv{
     width: 100%;
   }
