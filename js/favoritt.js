@@ -1,4 +1,4 @@
-var lekeplassliste="ikke oppdatert";
+var dataliste="ikke oppdatert";
 var toalettliste="ikke oppdatert";
 var link ="";
 var dataTeller = 0;
@@ -6,6 +6,7 @@ var favorittLekeplass="";
 var nærmesteLekeplass="";
 var nærmesteToalett= "";
 window.onload = function(){
+  hamburger();
   var locate = window.location;
   link = locate;
 
@@ -20,35 +21,50 @@ function loadData(url) {
 	     function(response) {
           var tempDataListe = JSON.parse(response).entries;
           if(/lekeplasser/.test(url)){
-            lekeplassliste = tempDataListe;
+            dataliste = tempDataListe;
             dataTeller += 1;
+            loadFile();
+            makeRadiobuttonsWork();
           }
           if(/dokart/.test(url)){
             toalettliste = tempDataListe;
             dataTeller += 1;
           }
-          if (dataTeller >=2){
-            oppdaterFav(link);
-          }
+
 	     }
     ).catch(
 	     function(reason) { alert("FEIL: " + reason);}
     );
 }
-
-function oppdaterFav(text){
-  var favLekeplassId = delineate(text.href);
-  for(var i = 0; i<lekeplassliste.length; i++){
-    if(lekeplassliste[i].id == favLekeplassId){
-        favorittLekeplass = lekeplassliste[i];
-        nærmesteLekeplass = nærmeste(lekeplassliste);
-        nærmesteToalett = nærmeste(toalettliste);
-        document.getElementById("favOverskrift").innerHTML = lekeplassliste[i].navn;
-        document.getElementById("firstP").innerHTML = "Nærmeste andre lekeplass er " + nærmesteLekeplass.navn+ "." +  " Den er "+sjekkAvstand(favorittLekeplass,nærmesteLekeplass) + "km unna" ;
-        document.getElementById("seccondP").innerHTML = "Nærmeste toalett er her: " + nærmesteToalett.plassering+"." +  " Det er "+sjekkAvstand(favorittLekeplass,nærmesteToalett) + "km unna" ;
-    }
+function makeRadiobuttonsWork(){
+  var radiobuttons = document.getElementsByClassName("rbutton");
+  rbliste = Array.from(radiobuttons);
+  for(var i = 0; i < rbliste.length; i ++){
+    rbliste[i].addEventListener('click', leggTilFav);
   }
 }
+
+function createElement(element){
+  var rekke = document.createElement("tr");
+  rekke.setAttribute("id", element.id);
+
+  var id = document.createElement("td");
+  id.innerHTML = element.id;
+  rekke.appendChild(id);
+  // oppretter span-element for navn
+  var navn = document.createElement("td");
+  navn.innerHTML = element.navn;
+  rekke.appendChild(navn);
+
+  var favoritt = document.createElement("td");
+  favoritt.innerHTML = "<input type='radio' name='favoritt' class='rbutton'></input>"
+  favoritt.childNodes[0].classList.add(element.latitude);
+  rekke.appendChild(favoritt);
+
+  return rekke;
+
+}
+
 
 function nærmeste(liste){
   var nærmeste = "";
@@ -67,4 +83,28 @@ function nærmeste(liste){
 function delineate(str){
   lekeplassIdIndex = str.indexOf("=") + 1;
   return(str.substring(lekeplassIdIndex));
+}
+function leggTilFav(){
+  for(var i = 0; i < rbliste.length; i++){
+    if(rbliste[i].checked){
+      for(var j = 0; j<dataliste.length; j++){
+        if(rbliste[i].className.includes(dataliste[j].latitude)){
+
+          oppdaterFav(dataliste[j]);
+          break;
+        }
+      }
+    }
+  }
+}
+
+function oppdaterFav(lekeplass){
+  favorittLekeplass = lekeplass;
+  nærmesteLekeplass = nærmeste(dataliste);
+  nærmesteToalett = nærmeste(toalettliste);
+  document.getElementById("favOverskrift").innerHTML = lekeplass.navn;
+  document.getElementById("firstP").innerHTML = "Nærmeste andre lekeplass er " + nærmesteLekeplass.navn+ "." +  " Den er "+sjekkAvstand(favorittLekeplass,nærmesteLekeplass) + "km unna" ;
+  document.getElementById("seccondP").innerHTML = "Nærmeste toalett er her: " + nærmesteToalett.plassering+"." +  " Det er "+sjekkAvstand(favorittLekeplass,nærmesteToalett) + "km unna" ;
+
+
 }

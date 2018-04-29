@@ -14,11 +14,7 @@ function loadData() {
           dataliste = JSON.parse(response).entries;
           loadFile();
           document.getElementById("regnUtAvstand").addEventListener('click', regnUtAvstand);
-          var radiobuttons = document.getElementsByClassName("rbutton");
-          rbliste = Array.from(radiobuttons);
-          for(var i = 0; i < rbliste.length; i ++){
-            rbliste[i].addEventListener('click', leggTilFav);
-          }
+
 	     }
     ).catch(
 	     function(reason) { alert("FEIL: " + reason);}
@@ -49,11 +45,6 @@ function createElement(element) {
     var longitude = document.createElement("td");
     longitude.innerHTML = element.longitude;
     rekke.appendChild(longitude);
-
-    var favoritt = document.createElement("td");
-    favoritt.innerHTML = "<input type='radio' name='favoritt' class='rbutton'></input>"
-    favoritt.childNodes[0].classList.add(element.latitude);
-    rekke.appendChild(favoritt);
 
     return rekke;
 };
@@ -86,22 +77,4 @@ function regnUtAvstand(){
     }
   }
   document.getElementById("avstanden").innerHTML = "Avstanden mellom lekeplassene "+ a.navn + " og "+ b.navn +" er "+ sjekkAvstand(a, b) + " km";
-}
-function leggTilFav(){
-  for(var i = 0; i < rbliste.length; i++){
-    if(rbliste[i].checked){
-      for(var j = 0; j<dataliste.length; j++){
-        if(rbliste[i].className.includes(dataliste[j].latitude)){
-          oppdaterFav(dataliste[j]);
-          break;
-        }
-      }
-    }
-  }
-}
-
-function oppdaterFav(lekeplass){
-  document.getElementById("favLekeplassId").value = lekeplass.id;
-  var favLekeplassKnapp = document.getElementById("lekeplassLink");
-  favLekeplassKnapp.href = "minFavLekeplass.html?favLekeplassId="+lekeplass.id;
 }

@@ -100,11 +100,15 @@ function visSøk(){
 function pageLeft(){
     if(page != 1){
       goToPage(page-1);
+    }else{
+      alert("Du er på første side.");
     }
 }
 function pageRight(){
     if(page <= 7){
       goToPage(page + 1);
+    }else{
+      alert("Du er på siste side.");
     }
 }
 function goToChosenPage(){
@@ -115,7 +119,6 @@ function goToChosenPage(){
 }
 function goToPage(s){
     page = s;
-    console.log(page);
     document.getElementById("tableBody").innerHTML="";
     document.getElementById("sideVelger").value = page;
     loadData()
@@ -162,7 +165,6 @@ function filtrerSøk(){
 }//End filtrersøk
 
 function tilbakesillSøk() {
- console.log("tilbakestiller");
  for (var i = 0; i < dataliste.length; i++) {
    document.getElementById(dataliste[i].id).style.display = "table-row";
    fjernAlleChecked();

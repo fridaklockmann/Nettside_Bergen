@@ -18,6 +18,7 @@
       <a href="norgeRundt.html">Bergen Rundt</a>
       <a href="lekeplasser.html">Lekeplasser</a>
       <a href="toalett.html">Toaletter</a>
+      <a href="minFavLekeplass.html">Favoritt</a>
       <a href="#" class="search-container">
         <form action="/action_page.php">
             <input type="text" id="menuSearchbox" placeholder="Søk.." name="search">
@@ -32,12 +33,21 @@
   </div>
     <!--MENU END -->
     <div id="hovedDiv">
-      <a class="fa fa-caret-square-o-left" href="lekeplasser.html"></a>
       <h1 id="favOverskrift"> Favoritt lekeplass</h1>
       <p id="firstP">Du har ikke noen favoritt lekeplass enda!</p>
       <p id="seccondP"></p>
-
-
+      <br>
+      <div class="scrollebar">
+        <table class="tabell">
+          <thead>
+            <th>ID</th>
+            <th>Lekeplass</th>
+            <th>favoritt</th>
+          </thead>
+          <tbody id ="tableBody">
+          </tbody>
+        </table>
+      </div>
 
       <img src="media/floien.jpg" id="infobilde">
     </div>

@@ -367,10 +367,11 @@ function fjernAlleChecked(){
 
 function setNewMarkers(){
   var htmlListe = document.getElementById("tableBody").childNodes;
-  for(var i = 1; i<htmlListe.length; i++){
+  for(var i = 0; i<htmlListe.length; i++){
     if(htmlListe[i].style.display!= "none"){
-      setMarker((i-1),correctLabel);
+      setMarker((i),correctLabel);
       correctLabel++;
+
     }
   }
   correctLabel=0;
