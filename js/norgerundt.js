@@ -3,7 +3,6 @@ var page = 1;
 window.onload = function(){
   loadData();
   hamburger();
-  loadYears();
   document.getElementById("navLeft").addEventListener("click", pageLeft);
   document.getElementById("navRight").addEventListener("click", pageRight);
   document.getElementById("sideVelger").addEventListener("change", goToChosenPage);
@@ -18,6 +17,7 @@ function loadData() {
           addIdsToEntries();
           loadFile();
           visSøk();
+          loadYears();
 	     }
     ).catch(
 	     function(reason) { alert("FEIL: " + reason);}
@@ -32,7 +32,11 @@ function addIdsToEntries(){
 
 function loadYears() {
   var selector = document.getElementById("årstall");
-  for(var i = 1975; i < 2019; i++){
+  selector.innerHTML="<option value='ikkeValgt'>Velg</option>"
+
+  var firstYearOfList = dataliste[0].aar;
+  var lastYearOfList = dataliste[(dataliste.length)-1].aar;
+  for(var i = firstYearOfList; i <= lastYearOfList; i++){
     var valg = document.createElement("option");
     valg.text = i;
     selector.add(valg);

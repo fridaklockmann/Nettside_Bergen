@@ -13,6 +13,7 @@ window.onload = function(){
   loadData("https://hotell.difi.no/api/json/bergen/lekeplasser?");
   loadData("https://hotell.difi.no/api/json/bergen/dokart?");
 
+
 }
 
 function loadData(url) {
@@ -23,8 +24,9 @@ function loadData(url) {
           if(/lekeplasser/.test(url)){
             dataliste = tempDataListe;
             dataTeller += 1;
-            loadFile();
+            generateDOM();
             makeRadiobuttonsWork();
+
           }
           if(/dokart/.test(url)){
             toalettliste = tempDataListe;
@@ -64,7 +66,11 @@ function createElement(element){
   return rekke;
 
 }
-
+function generateDOM(){
+  document.getElementById("LekeplassTabell").innerHTML =
+          '<table class="tabell">  <thead>  <th>ID</th> <th>Lekeplass</th> <th>favoritt</th> </thead> <tbody id ="tableBody"> </tbody> </table>';
+  loadFile();
+}
 
 function nærmeste(liste){
   var nærmeste = "";
