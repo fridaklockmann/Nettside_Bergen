@@ -54,27 +54,31 @@ function regnUtAvstand(){
   var a = document.getElementById("plass1").value;
   var b = document.getElementById("plass2").value;
 
-  var tallMellomEnOgHundre= /^[1-9][0-9]?$|^100$/;
-  var bokstaver = /[a-zA-Z]/;
-  if(a.match(tallMellomEnOgHundre)){
-    a = dataliste[a-1];
-  }
-  else if(a.match(bokstaver)){4
-    for(var i = 0; i < dataliste.length; i++){
-      if(dataliste[i].navn.includes(a)){
-        a = dataliste[i];
+  if(a == "" || b == "") alert("Skriv inn gyldig lekeplassnavn eller id");
+
+  else {
+    var tallMellomEnOgHundre= /^[1-9][0-9]?$|^100$/;
+    var bokstaver = /[a-zA-Z]/;
+    if(a.match(tallMellomEnOgHundre)){
+      a = dataliste[a-1];
+    }
+    else if(a.match(bokstaver)){4
+      for(var i = 0; i < dataliste.length; i++){
+        if(dataliste[i].navn.includes(a)){
+          a = dataliste[i];
+        }
       }
     }
-  }
-  if(b.match(tallMellomEnOgHundre)){
-    b = dataliste[b-1];
-  }
-  else if(b.match(bokstaver)){
-    for(var i = 0; i < dataliste.length; i++){
-      if(dataliste[i].navn.includes(b)){
-        b = dataliste[i];
+    if(b.match(tallMellomEnOgHundre)){
+      b = dataliste[b-1];
+    }
+    else if(b.match(bokstaver)){
+      for(var i = 0; i < dataliste.length; i++){
+        if(dataliste[i].navn.includes(b)){
+          b = dataliste[i];
+        }
       }
     }
+    document.getElementById("avstanden").innerHTML = "Avstanden mellom lekeplassene "+ a.navn + " og "+ b.navn +" er "+ sjekkAvstand(a, b) + " km";
   }
-  document.getElementById("avstanden").innerHTML = "Avstanden mellom lekeplassene "+ a.navn + " og "+ b.navn +" er "+ sjekkAvstand(a, b) + " km";
 }
