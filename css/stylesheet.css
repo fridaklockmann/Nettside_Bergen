@@ -271,7 +271,6 @@ input[type=checkbox]{
   margin: auto;
 }
 
-
 /* søkeknapp */
 #avansertSøkKnapp{ /* Common? */
   background-color: #FF5D3F;
@@ -311,6 +310,7 @@ input[type=checkbox]{
   background-color: white;
   outline: none;
   padding: 5%;
+  height: 25px;
 }
 
 #hurtigsøk{ /* Common? */
@@ -400,7 +400,7 @@ h3{
   padding-left: 10px;
 }
 
-/* NORGE RUNDT */
+/* BERGEN RUNDT */
 #norgeRundtTabell th:nth-child(1){
   width: 40%;
 }
@@ -424,6 +424,32 @@ h3{
 #norgeRundtTabell td:nth-child(5){
   text-align: center;
 }
+
+#sideVelger{
+  width: 20px;
+  outline: none;
+  color: black;
+  margin-right: 5px;
+}
+
+.navButtons{
+height: 35px;
+width: 35px;
+background-color: white;
+border: none;
+border-radius: 20px;
+outline: none;
+color: #FF5D3F;
+margin: 5px;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 
 /* FOOTER */
 .footer {

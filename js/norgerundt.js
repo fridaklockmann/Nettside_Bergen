@@ -71,7 +71,7 @@ function createElement(element) {
     rekke.appendChild(antrekk);
 
     var link = document.createElement("td");
-    link.innerHTML = "<a href=" + element.video_url + " target='_blank'><i class='fa fa-external-link-square'></i> </a>";
+    link.innerHTML = "<a href=" + element.video_url + " target='_blank'><i class='fas fa-external-link-alt'></i> </a>";
     rekke.appendChild(link);
     return rekke;
 };
@@ -84,10 +84,10 @@ function visSøk(){
         var avansert = document.getElementById("boksTilSøk");
         if (avansert.style.display === "flex") {
           avansert.style.display = "none";
-          knapp.innerHTML='Vis filtrering  <i class="fa fa-sort-desc"></i>';
+          knapp.innerHTML='Vis filtrering  <i class="fas fa-angle-down"></i>';
         } else {
           avansert.style.display = "flex";
-          knapp.innerHTML='Skjul filtrering <i class="fa fa-sort-asc"></i>';
+          knapp.innerHTML='Skjul filtrering <i class="fas fa-angle-up"></i>';
         }
       });
     }
@@ -117,9 +117,10 @@ function pageRight(){
 }
 function goToChosenPage(){
     var valgtSide = document.getElementById("sideVelger").value;
-    if(valgtSide<104&&valgtSide>0){
+    if(valgtSide<9&&valgtSide>0){
       goToPage(valgtSide);
     }
+    else alert("Valgt side finnes ikke, vennligst velg en annen");
 }
 function goToPage(s){
     page = s;
