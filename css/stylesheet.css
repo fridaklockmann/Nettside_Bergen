@@ -1,4 +1,5 @@
 /* COMMON */
+
 h1 {
   font-family: "Pattaya", sans-serif;
   text-align: center;
@@ -83,8 +84,7 @@ input[type=checkbox]{
   background-color: #f4f4f4;
 }
 
-
-/*TOP NAVIGATION*/
+/* top navigation */
 #topNav {
   display: flex;
   flex-direction: row;
@@ -210,8 +210,7 @@ input[type=checkbox]{
   width: 200px;
   outline: none;
 }
-
-/*TOP NAVIGATION END*/
+/* top navigation end */
 
 #hovedDiv {
   display: flex;
@@ -344,10 +343,39 @@ input[type=checkbox]{
   border: none;
 }
 
+/* søkeknapp end */
+
+/* footer */
+
+.footer {
+  position: fixed center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 7px;
+  padding-bottom: 5px;
+  width: 80%;
+  background-color: #f4f4f4;
+  color: 	#494848;
+  font-size: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  underline: none;
+}
+
+.sosial a {
+  padding: 5px;
+  font-size: 20px;
+  color: 	#494848;
+  text-decoration: none;
+}
+
+/* footer end */
 
 /* COMMON END */
 
-/* INDEX */
+/* INDEX / BERGEN */
+
 #forsidebilde {
   position: relative;
   margin-left: auto;
@@ -360,14 +388,40 @@ input[type=checkbox]{
   margin: auto;
 }
 
-/* INFORMASJON */
+/* NORGE RUNDT */
 
-#infobilde {
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  border: none;
+#norgeRundtTabell th:nth-child(1){
+  width: 40%;
+}
+
+#norgeRundtTabell th:nth-child(2){
+  width: 2%;
+}
+
+#norgeRundtTabell th:nth-child(3){
+  width: 20%;
+}
+
+#norgeRundtTabell th:nth-child(4){
+  width: 20%;
+}
+
+#norgeRundtTabell th:nth-child(5){
+  width: 8%;
+}
+
+#norgeRundtTabell td:nth-child(5){
+  text-align: center;
+}
+
+/* LEKEPLASSER */
+
+h3{
+  padding-left: 10px;
+}
+
+#avstandsskjema{
+  padding-left: 10px;
 }
 
 /* TOALETTER */
@@ -403,65 +457,17 @@ input[type=checkbox]{
   width: 5%;
 }
 
-/* LEKEPLASSER */
+/* FAVORITT */
 
-h3{
-  padding-left: 10px;
-}
 
-#avstandsskjema{
-  padding-left: 10px;
-}
+/* INFORMASJON */ /*BRUKER VI DENNE?*/
 
-/* NORGE RUNDT */
-
-#norgeRundtTabell th:nth-child(1){
-  width: 40%;
-}
-
-#norgeRundtTabell th:nth-child(2){
-  width: 2%;
-}
-
-#norgeRundtTabell th:nth-child(3){
-  width: 20%;
-}
-
-#norgeRundtTabell th:nth-child(4){
-  width: 20%;
-}
-
-#norgeRundtTabell th:nth-child(5){
-  width: 8%;
-}
-
-#norgeRundtTabell td:nth-child(5){
-  text-align: center;
-}
-
-/* FOOTER */
-
-.footer {
-  position: fixed center;
+#infobilde {
+  position: relative;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 7px;
-  padding-bottom: 5px;
-  width: 80%;
-  background-color: #f4f4f4;
-  color: 	#494848;
-  font-size: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  underline: none;
-}
-
-.sosial a {
-  padding: 5px;
-  font-size: 20px;
-  color: 	#494848;
-  text-decoration: none;
+  width: 100%;
+  border: none;
 }
 
 /* MEDIAQUERIES FOR DIFFERENT SCREENS */
@@ -543,7 +549,7 @@ h3{
   }
 }
 
-/*media query for desktop*/
+/* media query for desktop */
 
 @media only screen and (min-width: 1280px){
   #hovedDiv{
