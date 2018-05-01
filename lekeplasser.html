@@ -16,7 +16,7 @@
     <div id="topNav" class = "navbar">
       <a id="bergen"  href="index.html">Bergen</a>
       <a href="norgeRundt.html">Bergen Rundt</a>
-      <a href="lekeplasser.html"class="active">Lekeplasser</a>
+      <a href="lekeplasser.html" class="active">Lekeplasser</a>
       <a href="toalett.html">Toaletter</a>
       <a href="minFavLekeplass.html">Favoritt</a>
       <a href="#" class="search-container">
@@ -34,6 +34,16 @@
     <!--MENU END -->
     <div id="hovedDiv">
       <h1 id="hovedOverskrift"> Lekeplasser </h1>
+      <h3>Mål avstanden mellom to lekeplasser:</h3>
+      <p class="lato">Skriv inn fullt navn eller id</p>
+      <div id="avstandsskjema">
+        <input type="text" placeholder="Lekeplass 1" id="plass1"></input>
+        <input type="text" placeholder="Lekeplass 2" id="plass2"></input>
+        <button type="button" id="regnUtAvstand">Regn ut</button>
+        <p id="avstanden"></p>
+      </div>
+      <br>
+
       <div class="scrollebar">
         <table class="tabell">
           <thead>
@@ -48,15 +58,6 @@
       </div>
       <div>
         <br>
-        <h3>Mål avstanden mellom to lekeplasser:</h3>
-        <p>Skriv inn fullt navn eller id</p>
-        <div id="avstandsskjema">
-          <input type="text" placeholder="Lekeplass 1" id="plass1"></input>
-          <input type="text" placeholder="Lekeplass 2" id="plass2"></input>
-          <button type="button" id="regnUtAvstand">Regn ut</button>
-          <p id="avstanden"></p>
-        </div>
-
 
       <img src="media/floien.jpg" id="infobilde">
     </div>

@@ -9,9 +9,15 @@ p {
   padding-left: 10px;
   padding-right: 10px;
 }
+
+p.lato{
+  font-family: "Lato", sans-serif;
+}
+
 a {
   color: black;
 }
+
 @font-face {
   font-family: "Lato";
   src: url("Lato-Regular.otf");
@@ -206,6 +212,7 @@ input[type=checkbox]{
 }
 
 /*TOP NAVIGATION END*/
+
 #hovedDiv {
   display: flex;
   flex-direction: column;
@@ -218,34 +225,13 @@ input[type=checkbox]{
   position: relative;
 }
 
-/* COMMON END */
-
-/* INDEX */
-#forsidebilde {
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-}
-
-/* INFORMASJON */
-
-#infobilde {
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  border: none;
-}
-
-/* TOALETTER */
-#avansertSøk{ /* Common? */
+#avansertSøk{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-#boksTilSøk{ /* Common? */
+#boksTilSøk{
   display: none;
   flex-direction: column;
   justify-content: space-around;
@@ -253,27 +239,15 @@ input[type=checkbox]{
   padding-right: 20%;
 }
 
-@media screen and (max-width: 880px) { /* Common? */
+@media screen and (max-width: 880px) {
   #boksTilSøk{
     padding-left: 0%;
     padding-right: 0%;
   }
 }
 
-#tableBody{
-  font-family: "Lato", sans-serif;
-  -moz-column-count: 2;
-  -moz-column-gap: 100px;
-  -webkit-column-count: 2;
-  -webkit-column-gap: 100px;
-  column-count: 2;
-  column-gap: 100px;
-  margin: auto;
-}
-
-
 /* søkeknapp */
-#avansertSøkKnapp{ /* Common? */
+#avansertSøkKnapp{
   background-color: #FF5D3F;
   color: white;
   font-size: 16px;
@@ -291,19 +265,19 @@ input[type=checkbox]{
   border: none;
 }
 
-.filterRad{ /* Common? */
+.filterRad{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
-.søkekolonne{ /* Common? */
+.søkekolonne{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 
-.friSøk{ /* Common? */
+.friSøk{
   font-family: Lato;
   width: 100px;
   box-sizing: border-box;
@@ -313,7 +287,7 @@ input[type=checkbox]{
   padding: 5%;
 }
 
-#hurtigsøk{ /* Common? */
+#hurtigsøk{
   outline: none;
   margin: 4px 2px;
   height: 39px;
@@ -328,13 +302,13 @@ input[type=checkbox]{
   padding: 12px 20px 12px 40px;
 }
 
-#filterknapper{ /* Common? */
+#filterknapper{
   padding-top: 20px;
   display: flex;
   justify-content: space-around;
 }
 
-#filtrerSøk{ /* Common? */
+#filtrerSøk{
   background-color: #FF5D3F;
   color: white;
   font-size: 12px;
@@ -352,7 +326,7 @@ input[type=checkbox]{
   border: none;
 }
 
-#tilbakestillSøk{ /* Common? */
+#tilbakestillSøk{
   background-color: white;
   color: #FF5D3F;
   font-size: 12px;
@@ -368,6 +342,45 @@ input[type=checkbox]{
   text-decoration: none;
   display: inline-block;
   border: none;
+}
+
+
+/* COMMON END */
+
+/* INDEX */
+#forsidebilde {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+#bergenTekst{
+  width: 60%;
+  margin: auto;
+}
+
+/* INFORMASJON */
+
+#infobilde {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  border: none;
+}
+
+/* TOALETTER */
+
+#tableBody{
+  font-family: "Lato", sans-serif;
+  -moz-column-count: 2;
+  -moz-column-gap: 100px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 100px;
+  column-count: 2;
+  column-gap: 100px;
+  margin: auto;
 }
 
 #åpen{
@@ -401,6 +414,7 @@ h3{
 }
 
 /* NORGE RUNDT */
+
 #norgeRundtTabell th:nth-child(1){
   width: 40%;
 }
@@ -426,6 +440,7 @@ h3{
 }
 
 /* FOOTER */
+
 .footer {
   position: fixed center;
   margin-left: auto;
@@ -452,6 +467,7 @@ h3{
 /* MEDIAQUERIES FOR DIFFERENT SCREENS */
 
 /* media query for mobile */
+
 @media only screen and (max-width: 768px) {
   #flexcontainer{
     width: 100%;
@@ -463,9 +479,7 @@ h3{
     -webkit-column-count: 1;
     column-count: 1;
     margin: 0;
-
   }
-
   #hovedDiv{
     width: 100%;
   }
@@ -502,6 +516,7 @@ h3{
 }
 
 /* media query for tablet */
+
 @media only screen and (min-width: 768px) and (max-width: 1024px)  {
   #flexcontainer{
     width: 100%;
@@ -529,6 +544,7 @@ h3{
 }
 
 /*media query for desktop*/
+
 @media only screen and (min-width: 1280px){
   #hovedDiv{
     width: 1000px;

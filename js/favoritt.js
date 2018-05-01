@@ -68,7 +68,7 @@ function createElement(element){
 }
 function generateDOM(){
   document.getElementById("LekeplassTabell").innerHTML =
-          '<table class="tabell">  <thead>  <th>ID</th> <th>Lekeplass</th> <th>favoritt</th> </thead> <tbody id ="tableBody"> </tbody> </table>';
+          '<table class="tabell">  <thead>  <th>ID</th> <th>Lekeplass</th> <th>Favoritt</th> </thead> <tbody id ="tableBody"> </tbody> </table>';
   loadFile();
 }
 
