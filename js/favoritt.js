@@ -5,15 +5,14 @@ var dataTeller = 0;
 var favorittLekeplass="";
 var nærmesteLekeplass="";
 var nærmesteToalett= "";
+
 window.onload = function(){
   hamburger();
   var locate = window.location;
   link = locate;
-
+  document.getElementById("googleForm").addEventListener("submit",google);
   loadData("https://hotell.difi.no/api/json/bergen/lekeplasser?");
   loadData("https://hotell.difi.no/api/json/bergen/dokart?");
-
-
 }
 
 function loadData(url) {
@@ -26,18 +25,17 @@ function loadData(url) {
             dataTeller += 1;
             generateDOM();
             makeRadiobuttonsWork();
-
           }
           if(/dokart/.test(url)){
             toalettliste = tempDataListe;
             dataTeller += 1;
           }
-
 	     }
     ).catch(
 	     function(reason) { alert("FEIL: " + reason);}
     );
 }
+
 function makeRadiobuttonsWork(){
   var radiobuttons = document.getElementsByClassName("rbutton");
   rbliste = Array.from(radiobuttons);
@@ -62,10 +60,9 @@ function createElement(element){
   favoritt.innerHTML = "<input type='radio' name='favoritt' class='rbutton'></input>"
   favoritt.childNodes[0].classList.add(element.latitude);
   rekke.appendChild(favoritt);
-
   return rekke;
-
 }
+
 function generateDOM(){
   document.getElementById("LekeplassTabell").innerHTML =
           '<table class="tabell">  <thead>  <th>ID</th> <th>Lekeplass</th> <th>Favoritt</th> </thead> <tbody id ="tableBody"> </tbody> </table>';
@@ -85,17 +82,16 @@ function nærmeste(liste){
   return nærmeste;
 }
 
-
 function delineate(str){
   lekeplassIdIndex = str.indexOf("=") + 1;
   return(str.substring(lekeplassIdIndex));
 }
+
 function leggTilFav(){
   for(var i = 0; i < rbliste.length; i++){
     if(rbliste[i].checked){
       for(var j = 0; j<dataliste.length; j++){
         if(rbliste[i].className.includes(dataliste[j].latitude)){
-
           oppdaterFav(dataliste[j]);
           break;
         }
@@ -111,6 +107,6 @@ function oppdaterFav(lekeplass){
   document.getElementById("favOverskrift").innerHTML = lekeplass.navn;
   document.getElementById("firstP").innerHTML = "Nærmeste andre lekeplass er " + nærmesteLekeplass.navn+ "." +  " Den er "+sjekkAvstand(favorittLekeplass,nærmesteLekeplass) + "km unna" ;
   document.getElementById("seccondP").innerHTML = "Nærmeste toalett er her: " + nærmesteToalett.plassering+"." +  " Det er "+sjekkAvstand(favorittLekeplass,nærmesteToalett) + "km unna" ;
-
-
+  //scroller brukeren opp til toppen av siden slik at han/hun ser at siden ble oppdatert.
+  document.documentElement.scrollTop = 0;
 }

@@ -19,8 +19,8 @@
       <a href="lekeplasser.html" class="active">Lekeplasser</a>
       <a href="toalett.html">Toaletter</a>
       <a href="minFavLekeplass.html">Favoritt</a>
-      <a href="#" class="search-container">
-        <form action="/action_page.php">
+      <a href="#" class="search-container" id ="googleSøk">
+        <form action="/action_page.php" id="googleForm">
             <input type="text" id="menuSearchbox" placeholder="Søk.." name="search">
         </form>
       </a>
@@ -35,11 +35,11 @@
     <div id="hovedDiv">
       <h1 id="hovedOverskrift"> Lekeplasser </h1>
       <h3>Mål avstanden mellom to lekeplasser:</h3>
-      <p class="lato">Skriv inn fullt navn eller id</p>
+      <p>Skriv inn fullt navn eller id</p>
       <div id="avstandsskjema">
         <input type="text" placeholder="Lekeplass 1" id="plass1"></input>
         <input type="text" placeholder="Lekeplass 2" id="plass2"></input>
-        <button type="button" id="regnUtAvstand">Regn ut</button>
+        <button type="button" id="regnUtAvstand" class="litenOransje">Regn ut</button>
         <p id="avstanden"></p>
       </div>
       <br>
@@ -63,8 +63,8 @@
     </div>
     <footer class="footer">
       <p>Redaktør: Admin A. Adminsen </p>
-      <p>Kontaktinformasjon:<a href="mailto:someone@example.com"> someone@example.com</a>.</p>
-      <div class = "sosial">
+      <p>Kontaktinformasjon: <a href="mailto:someone@example.com">someone@example.com</a>.</p>
+      <div class="sosial">
         <a class="fa fa-snapchat-ghost" href="http://snapchat.com"></a>
         <a class="fa fa-facebook" href="http://facebook.com"></a>
         <a class="fa fa-instagram" href="http://instagram.com"></a>

@@ -3,16 +3,13 @@
 h1 {
   font-family: "Pattaya", sans-serif;
   text-align: center;
+  font-weight: normal;
 }
 
 p {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Lato", sans-serif;
   padding-left: 10px;
   padding-right: 10px;
-}
-
-p.lato{
-  font-family: "Lato", sans-serif;
 }
 
 a {
@@ -22,6 +19,14 @@ a {
 @font-face {
   font-family: "Lato";
   src: url("Lato-Regular.otf");
+}
+
+#infobilde {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  border: none;
 }
 
 #flexcontainer{
@@ -42,18 +47,20 @@ input[type=checkbox]{
 #map {
   height: 500px;
   width: 100%;
+  margin-top: 20px;
 }
 
 .tabell{
   width:100%;
   border-collapse: collapse;
   border-spacing: 0;
-  font-size: 11px;
+  font-size: 15px;
   background-color: #f4f4f4;
 }
 
 .tabell th{
-  background-color: white;
+  border-bottom: 2px solid white;
+  border-top: 2px solid white;
   color: #FF7c4c;
 }
 
@@ -62,8 +69,8 @@ input[type=checkbox]{
   padding: 10px;
 }
 
-.tabell tr:nth-child(even){
-  background-color: white;
+.tabel th, td{
+  border-bottom: 2px solid white;
 }
 
 .scrollebar{
@@ -98,7 +105,7 @@ input[type=checkbox]{
 
 #topNav a {
   font-family: "Work Sans", sans-serif;
-  display: block;
+  display: inline-block;
   float: left;
   color: black;
   text-decoration-color: #FF5D3F;
@@ -175,14 +182,18 @@ input[type=checkbox]{
   padding-top: 0px;
 }
 
-#topNav a:not(#bergen) {
-  padding-top: 5px;
-  font-size: 30px;
+#topNav a:nth-child(2), a:nth-child(3), a:nth-child(4), a:nth-child(5) {
+  padding-top: 12px;
+  font-size: 25px;
   font-variant: all-small-caps;
 }
 
+#topNav a:nth-child(6){
+  padding-top: 4px;
+}
+
 #topNav a:last-child {
-  padding-top: 15px;
+  padding-top: 12px;
 }
 
 #topNav a:hover {
@@ -195,13 +206,14 @@ input[type=checkbox]{
 
 #menuSearchbox {
   width: 95px;
+  height: 35px;
   box-sizing: border-box;
   border: 2px solid #ccc;
   background-color: white;
   background-image: url('http://w3schools.com/howto/searchicon.png');
-  background-position: 10px 10px;
+  background-position: 6px 6px;
   background-repeat: no-repeat;
-  padding: 12px 20px 12px 40px;
+  padding: 10px 20px 10px 40px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
 }
@@ -210,6 +222,7 @@ input[type=checkbox]{
   width: 200px;
   outline: none;
 }
+
 /* top navigation end */
 
 #hovedDiv {
@@ -245,10 +258,9 @@ input[type=checkbox]{
   }
 }
 
-<<<<<<< HEAD
-=======
 #tableBody{
   font-family: "Lato", sans-serif;
+  font-size: 15px;
   -moz-column-count: 2;
   -moz-column-gap: 100px;
   -webkit-column-count: 2;
@@ -258,7 +270,6 @@ input[type=checkbox]{
   margin: auto;
 }
 
->>>>>>> Fikse_sidebytteknapper
 /* søkeknapp */
 #avansertSøkKnapp{
   background-color: #FF5D3F;
@@ -322,7 +333,7 @@ input[type=checkbox]{
   justify-content: space-around;
 }
 
-#filtrerSøk{
+.litenOransje{
   background-color: #FF5D3F;
   color: white;
   font-size: 12px;
@@ -387,6 +398,7 @@ input[type=checkbox]{
 
 /* footer end */
 
+
 /* COMMON END */
 
 /* INDEX / BERGEN */
@@ -403,12 +415,8 @@ input[type=checkbox]{
   margin: auto;
 }
 
-<<<<<<< HEAD
-/* NORGE RUNDT */
-
-=======
 /* BERGEN RUNDT */
->>>>>>> Fikse_sidebytteknapper
+
 #norgeRundtTabell th:nth-child(1){
   width: 40%;
 }
@@ -433,12 +441,13 @@ input[type=checkbox]{
   text-align: center;
 }
 
-<<<<<<< HEAD
+
 /* LEKEPLASSER */
 
 h3{
   padding-left: 10px;
-=======
+}
+
 #sideVelger{
   width: 20px;
   outline: none;
@@ -447,14 +456,14 @@ h3{
 }
 
 .navButtons{
-height: 35px;
-width: 35px;
-background-color: white;
-border: none;
-border-radius: 20px;
-outline: none;
-color: #FF5D3F;
-margin: 5px;
+  height: 35px;
+  width: 35px;
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  color: #FF5D3F;
+  margin: 5px;
 }
 
 .row{
@@ -480,7 +489,6 @@ margin: 5px;
   flex-direction: row;
   justify-content: space-around;
   underline: none;
->>>>>>> Fikse_sidebytteknapper
 }
 
 #avstandsskjema{
@@ -488,17 +496,6 @@ margin: 5px;
 }
 
 /* TOALETTER */
-
-#tableBody{
-  font-family: "Lato", sans-serif;
-  -moz-column-count: 2;
-  -moz-column-gap: 100px;
-  -webkit-column-count: 2;
-  -webkit-column-gap: 100px;
-  column-count: 2;
-  column-gap: 100px;
-  margin: auto;
-}
 
 #åpen{
   font-family: "Lato", sans-serif;
@@ -520,18 +517,13 @@ margin: 5px;
   width: 5%;
 }
 
+#ingenToalett{
+  text-align: center;
+}
+
 /* FAVORITT */
 
 
-/* INFORMASJON */ /*BRUKER VI DENNE?*/
-
-#infobilde {
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  border: none;
-}
 
 /* MEDIAQUERIES FOR DIFFERENT SCREENS */
 
@@ -541,7 +533,6 @@ margin: 5px;
   #flexcontainer{
     width: 100%;
   }
-
   #tableBody{
     font-family: "Lato", sans-serif;
     -moz-column-count: 1;

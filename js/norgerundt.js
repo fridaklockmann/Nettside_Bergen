@@ -3,6 +3,8 @@ var page = 1;
 window.onload = function(){
   loadData();
   hamburger();
+  visSøk();
+  document.getElementById("googleForm").addEventListener("submit",google);
   document.getElementById("navLeft").addEventListener("click", pageLeft);
   document.getElementById("navRight").addEventListener("click", pageRight);
   document.getElementById("sideVelger").addEventListener("change", goToChosenPage);
@@ -16,7 +18,6 @@ function loadData() {
           dataliste = JSON.parse(response).entries;
           addIdsToEntries();
           loadFile();
-          visSøk();
           loadYears();
 	     }
     ).catch(

@@ -10,6 +10,7 @@ window.onload = function(){
   } else {
     console.log("Finner ikke elementet 'hamburger'");
   }
+  document.getElementById("googleForm").addEventListener("submit",google);
 };
 
   function endreNavn() {
@@ -19,4 +20,14 @@ window.onload = function(){
     } else {
         topNav.className = "navbar";
     }
+}
+function google(){
+  var aLink = document.getElementById("googleSøk");
+  var googleSøkVerdi = document.getElementById("menuSearchbox").value;
+  for(var i = 0; i<googleSøkVerdi.length; i++){
+    if(googleSøkVerdi[i] == " "){
+      googleSøkVerdi[i] = "+";
+    }
+  }
+  aLink.href = "https://www.google.com/search?q="+googleSøkVerdi;
 }

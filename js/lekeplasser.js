@@ -3,6 +3,7 @@ var dataliste="";
 window.onload = function(){
   loadData();
   hamburger();
+  document.getElementById("googleForm").addEventListener("submit",google);
 }
 var rbliste="";
 

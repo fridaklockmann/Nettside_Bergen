@@ -4,7 +4,8 @@ window.onload = function(){
 //  hentdataliste();
   hamburger();
   loadData();
-
+  loadTime();
+  document.getElementById("googleForm").addEventListener("submit",google);
 };
 
 var correctLabel = 0;
@@ -26,6 +27,17 @@ function loadData() {
     );
 }
 
+function loadTime() {
+  var selector = document.getElementById("åpen");
+  selector.innerHTML="<option value='ikkeValgt'>Velg</option>"
+  for(var i = 0; i <= 23; i++){
+    var valg = document.createElement("option");
+    if(i < 10) i = "0" + i;
+    valg.text = i + ":00";
+    selector.add(valg);
+  }
+}
+
 // Viser og skjuler avansert søk ved klikk
  function visSøk(){
     var knapp = document.getElementById("avansertSøkKnapp");
@@ -34,10 +46,10 @@ function loadData() {
         var avansert = document.getElementById("boksTilSøk");
         if (avansert.style.display === "flex") {
           avansert.style.display = "none";
-          knapp.innerHTML = 'Vis filtrering <i class="fa fa-sort-desc"></i>';
+          knapp.innerHTML = 'Vis filtrering <i class="fas fa-angle-down"></i>';
         } else {
           avansert.style.display = "flex";
-          knapp.innerHTML = 'Skjul filtrering <i class="fa fa-sort-asc"></i>';
+          knapp.innerHTML = 'Skjul filtrering <i class="fas fa-angle-up"></i>';
         }
       });
     }
@@ -179,10 +191,12 @@ function hurtigSøk(){
         document.getElementById("åpen").value = splittet[i][1];
       }
     }
-    avansertSøk(searchCriteria);
-    if(hSøk==""||hSøk==" "){
-      tilbakestillSøk();
-    }
+  }
+  avansertSøk(searchCriteria);
+
+  //tilbakestilller søk dersom man søker på en tom string
+  if(hSøk == "" || hSøk == " "){
+    tilbakestillSøk();
   }
 }
 
@@ -200,11 +214,11 @@ function skjemaSøk(){
   avansertSøk(searchCriteria);
 }
 
-//Avansert søk!
+//Avansert søk
 function avansertSøk(searchCriteria){
- var kvinneSøk=searchCriteria.kvinneSøk;
- var herreSøk=searchCriteria.herreSøk;
- var rullestolSøk=searchCriteria.rullestolSøk;
+ var kvinneSøk = searchCriteria.kvinneSøk;
+ var herreSøk = searchCriteria.herreSøk;
+ var rullestolSøk = searchCriteria.rullestolSøk;
  var stelleromSøk = searchCriteria.stelleromSøk;
  var gratisSøk = searchCriteria.gratisSøk;
  var åpenNåSøk = searchCriteria.åpenNåSøk;
@@ -213,9 +227,10 @@ function avansertSøk(searchCriteria){
  var adresseSøk = searchCriteria.adresseSøk;
 
  //Går igjennom hele listen
- for(var i = 0; i < Object.keys(dataliste).length; i++){
+ for(var i = 0; i < dataliste.length; i++){
   //Fjerner markørene til alle toalettene
-  markerArray[dataliste[i].id-1].setMap(null);
+  markerArray[i].setMap(null);
+
   //Hvis rullestol er huket av
   if(rullestolSøk){
     //Fjerner alle toaletter uten rullesotltilgang fra listen
@@ -227,7 +242,6 @@ function avansertSøk(searchCriteria){
     // Fjerner alle toaletter uten dametoalett fra listen
     if(dataliste[i].dame < 1 || dataliste[i].dame == "NULL"){
       document.getElementById(dataliste[i].id).style.display = "none";
-      //Fjerner markørene til disse toalettene
       }
     }
     if(herreSøk){
@@ -258,17 +272,16 @@ function avansertSøk(searchCriteria){
       if(day > 1 && day < 6){
         //sjekker for hverdager
         sjekkÅpningstid(dataliste[i].tid_hverdag, null);
-      }if(day == 0){
+      } if(day == 0){
         //sjekker for søndager
         sjekkÅpningstid(dataliste[i].tid_sondag, null);
-      }
-      if(day == 6){
+      } if(day == 6){
         //sjekker for lørdager
         sjekkÅpningstid(dataliste[i].tid_lordag, null);
       }
     }//end åpentNåSøk.
 
-    if(åpenSøk!="ikkeValgt"){
+    if(åpenSøk != "ikkeValgt"){
       var inTime = new Date().toLocaleTimeString('en-US', { hour12: false, hour: "numeric", minute: "numeric"});
       var time = parseInt(inTime.replace(":", "."));
       var day = new Date().getDay();
@@ -276,18 +289,17 @@ function avansertSøk(searchCriteria){
       if(time > åpenSøk){
         if(day == 6){
           day = 0;
-        }else{
+        } else {
           day += 1;
         }
       }
       if(day >= 1 && day < 6){
         //sjekker for hverdager
         sjekkÅpningstid(dataliste[i].tid_hverdag, åpenSøk);
-      }if(day == 0){
+      } if(day == 0){
         //sjekker for søndager
         sjekkÅpningstid(dataliste[i].tid_sondag, åpenSøk);
-      }
-      if(day == 6){
+      } if(day == 6){
         //sjekker for lørdager
         sjekkÅpningstid(dataliste[i].tid_lordag, åpenSøk);
       }
@@ -295,16 +307,16 @@ function avansertSøk(searchCriteria){
     function sjekkÅpningstid(tid_dagtype, nu){
       if(tid_dagtype.includes("-")){
         var tider = tid_dagtype.split(" - ");
-        if (nu != null){
+        if(nu != null){
           if(nu < parseInt(tider[0]) || nu > parseInt(tider[1])){
             document.getElementById(dataliste[i].id).style.display = "none";
           }
-        }else{
+        } else{
             if(time < parseInt(tider[0]) || time >= parseInt(tider[1])){
               document.getElementById(dataliste[i].id).style.display = "none";
             }
         }
-    }else if(tid_dagtype=="NULL"){
+    } else if(tid_dagtype=="NULL"){
       document.getElementById(dataliste[i].id).style.display = "none";
     }
   }//end sjekkÅpningstid
@@ -317,22 +329,19 @@ function avansertSøk(searchCriteria){
         document.getElementById(dataliste[i].id).style.display = "none";
       }
     }
-
-  if(adresseSøk){
-    adresseSøk = adresseSøk.toUpperCase();
-    for(var i = 0; i < dataliste.length; i++){
-      var adresse = dataliste[i].adresse.toUpperCase().replace(/[0-9]/g,'');
-      if(adresse.includes(adresseSøk) ||
-        dataliste[i].place.toUpperCase().includes(adresseSøk)){
+    if(adresseSøk){
+      adresseSøk = adresseSøk.toUpperCase();
+      for(var j = 0; j < dataliste.length; j++){
+        var adresse = dataliste[j].adresse.toUpperCase().replace(/[0-9]/g,'');
+        if(adresse.includes(adresseSøk) || dataliste[j].place.toUpperCase().includes(adresseSøk)){
+          //do nothing
+        }
+        else{
+          document.getElementById(dataliste[j].id).style.display = "none";
+        }
       }
-      else{
-        document.getElementById(dataliste[i].id).style.display = "none";
-        markerArray[dataliste[i].id-1].setMap(null);
-      }
-    }
-  }//end adressesøk
-
-  }
+    }//end adressesøk
+  } //end forløkke
     setNewMarkers();
 }//end avansert søk.
 function tilbakestillSøk(){
@@ -362,17 +371,23 @@ function fjernAlleChecked(){
   document.getElementById("makspris").value = "";
   document.getElementById("søkAdresse").value = "";
   document.getElementById("hurtigsøk").value= "";
-
+  document.getElementById("ingenToalett").innerHTML = "";
 }
 
 function setNewMarkers(){
   var htmlListe = document.getElementById("tableBody").childNodes;
-  for(var i = 0; i<htmlListe.length; i++){
-    if(htmlListe[i].style.display!= "none"){
+  for(var i = 0; i < htmlListe.length; i++){
+    if(htmlListe[i].style.display != "none"){
       setMarker((i),correctLabel);
       correctLabel++;
-
     }
   }
-  correctLabel=0;
+  if(correctLabel == 0){
+    ingenToalett();
+  }
+  correctLabel = 0;
+}
+
+function ingenToalett(){
+  document.getElementById("ingenToalett").innerHTML = "<i class='fa fa-warning'></i> Det finnes ingen toaletter som matcher dine kriterer."
 }
