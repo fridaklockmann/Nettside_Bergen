@@ -4,7 +4,6 @@ window.onload = function(){
   loadData();
   hamburger();
   visSøk();
-  document.getElementById("googleForm").addEventListener("submit",google);
   document.getElementById("navLeft").addEventListener("click", pageLeft);
   document.getElementById("navRight").addEventListener("click", pageRight);
   document.getElementById("sideVelger").addEventListener("change", goToChosenPage);
@@ -72,7 +71,7 @@ function createElement(element) {
     rekke.appendChild(antrekk);
 
     var link = document.createElement("td");
-    link.innerHTML = "<a href=" + element.video_url + " target='_blank'><i class='fas fa-external-link-alt'></i> </a>";
+    link.innerHTML = "<a href=" + element.video_url + " target='_blank'>🔗</a>";
     rekke.appendChild(link);
     return rekke;
 };
@@ -85,10 +84,10 @@ function visSøk(){
         var avansert = document.getElementById("boksTilSøk");
         if (avansert.style.display === "flex") {
           avansert.style.display = "none";
-          knapp.innerHTML='Vis filtrering  <i class="fas fa-angle-down"></i>';
+          knapp.innerHTML='Vis filtrering';
         } else {
           avansert.style.display = "flex";
-          knapp.innerHTML='Skjul filtrering <i class="fas fa-angle-up"></i>';
+          knapp.innerHTML='Skjul filtrering';
         }
       });
     }

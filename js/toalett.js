@@ -5,7 +5,6 @@ window.onload = function(){
   hamburger();
   loadData();
   loadTime();
-  document.getElementById("googleForm").addEventListener("submit",google);
 };
 
 var correctLabel = 0;
@@ -46,10 +45,10 @@ function loadTime() {
         var avansert = document.getElementById("boksTilSøk");
         if (avansert.style.display === "flex") {
           avansert.style.display = "none";
-          knapp.innerHTML = 'Vis filtrering <i class="fas fa-angle-down"></i>';
+          knapp.innerHTML = 'Vis filtrering';
         } else {
           avansert.style.display = "flex";
-          knapp.innerHTML = 'Skjul filtrering <i class="fas fa-angle-up"></i>';
+          knapp.innerHTML = 'Skjul filtrering';
         }
       });
     }
@@ -389,5 +388,6 @@ function setNewMarkers(){
 }
 
 function ingenToalett(){
-  document.getElementById("ingenToalett").innerHTML = "<i class='fa fa-warning'></i> Det finnes ingen toaletter som matcher dine kriterer."
+  document.getElementById("ingenToalett").style.display = "block";
+  document.getElementById("ingenToalett").innerHTML = "Det finnes ingen toaletter som matcher dine kriterer."
 }

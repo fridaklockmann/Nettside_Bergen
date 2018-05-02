@@ -8,10 +8,7 @@
   <script type="text/javascript" src="js/toalett.js"></script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSJGiedMtW8jLcE-Wg1vtdLolfIQDf6J0&callback=initMap">
   </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pattaya|Work+Sans">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
   <title> Toaletter </title>
 </head>
 
@@ -23,11 +20,6 @@
       <a href="lekeplasser.html">Lekeplasser</a>
       <a href="toalett.html"class="active">Toaletter</a>
       <a href="minFavLekeplass.html">Favoritt</a>
-      <a href="#" class="search-container">
-        <form action="/action_page.php">
-            <input type="text" id="menuSearchbox" placeholder="Søk.." name="search">
-        </form>
-      </a>
       <a href="javascript:void(0)" class="hamburger" id="hamburger">
         <div class="bar1"></div>
         <div class="bar2"></div>
@@ -39,13 +31,12 @@
     <div id="hovedDiv">
       <h1 id="hovedOverskrift">Toaletter</h1>
       <div class="filterRad">
-        <button id="avansertSøkKnapp">Vis filtrering <i class="fas fa-angle-down"></i></button>
+        <button id="avansertSøkKnapp">Vis filtrering &#8595; </i></button>
         <input id="hurtigsøk" placeholder="Hurtigsøk"></input>
       </div>
 
       <div class="filterRad" id="boksTilSøk">
         <div id="avansertSøk">
-          <br>
           <div class="søkekolonne">
             <div><input id="kvinne" type="checkbox" class="checkbox">Kvinne</div>
             <div><input id="herre" type="checkbox" class="checkbox">Herre</div>
@@ -62,7 +53,7 @@
             <div><input id="søkAdresse" type="text" class="friSøk" placeholder="Adresse"></div>
           </div>
         </div><!-- end avansertsøk -->
-        <div id=filterknapper>
+        <div id="filterknapper">
           <button id="filtrerSøk" class="litenOransje">Filtrer</button>
           <button id="tilbakestillSøk">Fjern filter</button>
         </div>
@@ -75,12 +66,6 @@
     <footer class="footer">
       <p>Redaktør: Admin A. Adminsen </p>
       <p>Kontaktinformasjon: <a href="mailto:someone@example.com">someone@example.com</a>.</p>
-      <div class="sosial">
-        <a class="fab fa-snapchat-ghost" href="http://snapchat.com"></a>
-        <a class="fab fa-facebook-f" href="http://facebook.com"></a>
-        <a class="fab fa-instagram" href="http://instagram.com"></a>
-        <a class="fab fa-twitter" href="http://twitter.com"></a>
-      </div>
     </footer>
   </div> <!-- Flexcontainer end -->
 </body>

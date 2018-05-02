@@ -10,7 +10,6 @@ window.onload = function(){
   hamburger();
   var locate = window.location;
   link = locate;
-  document.getElementById("googleForm").addEventListener("submit",google);
   loadData("https://hotell.difi.no/api/json/bergen/lekeplasser?");
   loadData("https://hotell.difi.no/api/json/bergen/dokart?");
 }
