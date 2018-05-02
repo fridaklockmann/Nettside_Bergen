@@ -20,7 +20,9 @@ function loadData() {
           loadYears();
 	     }
     ).catch(
-	     function(reason) { alert("FEIL: " + reason);}
+	     function(reason) {
+         alert("FEIL: " + reason);
+       }
     );
 }
 
@@ -47,36 +49,37 @@ function createElement(element) {
     var rekke = document.createElement("tr");
     rekke.setAttribute("id", element.id);
 
-    // oppretter span-element for link
+    // Oppretter span-element for tittel
     var tittel = document.createElement("td");
     var videolink = "<a href='" + element.video_url + "'>"+element.tittel+"</a>";
     tittel.innerHTML = element.tittel;
     rekke.appendChild(tittel);
 
-    // oppretter span-element for årstall
+    // Oppretter span-element for årstall
     var årstall = document.createElement("td");
     årstall.innerHTML = element.aar;
     rekke.appendChild(årstall);
 
-    // oppretter span-element for tema
+    // Oppretter span-element for tema
     var tema = document.createElement("td");
     tema.innerHTML = element.tema;
     tema.classList.add("fjerneMobil");
     rekke.appendChild(tema);
 
-    // oppretter span-element for antrekk
+    // Oppretter span-element for antrekk
     var antrekk = document.createElement("td");
     antrekk.innerHTML = element.antrekk;
     antrekk.classList.add("fjerneMobil");
     rekke.appendChild(antrekk);
 
+    //Oppretter span-elementet for link
     var link = document.createElement("td");
     link.innerHTML = "<a href=" + element.video_url + " target='_blank'>🔗</a>";
     rekke.appendChild(link);
     return rekke;
 };
 
-// Viser og skjuler avansert søk ved klikk
+// Viser og skjuler avansert søk ved klikk på knappen
 function visSøk(){
     var knapp = document.getElementById("avansertSøkKnapp");
     if(knapp){
@@ -85,7 +88,8 @@ function visSøk(){
         if (avansert.style.display === "flex") {
           avansert.style.display = "none";
           knapp.innerHTML='Vis filtrering';
-        } else {
+        }
+        else {
           avansert.style.display = "flex";
           knapp.innerHTML='Skjul filtrering';
         }
@@ -94,27 +98,30 @@ function visSøk(){
     else {
       console.log("Finner ikke elementet 'avansertSøkKnapp'");
     }
-    //gir filtrerknappen funksjon
-    document.getElementById("filtrerSøk").addEventListener("click",filtrerSøk);
-    document.getElementById("tilbakestillSøk").addEventListener("click",tilbakesillSøk);
-    //gir fjern-filter-knappen funksjon
+    //Gir filtrer-knappen funksjon
+    document.getElementById("filtrerSøk").addEventListener("click", filtrerSøk);
+    //Gir fjern-filter-knappen funksjon
     document.getElementById("tilbakestillSøk").addEventListener("click", tilbakestillSøk);
 }
 
 function pageLeft(){
     if(page != 1){
       goToPage(page-1);
-    }else{
+    }
+    else {
       alert("Du er på første side.");
     }
 }
+
 function pageRight(){
     if(page <= 7){
       goToPage(page + 1);
-    }else{
+    }
+    else {
       alert("Du er på siste side.");
     }
 }
+
 function goToChosenPage(){
     var valgtSide = document.getElementById("sideVelger").value;
     if(valgtSide<9&&valgtSide>0){
@@ -122,6 +129,7 @@ function goToChosenPage(){
     }
     else alert("Valgt side finnes ikke, vennligst velg en annen");
 }
+
 function goToPage(s){
     page = s;
     document.getElementById("tableBody").innerHTML="";
@@ -154,17 +162,15 @@ function filtrerSøk(){
     }
     if(frisøk){
       frisøk = frisøk.toUpperCase();
-      for(var i = 0; i < dataliste.length; i++){
-        var søk = dataliste[i].tittel.toUpperCase();
+      var søk = dataliste[i].tittel.toUpperCase();
         if(søk.includes(frisøk) ||
           dataliste[i].tema.toUpperCase().includes(frisøk) ||
           dataliste[i].antrekk.toUpperCase().includes(frisøk)){
         //Gjør ingenting - beholder elementene i listen
         }
-        else{
+        else {
           document.getElementById(dataliste[i].id).style.display = "none";
         }
-      }
     }
   }
 }//End filtrersøk

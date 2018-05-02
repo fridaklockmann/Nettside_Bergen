@@ -1,24 +1,26 @@
-var dataliste="";
+var dataliste = "";
 
 window.onload = function(){
   loadData();
   hamburger();
 }
-var rbliste="";
+
+var rbliste = "";
 
 function loadData() {
-    var url = "https://hotell.difi.no/api/json/bergen/lekeplasser?";
-    promise = getURL(url);
-    promise.then(
-	     function(response) {
-          dataliste = JSON.parse(response).entries;
-          loadFile();
-          document.getElementById("regnUtAvstand").addEventListener('click', regnUtAvstand);
-
-	     }
+  var url = "https://hotell.difi.no/api/json/bergen/lekeplasser?";
+  promise = getURL(url);
+  promise.then(
+	    function(response) {
+        dataliste = JSON.parse(response).entries;
+        loadFile();
+        document.getElementById("regnUtAvstand").addEventListener('click', regnUtAvstand);
+	    }
     ).catch(
-	     function(reason) { alert("FEIL: " + reason);}
-    );
+	    function(reason) {
+        alert("FEIL: " + reason);
+      }
+  );
 }
 
 function createElement(element) {
@@ -26,23 +28,23 @@ function createElement(element) {
     rekke.setAttribute("id", element.id);
     rekke.classList.add("lekeplasser");
 
-    // oppretter span-element for id
+    // Oppretter span-element for id
     var id = document.createElement("td");
     id.innerHTML = element.id;
     rekke.appendChild(id);
 
-    // oppretter span-element for navn
+    // Oppretter span-element for navn
     var navn = document.createElement("td");
     navn.innerHTML = element.navn;
     rekke.appendChild(navn);
 
-    // oppretter span-element for latitude
+    // Oppretter span-element for latitude
     var latitude = document.createElement("td");
     latitude.innerHTML = element.latitude;
     latitude.classList.add("fjerneMobil");
     rekke.appendChild(latitude);
 
-    // oppretter span-element for longitude
+    // Oppretter span-element for longitude
     var longitude = document.createElement("td");
     longitude.innerHTML = element.longitude;
     longitude.classList.add("fjerneMobil");
@@ -51,13 +53,12 @@ function createElement(element) {
     return rekke;
 };
 
-
 function regnUtAvstand(){
   var a = document.getElementById("plass1").value;
   var b = document.getElementById("plass2").value;
-
-  if(a == "" || b == "") alert("Skriv inn gyldig lekeplassnavn eller id");
-
+  if(a == "" || b == ""){
+    alert("Skriv inn gyldig lekeplassnavn eller id");
+  }
   else {
     var tallMellomEnOgHundre= /^[1-9][0-9]?$|^100$/;
     var bokstaver = /[a-zA-Z]/;

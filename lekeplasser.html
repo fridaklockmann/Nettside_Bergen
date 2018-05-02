@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="nb">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
-  <script type="text/javascript" src="js/felles.js"></script>
-  <script type="text/javascript" src="js/lekeplasser.js"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pattaya|Work+Sans">
-  <title> Bergen </title>
-</head>
-
-<body>
-  <div id="flexcontainer">
-    <div id="topNav" class = "navbar">
-      <a id="bergen"  href="index.html">Bergen</a>
-      <a href="norgeRundt.html">Bergen Rundt</a>
-      <a href="lekeplasser.html" class="active">Lekeplasser</a>
-      <a href="toalett.html">Toaletter</a>
-      <a href="minFavLekeplass.html">Favoritt</a>
-      <a href="javascript:void(0)" class="hamburger" id="hamburger">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </a>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pattaya|Work+Sans">
+    <script type="text/javascript" src="js/felles.js"></script>
+    <script type="text/javascript" src="js/lekeplasser.js"></script>
+    <title> Lekeplasser </title>
+  </head>
+  <body>
+    <div id="flexcontainer">
+      <div id="topNav" class = "navbar">
+        <a id="bergen"  href="index.html">Bergen</a>
+        <a href="norgeRundt.html">Bergen Rundt</a>
+        <a href="lekeplasser.html" class="active">Lekeplasser</a>
+        <a href="toalett.html">Toaletter</a>
+        <a href="minFavLekeplass.html">Favoritt</a>
+        <a href="javascript:void(0)" class="hamburger" id="hamburger">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </a>
+      </div>
     </div>
-  </div>
-    <!--MENU END -->
     <div id="hovedDiv">
       <h1 id="hovedOverskrift"> Lekeplasser </h1>
       <h3>Mål avstanden mellom to lekeplasser:</h3>
@@ -33,11 +31,9 @@
       <div id="avstandsskjema">
         <input type="text" placeholder="Lekeplass 1" id="plass1"></input>
         <input type="text" placeholder="Lekeplass 2" id="plass2"></input>
-        <button type="button" id="regnUtAvstand" class="litenOransje">Regn ut</button>
+        <button type="button" id="regnUtAvstand" class="litenOransjeKnapp">Regn ut</button>
         <p id="avstanden"></p>
       </div>
-      <br>
-
       <div class="scrollebar">
         <table class="tabell">
           <thead>
@@ -46,19 +42,14 @@
             <th class="fjerneMobil">Latitude</th>
             <th class="fjerneMobil">Longitude</th>
           </thead>
-          <tbody id="tableBody">
-          </tbody>
+          <tbody id="tableBody"></tbody>
         </table>
       </div>
-      <div>
-        <br>
-
       <img src="media/floien.jpg" id="infobilde">
     </div>
     <footer class="footer">
       <p>Redaktør: Admin A. Adminsen </p>
       <p>Kontaktinformasjon: <a href="mailto:someone@example.com">someone@example.com</a>.</p>
     </footer>
-  </div>
-</body>
+  </body>
 </html>

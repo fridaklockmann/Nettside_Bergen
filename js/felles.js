@@ -1,5 +1,9 @@
+window.onload = function(){
+  hamburger()
+};
+
 function getURL(url) {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function(resolve, reject){
 	   var xhr = new XMLHttpRequest();
 	   xhr.open("GET", url);
 	   xhr.onreadystatechange = function() {
@@ -14,10 +18,11 @@ function getURL(url) {
 	    xhr.send();
   });
 }
+
 function loadFile() {
   var tabell = document.getElementById("tableBody");
   var length = Object.keys(dataliste).length;
-  for(var i = 0; i<length; i++){
+  for (var i = 0; i<length; i++){
     tabell.appendChild(createElement(dataliste[i]));
   }
 }
@@ -29,24 +34,25 @@ function sjekkAvstand(sted1, sted2){
   var lon2 = sted2.longitude;
 
   var radius = 6371; //Jordens radius
-  var gradLat = gradTilRadius(lat2 - lat1);
-  var gradLon = gradTilRadius(lon2 - lon1);
+
+  //Her bruker vi Haversine formelen til å regne ut avstanden mellom punktene. Den tar høyde for at jorden ikke er flat
+  var gradLat = gradTilRadian(lat2 - lat1);
+  var gradLon = gradTilRadian(lon2 - lon1);
 
   var a =
     Math.sin(gradLat / 2) * Math.sin(gradLat / 2) +
-    Math.cos(gradTilRadius(lat1)) * Math.cos(gradTilRadius(lat2)) *
+    Math.cos(gradTilRadian(lat1)) * Math.cos(gradTilRadian(lat2)) *
     Math.sin(gradLon / 2) * Math.sin(gradLon / 2);
-
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   var d = radius * c;
   return d.toFixed(3); //Returnerer avstanden med 3 desimaler
 }
 
-function gradTilRadius(grad){
+function gradTilRadian(grad){
   return grad * (Math.PI/180)
 }
 
-//lager hamburgermeny
+//Snur strekene i hamburgermenyen ved klikk
  function hamburger(){
   var hamb = document.getElementById("hamburger");
   if(hamb){
@@ -58,12 +64,12 @@ function gradTilRadius(grad){
   }
 };
 
-//bytter navn på classene, slik at man får andre egenskaper i css-filen
-  function endreNavn() {
-    var topNav = document.getElementById("topNav");
-    if (topNav.className === "navbar") {
-        topNav.className += " responsive";
-    } else {
-        topNav.className = "navbar";
-    }
+//Bytter klassenavnene til strekene i hamburgermenyen, slik at de får andre egenskaper i CSS-filen
+function endreNavn() {
+  var topNav = document.getElementById("topNav");
+  if (topNav.className === "navbar") {
+      topNav.className += " responsive";
+  } else {
+      topNav.className = "navbar";
   }
+}

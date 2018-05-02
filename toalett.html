@@ -1,40 +1,36 @@
 <!DOCTYPE html>
 <html lang="nb">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
-  <script type="text/javascript" src="js/felles.js"></script>
-  <script type="text/javascript" src="js/toalett.js"></script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSJGiedMtW8jLcE-Wg1vtdLolfIQDf6J0&callback=initMap">
-  </script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pattaya|Work+Sans">
-  <title> Toaletter </title>
-</head>
-
-<body>
-  <div id="flexcontainer">
-    <div id="topNav" class = "navbar">
-      <a href="index.html" id="bergen">Bergen</a>
-      <a href="norgeRundt.html">Bergen Rundt</a>
-      <a href="lekeplasser.html">Lekeplasser</a>
-      <a href="toalett.html"class="active">Toaletter</a>
-      <a href="minFavLekeplass.html">Favoritt</a>
-      <a href="javascript:void(0)" class="hamburger" id="hamburger">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </a>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pattaya|Work+Sans">
+    <script type="text/javascript" src="js/felles.js"></script>
+    <script type="text/javascript" src="js/toalett.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSJGiedMtW8jLcE-Wg1vtdLolfIQDf6J0&callback=initMap"></script>
+    <title> Toaletter </title>
+  </head>
+  <body>
+    <div id="flexcontainer">
+      <div id="topNav" class = "navbar">
+        <a href="index.html" id="bergen">Bergen</a>
+        <a href="norgeRundt.html">Bergen Rundt</a>
+        <a href="lekeplasser.html">Lekeplasser</a>
+        <a href="toalett.html"class="active">Toaletter</a>
+        <a href="minFavLekeplass.html">Favoritt</a>
+        <a href="javascript:void(0)" class="hamburger" id="hamburger">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </a>
+      </div>
     </div>
-  </div> <!--MENU END -->
-
     <div id="hovedDiv">
       <h1 id="hovedOverskrift">Toaletter</h1>
       <div class="filterRad">
         <button id="avansertSøkKnapp">Vis filtrering</button>
         <input id="hurtigsøk" placeholder="Hurtigsøk"></input>
       </div>
-
       <div class="filterRad" id="boksTilSøk">
         <div id="avansertSøk">
           <div class="søkekolonne">
@@ -52,22 +48,19 @@
             <div><input id="makspris" type="text" class="friSøk" placeholder="Makspris"></div>
             <div><input id="søkAdresse" type="text" class="friSøk" placeholder="Adresse"></div>
           </div>
-        </div><!-- end avansertsøk -->
-        <div id="filterknapper">
-          <button id="filtrerSøk" class="litenOransje">Filtrer</button>
-          <button id="tilbakestillSøk">Fjern filter</button>
         </div>
-    </div><!-- end bokstilsøk -->
-    <p id="ingenToalett"></p>
-    <ol id="tableBody"></ol>
-    <div id="map"></div>
-  </div><!--Hoveddiv end-->
-
+        <div id="filterknapper">
+          <button id="filtrerSøk" class="litenOransjeKnapp">Filtrer</button>
+          <button id="tilbakestillSøk" class="litenHvitKnapp">Fjern filter</button>
+        </div>
+      </div>
+      <p id="ingenToalett"></p>
+      <ol id="tableBody"></ol>
+      <div id="map"></div>
+    </div>
     <footer class="footer">
       <p>Redaktør: Admin A. Adminsen </p>
       <p>Kontaktinformasjon: <a href="mailto:someone@example.com">someone@example.com</a>.</p>
     </footer>
-  </div> <!-- Flexcontainer end -->
-</body>
-
+  </body>
 </html>

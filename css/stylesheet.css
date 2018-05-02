@@ -1,5 +1,4 @@
 /* COMMON */
-
 h1 {
   font-family: "Pattaya", sans-serif;
   text-align: center;
@@ -80,14 +79,17 @@ input[type=checkbox]{
   overflow: scroll;
   background-color: #f4f4f4;
 }
+
 .scrollebar::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
+
 .scrollebar::-webkit-scrollbar-thumb {
   background-color: #FF5D3F;
   border-radius: 10px;
 }
+
 .scrollebar::-webkit-scrollbar-corner{
   background-color: #f4f4f4;
 }
@@ -188,10 +190,6 @@ input[type=checkbox]{
   font-variant: all-small-caps;
 }
 
-#topNav a:nth-child(6){
-  padding-top: 4px;
-}
-
 #topNav a:last-child {
   padding-top: 5px;
 }
@@ -204,7 +202,6 @@ input[type=checkbox]{
   text-decoration: underline #FF5D3F;
 }
 
-
 /* top navigation end */
 
 #hovedDiv {
@@ -212,7 +209,6 @@ input[type=checkbox]{
   flex-direction: column;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 10px;
   width: 80%;
   background-color: #f4f4f4;
   font-family: "Lato";
@@ -246,13 +242,15 @@ input[type=checkbox]{
   font-family: "Lato", sans-serif;
   font-size: 15px;
   -moz-column-count: 2;
-  -moz-column-gap: 100px;
+  -moz-column-gap: 200px;
   -webkit-column-count: 2;
-  -webkit-column-gap: 100px;
+  -webkit-column-gap: 200px;
   -webkit-padding-start: 0px;
   column-count: 2;
-  column-gap: 100px;
+  column-gap: 200px;
   margin: auto;
+  margin-top: 10px;
+  list-style-position: inside;
 }
 
 /* søkeknapp */
@@ -318,7 +316,7 @@ input[type=checkbox]{
   justify-content: space-around;
 }
 
-.litenOransje{
+.litenOransjeKnapp{
   background-color: #FF5D3F;
   color: white;
   font-size: 12px;
@@ -336,7 +334,7 @@ input[type=checkbox]{
   border: none;
 }
 
-#tilbakestillSøk{
+.litenHvitKnapp{
   background-color: white;
   color: #FF5D3F;
   font-size: 12px;
@@ -354,46 +352,14 @@ input[type=checkbox]{
   border: none;
 }
 
-/* søkeknapp end */
-
-/* footer */
-
-.footer {
-  position: fixed center;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 7px;
-  padding-bottom: 5px;
-  width: 80%;
-  background-color: #f4f4f4;
-  color: 	#494848;
-  font-size: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  underline: none;
-}
-
-/* footer end */
-
-
-/* COMMON END */
-
-/* INDEX / BERGEN */
-
-#forsidebilde {
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-}
+/* INDEX */
 
 #bergenTekst{
-  width: 60%;
+  width: 80%;
   margin: auto;
 }
 
-/* BERGEN RUNDT */
+/* NORGE/BERGEN RUNDT */
 
 #norgeRundtTabell th:nth-child(1){
   width: 40%;
@@ -418,7 +384,6 @@ input[type=checkbox]{
 #norgeRundtTabell td:nth-child(5){
   text-align: center;
 }
-
 
 /* LEKEPLASSER */
 
@@ -451,13 +416,12 @@ h3{
   justify-content: flex-end;
 }
 
-
 /* FOOTER */
+
 .footer {
-  position: fixed center;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 7px;
+  margin-top: 7px;
   padding-bottom: 5px;
   width: 80%;
   background-color: #f4f4f4;
@@ -466,7 +430,6 @@ h3{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  underline: none;
 }
 
 #avstandsskjema{
@@ -479,85 +442,78 @@ h3{
   font-family: "Lato", sans-serif;
 }
 
-#toalettTabell th:first-child{
-  width: 3%;
-}
-
-#toalettTabell th:nth-child(2),th:nth-child(3){
-  width: 15%;
-}
-
-#toalettTabell th:nth-child(n+8){
-  width: 5%;
-}
-
-#toalettTabell th:nth-child(4){
-  width: 5%;
-}
-
 #ingenToalett{
   text-align: center;
   display: none;
 }
 
-/* FAVORITT */
 
+/* MEDIA QUERIES FOR DIFFERENT DEVICES */
 
-
-/* MEDIAQUERIES FOR DIFFERENT SCREENS */
-
-/* media query for mobile */
+/* Media Query For Mobile */
 
 @media only screen and (max-width: 768px) {
   #bergenTekst{
     width: 95%;
   }
+
   #flexcontainer{
     width: 100%;
   }
+
   #tableBody{
     font-family: "Lato", sans-serif;
     -moz-column-count: 1;
     -webkit-column-count: 1;
     column-count: 1;
-    padding-left: 2px;
   }
+
   #hovedDiv{
     width: 100%;
   }
+
   .filterRad{
     flex-direction: column-reverse;
   }
+
   #avansertSøk{
     flex-direction: column;
   }
+
   .friSøk{
     padding: 0%;
   }
+
   #filterknapper{
     justify-content: center;
   }
+
   .footer{
     width: 100%;
   }
+
   #avansertSøkKnapp{
     width: 100%;
   }
+
   #filtrerSøk{
     width: 20%;
   }
+
   #tilbakestillSøk{
     width: 20%;
   }
+
   #hurtigsøk{
     width: 100%;
   }
+
   .fjerneMobil{
     display: none;
   }
 }
 
-/* media query for tablet */
+/* Media Query For Tablet */
 @media only screen and (min-width: 768px) and (max-width: 1024px)  {
   #flexcontainer{
     width: 100%;
@@ -584,7 +540,7 @@ h3{
   }
 }
 
-/* media query for desktop */
+/* Media Query For Desktop */
 
 @media only screen and (min-width: 1280px){
   #hovedDiv{
