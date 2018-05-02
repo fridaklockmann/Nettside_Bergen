@@ -22,29 +22,30 @@ function loadFile() {
   }
 }
 
-function sjekkAvstand(coords1, coords2){
-  var lat1 = coords1.latitude;
-  var lon1 = coords1.longitude;
-  var lat2 = coords2.latitude;
-  var lon2 = coords2.longitude;
+function sjekkAvstand(sted1, sted2){
+  var lat1 = sted1.latitude;
+  var lon1 = sted1.longitude;
+  var lat2 = sted2.latitude;
+  var lon2 = sted2.longitude;
 
-  var radius = 6371;
-  var dLat = deg2rad(lat2-lat1);
-  var dLon = deg2rad(lon2-lon1);
+  var radius = 6371; //Jordens radius
+  var gradLat = gradTilRadius(lat2 - lat1);
+  var gradLon = gradTilRadius(lon2 - lon1);
 
   var a =
-    Math.sin(dLat/2) * Math.sin(dLat/2) +
-    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
-    Math.sin(dLon/2) * Math.sin(dLon/2);
+    Math.sin(gradLat / 2) * Math.sin(gradLat / 2) +
+    Math.cos(gradTilRadius(lat1)) * Math.cos(gradTilRadius(lat2)) *
+    Math.sin(gradLon / 2) * Math.sin(gradLon / 2);
 
-  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   var d = radius * c;
-  return d.toFixed(3);
+  return d.toFixed(3); //Returnerer avstanden med 3 desimaler
 }
 
-function deg2rad(deg){
-  return deg * (Math.PI/180)
+function gradTilRadius(grad){
+  return grad * (Math.PI/180)
 }
+
 //lager hamburgermeny
  function hamburger(){
   var hamb = document.getElementById("hamburger");
