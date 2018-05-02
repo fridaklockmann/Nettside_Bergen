@@ -39,11 +39,13 @@ function createElement(element) {
     // oppretter span-element for latitude
     var latitude = document.createElement("td");
     latitude.innerHTML = element.latitude;
+    latitude.classList.add("fjerneMobil");
     rekke.appendChild(latitude);
 
     // oppretter span-element for longitude
     var longitude = document.createElement("td");
     longitude.innerHTML = element.longitude;
+    longitude.classList.add("fjerneMobil");
     rekke.appendChild(longitude);
 
     return rekke;

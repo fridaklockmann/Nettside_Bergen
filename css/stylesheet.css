@@ -205,24 +205,6 @@ input[type=checkbox]{
   text-decoration: underline #FF5D3F;
 }
 
-#menuSearchbox {
-  width: 95px;
-  height: 35px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  background-color: white;
-  background-image: url('http://w3schools.com/howto/searchicon.png');
-  background-position: 6px 6px;
-  background-repeat: no-repeat;
-  padding: 10px 20px 10px 40px;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
-}
-
-#menuSearchbox:focus {
-  width: 200px;
-  outline: none;
-}
 
 /* top navigation end */
 
@@ -528,6 +510,9 @@ h3{
 /* media query for mobile */
 
 @media only screen and (max-width: 768px) {
+  #bergenTekst{
+    width: 95%;
+  }
   #flexcontainer{
     width: 100%;
   }
@@ -536,7 +521,7 @@ h3{
     -moz-column-count: 1;
     -webkit-column-count: 1;
     column-count: 1;
-    margin: 0;
+    padding-left: 2px;
   }
   #hovedDiv{
     width: 100%;
@@ -574,7 +559,6 @@ h3{
 }
 
 /* media query for tablet */
-
 @media only screen and (min-width: 768px) and (max-width: 1024px)  {
   #flexcontainer{
     width: 100%;
