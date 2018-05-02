@@ -153,7 +153,6 @@ input[type=checkbox]{
   #topNav.responsive .hamburger {
     position: absolute;
     right: 10px;
-    top: 10px;
   }
 
   #topNav.responsive a{
@@ -194,7 +193,7 @@ input[type=checkbox]{
 }
 
 #topNav a:last-child {
-  padding-top: 12px;
+  padding-top: 5px;
 }
 
 #topNav a:hover {
