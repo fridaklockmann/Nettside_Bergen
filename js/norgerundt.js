@@ -175,7 +175,7 @@ function filtrerSøk(){
   }
 }//End filtrersøk
 
-function tilbakesillSøk() {
+function tilbakestillSøk() {
  for (var i = 0; i < dataliste.length; i++) {
    document.getElementById(dataliste[i].id).style.display = "table-row";
    fjernAlleChecked();
