@@ -48,6 +48,7 @@ function loadYears() {
 function createElement(element) {
     var rekke = document.createElement("tr");
     rekke.setAttribute("id", element.id);
+    rekke.classList.add("tabellPåNettsiden");
 
     // Oppretter span-element for tittel
     var tittel = document.createElement("td");
@@ -143,8 +144,6 @@ function filtrerSøk(){
   var årstall = document.getElementById("årstall").value;
   var frisøk = document.getElementById("frisøk").value;
 
-  var antallSkjulteRader = 0;
-
   for(var i = 0; i < dataliste.length; i++){
 
     if(kvinneligHovedrolle == true){
@@ -172,11 +171,19 @@ function filtrerSøk(){
         }
         else {
           document.getElementById(dataliste[i].id).style.display = "none";
-          antallSkjulteRader ++;
         }
     }
   }
-  if(antallSkjulteRader = dataliste.length){
+
+  var tabellPåNettsiden = document.getElementsByClassName("tabellPåNettsiden");
+  var antallSynligeRekker = 0;
+  
+  for(var j = 0 ; j < tabellPåNettsiden.length; j++){
+    if(tabellPåNettsiden[j].style.display != "none"){
+      antallSynligeRekker ++;
+    }
+  }
+  if(antallSynligeRekker == 0){
     ingenSøketreff();
   }
 }
@@ -184,9 +191,9 @@ function filtrerSøk(){
 function tilbakestillSøk() {
  for (var i = 0; i < dataliste.length; i++) {
    document.getElementById(dataliste[i].id).style.display = "table-row";
+ }
    document.getElementById("ingenSøketreff").style.display = "none";
    fjernAlleChecked();
- }
 }
 
 function fjernAlleChecked(){
