@@ -106,7 +106,7 @@ function visSøk(){
 
 function pageLeft(){
     if(page != 1){
-      goToPage(page-1);
+      goToPage(page - 1);
     }
     else {
       alert("Du er på første side.");
@@ -124,7 +124,7 @@ function pageRight(){
 
 function goToChosenPage(){
     var valgtSide = document.getElementById("sideVelger").value;
-    if(valgtSide<9&&valgtSide>0){
+    if(valgtSide < 9 && valgtSide > 0){
       goToPage(valgtSide);
     }
     else alert("Valgt side finnes ikke, vennligst velg en annen");
@@ -134,7 +134,7 @@ function goToPage(s){
     page = s;
     document.getElementById("tableBody").innerHTML="";
     document.getElementById("sideVelger").value = page;
-    loadData()
+    loadData();
 }
 
 function filtrerSøk(){
@@ -142,6 +142,8 @@ function filtrerSøk(){
   var mannligHovedrolle = document.getElementById("herre").checked;
   var årstall = document.getElementById("årstall").value;
   var frisøk = document.getElementById("frisøk").value;
+
+  var antallSkjulteRader = 0;
 
   for(var i = 0; i < dataliste.length; i++){
 
@@ -157,7 +159,7 @@ function filtrerSøk(){
     }
     if(årstall <= 2018 && årstall >= 1976){
       if(dataliste[i].aar != årstall){
-        document.getElementById(dataliste[i].id).style.display="none";
+        document.getElementById(dataliste[i].id).style.display = "none";
       }
     }
     if(frisøk){
@@ -170,21 +172,30 @@ function filtrerSøk(){
         }
         else {
           document.getElementById(dataliste[i].id).style.display = "none";
+          antallSkjulteRader ++;
         }
     }
   }
-}//End filtrersøk
+  if(antallSkjulteRader = dataliste.length){
+    ingenSøketreff();
+  }
+}
 
 function tilbakestillSøk() {
  for (var i = 0; i < dataliste.length; i++) {
    document.getElementById(dataliste[i].id).style.display = "table-row";
+   document.getElementById("ingenSøketreff").style.display = "none";
    fjernAlleChecked();
  }
 }
 
 function fjernAlleChecked(){
-document.getElementById("kvinne").checked = false;
-document.getElementById("herre").checked = false;
-document.getElementById("frisøk").value= "";
+  document.getElementById("kvinne").checked = false;
+  document.getElementById("herre").checked = false;
+  document.getElementById("frisøk").value = "";
+}
 
+function ingenSøketreff(){
+  document.getElementById("ingenSøketreff").style.display = "block";
+  document.getElementById("ingenSøketreff").innerHTML = "Det finnes ingen episoder som passer dine kriterer."
 }

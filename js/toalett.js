@@ -317,7 +317,7 @@ function avansertSøk(searchCriteria){
           }
         }
       }
-      else if(tid_dagtype=="NULL"){
+      else if(tid_dagtype == "NULL"){
         document.getElementById(dataliste[i].id).style.display = "none";
       }
     }
@@ -328,7 +328,7 @@ function avansertSøk(searchCriteria){
     }
 
     function slettToaletterOverPrisen(maxpris){
-      if(dataliste[i].pris > maxpris && dataliste[i].pris!= "NULL"){
+      if(dataliste[i].pris > maxpris && dataliste[i].pris != "NULL"){
         document.getElementById(dataliste[i].id).style.display = "none";
       }
     }
@@ -336,7 +336,7 @@ function avansertSøk(searchCriteria){
     if(adresseSøk){
       adresseSøk = adresseSøk.toUpperCase();
       var adresse = dataliste[i].adresse.toUpperCase().replace(/[0-9]/g,'');
-      if(adresse.includes(adresseSøk) || dataliste[i].place.toUpperCase().includes(adresseSøk)){
+      if(adresse.includes(adresseSøk) || dataliste[i].plassering.toUpperCase().includes(adresseSøk)){
         //Gjør ingenting. Beholder elementene som stemmer med søket
       }
       else {
@@ -374,7 +374,7 @@ function fjernAlleChecked(){
   document.getElementById("makspris").value = "";
   document.getElementById("søkAdresse").value = "";
   document.getElementById("hurtigsøk").value = "";
-  document.getElementById("ingenToalett").innerHTML = "";
+  document.getElementById("ingenSøketreff").innerHTML = "";
 }
 
 function setNewMarkers(){
@@ -386,12 +386,12 @@ function setNewMarkers(){
     }
   }
   if(correctLabel == 0){
-    ingenToalett();
+    ingenSøketreff();
   }
   correctLabel = 0;
 }
 
-function ingenToalett(){
-  document.getElementById("ingenToalett").style.display = "block";
-  document.getElementById("ingenToalett").innerHTML = "Det finnes ingen toaletter som matcher dine kriterer."
+function ingenSøketreff(){
+  document.getElementById("ingenSøketreff").style.display = "block";
+  document.getElementById("ingenSøketreff").innerHTML = "Det finnes ingen toaletter som passer dine kriterer."
 }

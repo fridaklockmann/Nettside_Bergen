@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pattaya|Work+Sans">
-    <script type="text/javascript" src="js/felles.js"></script>
-    <script type="text/javascript" src="js/lekeplasser.js"></script>
+    <script src="js/felles.js"></script>
+    <script src="js/lekeplasser.js"></script>
     <title> Lekeplasser </title>
   </head>
   <body>
@@ -29,23 +29,21 @@
       <h3>Mål avstanden mellom to lekeplasser:</h3>
       <p>Skriv inn fullt navn eller id</p>
       <div id="avstandsskjema">
-        <input type="text" placeholder="Lekeplass 1" id="plass1"></input>
-        <input type="text" placeholder="Lekeplass 2" id="plass2"></input>
+        <input type="text" placeholder="Lekeplass 1" id="plass1"/>
+        <input type="text" placeholder="Lekeplass 2" id="plass2"/>
         <button type="button" id="regnUtAvstand" class="litenOransjeKnapp">Regn ut</button>
         <p id="avstanden"></p>
       </div>
       <div class="scrollebar">
         <table class="tabell">
-          <thead>
-            <th>ID</th>
-            <th>Navn</th>
-            <th class="fjerneMobil">Latitude</th>
-            <th class="fjerneMobil">Longitude</th>
-          </thead>
+          <th>ID</th>
+          <th>Navn</th>
+          <th class="fjerneMobil">Latitude</th>
+          <th class="fjerneMobil">Longitude</th>
           <tbody id="tableBody"></tbody>
         </table>
       </div>
-      <img src="media/floien.jpg" id="infobilde">
+      <img src="media/floien.jpg" id="infobilde" alt="Bilde av lekeplassen på Fløien">
     </div>
     <footer class="footer">
       <p>Redaktør: Admin A. Adminsen </p>

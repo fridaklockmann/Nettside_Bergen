@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pattaya|Work+Sans">
-    <script type="text/javascript" src="js/felles.js"></script>
-    <script type="text/javascript" src="js/norgerundt.js"></script>
+    <script src="js/felles.js"></script>
+    <script src="js/norgerundt.js"></script>
     <title> Bergen Rundt </title>
   </head>
   <body>
     <div id="flexcontainer">
       <div id="topNav" class = "navbar">
         <a id="bergen"  href="index.html">Bergen</a>
-        <a href="norgeRundt.html"class="active">Bergen Rundt</a>
+        <a href="norgeRundt.html" class="active">Bergen Rundt</a>
         <a href="lekeplasser.html">Lekeplasser</a>
         <a href="toalett.html">Toaletter</a>
         <a href="minFavLekeplass.html">Favoritt</a>
@@ -52,10 +52,11 @@
         </div>
       </div>
       <div class="row">
-        <button type="button" name="button" class="navButtons" id="navLeft"><b><</b></button>
-        <input type="text" placeholder="1" id="sideVelger"></input>
-        <button type="button" name="button" class="navButtons" id="navRight"><b>></b></button>
+        <button type="button" name="button" class="navButtons" id="navLeft"><b>&lt;</b></button>
+        <input type="text" placeholder="1" id="sideVelger"/>
+        <button type="button" name="button" class="navButtons" id="navRight"><b>&gt;</b></button>
       </div>
+      <p id="ingenSøketreff"></p>
       <div class="scrollebar">
         <table id=norgeRundtTabell class="tabell">
           <thead>
@@ -70,7 +71,7 @@
           <tbody id="tableBody"></tbody>
         </table>
       </div>
-      <img src="media/norgeRundt.jpg" id="infobilde">
+      <img src="media/norgeRundt.jpg" id="infobilde" alt="Bergen rundt">
     </div>
     <footer class="footer">
       <p>Redaktør: Admin A. Adminsen </p>

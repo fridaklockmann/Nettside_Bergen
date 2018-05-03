@@ -106,8 +106,8 @@ function oppdaterFav(lekeplass){
   nærmesteLekeplass = nærmeste(dataliste);
   nærmesteToalett = nærmeste(toalettliste);
   document.getElementById("favOverskrift").innerHTML = lekeplass.navn;
-  document.getElementById("firstP").innerHTML = "Nærmeste andre lekeplass er " + nærmesteLekeplass.navn+ "." +  " Den er "+sjekkAvstand(favorittLekeplass,nærmesteLekeplass) + "km unna" ;
-  document.getElementById("seccondP").innerHTML = "Nærmeste toalett er her: " + nærmesteToalett.plassering+"." +  " Det er "+sjekkAvstand(favorittLekeplass,nærmesteToalett) + "km unna" ;
+  document.getElementById("firstP").innerHTML = "Nærmeste andre lekeplass er " + nærmesteLekeplass.navn+ "." +  " Den er "+sjekkAvstand(favorittLekeplass,nærmesteLekeplass) + " km unna" ;
+  document.getElementById("seccondP").innerHTML = "Nærmeste toalett er her: " + nærmesteToalett.plassering+"." +  " Det er "+sjekkAvstand(favorittLekeplass,nærmesteToalett) + " km unna" ;
   //Scroller brukeren opp til toppen av siden slik at han/hun ser at siden ble oppdatert
   document.documentElement.scrollTop = 0;
 }

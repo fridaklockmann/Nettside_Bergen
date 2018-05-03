@@ -16,7 +16,7 @@ function loadData() {
         loadFile();
         document.getElementById("regnUtAvstand").addEventListener('click', regnUtAvstand);
 	    }
-    ).catch(
+  ).catch(
 	    function(reason) {
         alert("FEIL: " + reason);
       }
@@ -56,22 +56,27 @@ function createElement(element) {
 function regnUtAvstand(){
   var a = document.getElementById("plass1").value;
   var b = document.getElementById("plass2").value;
+  var tallMellomEnOgHundre= /^[1-9][0-9]?$|^100$/;
+  var bokstaver = /[a-zA-Z]/;
+
   if(a == "" || b == ""){
     alert("Skriv inn gyldig lekeplassnavn eller id");
   }
   else {
-    var tallMellomEnOgHundre= /^[1-9][0-9]?$|^100$/;
-    var bokstaver = /[a-zA-Z]/;
     if(a.match(tallMellomEnOgHundre)){
       a = dataliste[a-1];
     }
-    else if(a.match(bokstaver)){4
+    else if(a.match(bokstaver)){
       for(var i = 0; i < dataliste.length; i++){
         if(dataliste[i].navn.includes(a)){
           a = dataliste[i];
         }
       }
+      if(a.navn == undefined){
+        document.getElementById("avstanden").innerHTML = "Kjenner ikke til lekeplassen med navn/id: " + a + ".";
+      }
     }
+
     if(b.match(tallMellomEnOgHundre)){
       b = dataliste[b-1];
     }
@@ -81,7 +86,12 @@ function regnUtAvstand(){
           b = dataliste[i];
         }
       }
+      if(b.navn == undefined){
+        document.getElementById("avstanden").innerHTML += "<br>" + "Kjenner ikke til lekeplassen med navn/id: " + b + ".";
+      }
     }
-    document.getElementById("avstanden").innerHTML = "Avstanden mellom lekeplassene "+ a.navn + " og "+ b.navn +" er "+ sjekkAvstand(a, b) + " km";
+    if(a.navn != undefined && b.navn != undefined){
+      document.getElementById("avstanden").innerHTML = "Avstanden mellom lekeplassene " + a.navn + " og " + b.navn + " er " + sjekkAvstand(a, b) + " km";
+    }
   }
 }

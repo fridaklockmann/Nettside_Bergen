@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pattaya|Work+Sans">
-    <script type="text/javascript" src="js/felles.js"></script>
-    <script type="text/javascript" src="js/toalett.js"></script>
+    <script src="js/felles.js"></script>
+    <script src="js/toalett.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSJGiedMtW8jLcE-Wg1vtdLolfIQDf6J0&callback=initMap"></script>
     <title> Toaletter </title>
   </head>
@@ -16,7 +16,7 @@
         <a href="index.html" id="bergen">Bergen</a>
         <a href="norgeRundt.html">Bergen Rundt</a>
         <a href="lekeplasser.html">Lekeplasser</a>
-        <a href="toalett.html"class="active">Toaletter</a>
+        <a href="toalett.html" class="active">Toaletter</a>
         <a href="minFavLekeplass.html">Favoritt</a>
         <a href="javascript:void(0)" class="hamburger" id="hamburger">
           <div class="bar1"></div>
@@ -29,7 +29,7 @@
       <h1 id="hovedOverskrift">Toaletter</h1>
       <div class="filterRad">
         <button id="avansertSøkKnapp">Vis filtrering</button>
-        <input id="hurtigsøk" placeholder="Hurtigsøk"></input>
+        <input id="hurtigsøk" placeholder="Hurtigsøk"/>
       </div>
       <div class="filterRad" id="boksTilSøk">
         <div id="avansertSøk">
@@ -45,8 +45,8 @@
           </div>
           <div class="søkekolonne">
             <div>Åpen <select id="åpen"></select></div>
-            <div><input id="makspris" type="text" class="friSøk" placeholder="Makspris"></div>
-            <div><input id="søkAdresse" type="text" class="friSøk" placeholder="Adresse"></div>
+            <div><input id="makspris" type="text" class="friSøk" placeholder="Makspris"/></div>
+            <div><input id="søkAdresse" type="text" class="friSøk" placeholder="Adresse"/></div>
           </div>
         </div>
         <div id="filterknapper">
@@ -54,7 +54,7 @@
           <button id="tilbakestillSøk" class="litenHvitKnapp">Fjern filter</button>
         </div>
       </div>
-      <p id="ingenToalett"></p>
+      <p id="ingenSøketreff"></p>
       <ol id="tableBody"></ol>
       <div id="map"></div>
     </div>
